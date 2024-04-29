@@ -5,7 +5,7 @@ class Agence extends EntityRepository {
     private $adresse;
     private $telephone;
 
-    // Constructeur
+    // Constructor
     public function __construct($id, $nomAgence, $adresse, $telephone) {
         $this->id = $id;
         $this->nomAgence = $nomAgence;
@@ -13,7 +13,7 @@ class Agence extends EntityRepository {
         $this->telephone = $telephone;
     }
 
-    // Getters et setters
+    // Getters and setters
     public function getId() {
         return $this->id;
     }
