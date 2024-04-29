@@ -1,2 +1,0 @@
-<?php 
-// classe pour client
