@@ -1,0 +1,51 @@
+<?php
+class Reservation extends EntityRepository {
+    private int $id;
+    private int $clientId;
+    private int $vehicleId;
+    private DateTime $startDate;
+    private DateTime $endDate;
+    private float $totalPrice;
+    private string $status;
+
+    // Constructor with typing
+    public function __construct(int $id, int $clientId, int $vehicleId, $startDate, $endDate, float $totalPrice, string $status) {
+        $this->id = $id;
+        $this->clientId = $clientId;
+        $this->vehicleId = $vehicleId;
+        $this->startDate = new DateTime($startDate);
+        $this->endDate = new DateTime($endDate);
+        $this->totalPrice = $totalPrice;
+        $this->status = $status;
+    }
+
+    // Getters with return typing
+    public function getId(): int {
+        return $this->id;
+    }
+
+    public function getClientId(): int {
+        return $this->clientId;
+    }
+
+    public function getVehicleId(): int {
+        return $this->vehicleId;
+    }
+
+    public function getStartDate(): DateTime {
+        return $this->startDate;
+    }
+
+    public function getEndDate(): DateTime {
+        return $this->endDate;
+    }
+
+    public function getTotalPrice(): float {
+        return $this->totalPrice;
+    }
+
+    public function getStatus(): string {
+        return $this->status;
+    }
+}
+?>

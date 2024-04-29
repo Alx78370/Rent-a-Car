@@ -5,7 +5,7 @@ class Agency extends EntityRepository{
     private string $adresse;
     private string $telephone;
 
-    // Constructeur avec typage
+    // Constructor with typing
     public function __construct(int $id, string $nomAgence, string $adresse, string $telephone) {
         $this->id = $id;
         $this->nomAgence = $nomAgence;
@@ -13,7 +13,7 @@ class Agency extends EntityRepository{
         $this->telephone = $telephone;
     }
 
-    // Getters avec typage des retours
+    // Getters with typing return
     public function getId(): int {
         return $this->id;
     }
