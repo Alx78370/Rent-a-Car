@@ -1,33 +1,34 @@
 <?php
-class Agence extends EntityRepository {
-    private $id;
-    private $nomAgence;
-    private $adresse;
-    private $telephone;
+class Agency extends EntityRepository{
+    private int $id;
+    private string $nomAgence;
+    private string $adresse;
+    private string $telephone;
 
-    // Constructor
-    public function __construct($id, $nomAgence, $adresse, $telephone) {
+    // Constructeur avec typage
+    public function __construct(int $id, string $nomAgence, string $adresse, string $telephone) {
         $this->id = $id;
         $this->nomAgence = $nomAgence;
         $this->adresse = $adresse;
         $this->telephone = $telephone;
     }
 
-    // Getters and setters
-    public function getId() {
+    // Getters avec typage des retours
+    public function getId(): int {
         return $this->id;
     }
 
-    public function getNomAgence() {
+    public function getNomAgence(): string {
         return $this->nomAgence;
     }
 
-    public function getAdresse() {
+    public function getAdresse(): string {
         return $this->adresse;
     }
 
-    public function getTelephone() {
+    public function getTelephone(): string {
         return $this->telephone;
     }
 }
+
 ?>
