@@ -4,15 +4,20 @@ class EntityRepository
 {
     protected $pdo;
 
-    public function __construct($pdo)
+    public function __construct($pdo = null)
     {
-
         if ($pdo) {
             $this->pdo = $pdo;
         } else {
             $this->pdo = new PDO("mysql:host=localhost;dbname=rent_a_car", "root", "");
         }
     }
+
+    public function getPdo()
+    {
+        return $this->pdo;
+    }
+
 
     public function getAll($table)
     {
