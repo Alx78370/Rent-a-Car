@@ -2,7 +2,7 @@
 
 class Vehicle
 {
-    private $id;
+    private $idVehicle;
     private $brand;
     private $model;
     private $year;
@@ -21,9 +21,69 @@ class Vehicle
         $this->repository = $repository;
     }
 
+    public function setIdVehicle($idVehicle)
+    {
+        $this->idVehicle = $idVehicle;
+    }
+
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+    }
+
+    public function setModel($model)
+    {
+        $this->model = $model;
+    }
+
+    public function setYear($year)
+    {
+        $this->year = $year;
+    }
+
+    public function setDailyRate($dailyRate)
+    {
+        $this->dailyRate = $dailyRate;
+    }
+
+    public function setDoorNumber($doorNumber)
+    {
+        $this->doorNumber = $doorNumber;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    public function setGear($gear)
+    {
+        $this->gear = $gear;
+    }
+
+    public function setPassenger($passenger)
+    {
+        $this->passenger = $passenger;
+    }
+
+    public function setEnergyType($energyType)
+    {
+        $this->energyType = $energyType;
+    }
+
+    public function setAgencyId($agencyId)
+    {
+        $this->agencyId = $agencyId;
+    }
+
     public function getId()
     {
-        return $this->id;
+        return $this->idVehicle;
     }
 
     public function getBrand()
@@ -81,7 +141,7 @@ class Vehicle
         return $this->agencyId;
     }
 
-    public function save()
+    public function add()
     {
         $pdo = $this->repository->getPdo();
         $stmt = $pdo->prepare("INSERT INTO vehicle (brand, model, year, daily_Rate, door_nb, image, type, gear, passenger, energy_type, agency_Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -114,7 +174,7 @@ class Vehicle
         $stmt->bindParam(9, $this->passenger);
         $stmt->bindParam(10, $this->energyType);
         $stmt->bindParam(11, $this->agencyId);
-        $stmt->bindParam(12, $this->id);
+        $stmt->bindParam(12, $this->idVehicle);
         $stmt->execute();
     }
 
@@ -122,7 +182,7 @@ class Vehicle
     {
         $pdo = $this->repository->getPdo();
         $stmt = $pdo->prepare("DELETE FROM vehicle WHERE id_Vehicle = ?");
-        $stmt->bindParam(1, $this->id);
+        $stmt->bindParam(1, $this->idVehicle);
         $stmt->execute();
     }
 }
