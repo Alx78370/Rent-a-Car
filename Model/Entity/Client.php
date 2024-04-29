@@ -60,7 +60,7 @@ class Client {
         return $this->address;
     }
 
-    public function save() {
+    public function add() {
         $pdo = $this->repository->getPdo();
         $stmt = $pdo->prepare("INSERT INTO client (last_Name, first_Name, email, phone, address) VALUES (?, ?, ?, ?, ?)");
         $stmt->bindParam(1, $this->last_Name);
