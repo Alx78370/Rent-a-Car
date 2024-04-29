@@ -1,6 +1,6 @@
 <?php
 
-class Vehicle extends EntityRepository
+class Vehicle
 {
     private $id;
     private $brand;
@@ -14,25 +14,13 @@ class Vehicle extends EntityRepository
     private $passenger;
     private $energyType;
     private $agencyId;
+    private $repository;
 
-    // Constructor
-    public function __construct($id, $brand, $model, $year, $dailyRate, $doorNumber, $image, $type, $gear, $passenger, $energyType, $agencyId)
+    public function __construct(EntityRepository $repository)
     {
-        $this->id = $id;
-        $this->brand = $brand;
-        $this->model = $model;
-        $this->year = $year;
-        $this->dailyRate = $dailyRate;
-        $this->doorNumber = $doorNumber;
-        $this->image = $image;
-        $this->type = $type;
-        $this->gear = $gear;
-        $this->passenger = $passenger;
-        $this->energyType = $energyType;
-        $this->agencyId = $agencyId;
+        $this->repository = $repository;
     }
 
-    // Getters
     public function getId()
     {
         return $this->id;
@@ -91,5 +79,50 @@ class Vehicle extends EntityRepository
     public function getAgencyId()
     {
         return $this->agencyId;
+    }
+
+    public function save()
+    {
+        $pdo = $this->repository->getPdo();
+        $stmt = $pdo->prepare("INSERT INTO vehicle (brand, model, year, daily_Rate, door_nb, image, type, gear, passenger, energy_type, agency_Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bindParam(1, $this->brand);
+        $stmt->bindParam(2, $this->model);
+        $stmt->bindParam(3, $this->year);
+        $stmt->bindParam(4, $this->dailyRate);
+        $stmt->bindParam(5, $this->doorNumber);
+        $stmt->bindParam(6, $this->image);
+        $stmt->bindParam(7, $this->type);
+        $stmt->bindParam(8, $this->gear);
+        $stmt->bindParam(9, $this->passenger);
+        $stmt->bindParam(10, $this->energyType);
+        $stmt->bindParam(11, $this->agencyId);
+        $stmt->execute();
+    }
+
+    public function update()
+    {
+        $pdo = $this->repository->getPdo();
+        $stmt = $pdo->prepare("UPDATE vehicle SET brand = ?, model = ?, year = ?, daily_Rate = ?, door_nb = ?, image = ?, type = ?, gear = ?, passenger = ?, energy_type = ?, agency_Id = ? WHERE id_Vehicle = ?");
+        $stmt->bindParam(1, $this->brand);
+        $stmt->bindParam(2, $this->model);
+        $stmt->bindParam(3, $this->year);
+        $stmt->bindParam(4, $this->dailyRate);
+        $stmt->bindParam(5, $this->doorNumber);
+        $stmt->bindParam(6, $this->image);
+        $stmt->bindParam(7, $this->type);
+        $stmt->bindParam(8, $this->gear);
+        $stmt->bindParam(9, $this->passenger);
+        $stmt->bindParam(10, $this->energyType);
+        $stmt->bindParam(11, $this->agencyId);
+        $stmt->bindParam(12, $this->id);
+        $stmt->execute();
+    }
+
+    public function delete()
+    {
+        $pdo = $this->repository->getPdo();
+        $stmt = $pdo->prepare("DELETE FROM vehicle WHERE id_Vehicle = ?");
+        $stmt->bindParam(1, $this->id);
+        $stmt->execute();
     }
 }
