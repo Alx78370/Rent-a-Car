@@ -14,22 +14,22 @@ class Agency
         $this->repository = $repository;
     }
 
-    public function setIdAgency(int $idAgency)
+    public function setIdAgency(int $idAgency): void
     {
         $this->idAgency = $idAgency;
     }
 
-    public function setAgencyName(string $agencyName)
+    public function setAgencyName(string $agencyName): void
     {
         $this->agencyName = $agencyName;
     }
 
-    public function setAddress(string $address)
+    public function setAddress(string $address): void
     {
         $this->address = $address;
     }
 
-    public function setPhone(string $phone)
+    public function setPhone(string $phone): void
     {
         $this->phone = $phone;
     }
@@ -54,7 +54,7 @@ class Agency
         return $this->phone;
     }
 
-    public function add()
+    public function add(): void
     {
         try {
             $pdo = $this->repository->getPdo();
@@ -68,7 +68,7 @@ class Agency
         }
     }
 
-    public function update()
+    public function update(): void
     {
         try {
             $pdo = $this->repository->getPdo();
@@ -83,7 +83,7 @@ class Agency
         }
     }
 
-    public function delete()
+    public function delete(): void
     {
         try {
             $pdo = $this->repository->getPdo();
