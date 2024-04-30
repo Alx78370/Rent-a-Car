@@ -80,3 +80,4 @@ class Reservation {
         $this->status = $status;
     }
 }
+
