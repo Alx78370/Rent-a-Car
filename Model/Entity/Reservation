@@ -1,5 +1,4 @@
 <?php
-<?php
 
 class Reservation {
     private int $id;
@@ -88,4 +87,3 @@ class Reservation {
 
 ?>
 
-?>
