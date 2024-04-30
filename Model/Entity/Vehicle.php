@@ -21,62 +21,62 @@ class Vehicle
         $this->repository = $repository;
     }
 
-    public function setIdVehicle(int $idVehicle)
+    public function setIdVehicle(int $idVehicle): void
     {
         $this->idVehicle = $idVehicle;
     }
 
-    public function setBrand(string $brand)
+    public function setBrand(string $brand): void
     {
         $this->brand = $brand;
     }
 
-    public function setModel(string $model)
+    public function setModel(string $model): void
     {
         $this->model = $model;
     }
 
-    public function setYear(int $year)
+    public function setYear(int $year): void
     {
         $this->year = $year;
     }
 
-    public function setDailyRate(float $dailyRate)
+    public function setDailyRate(float $dailyRate): void
     {
         $this->dailyRate = $dailyRate;
     }
 
-    public function setDoorNumber(int $doorNumber)
+    public function setDoorNumber(int $doorNumber): void
     {
         $this->doorNumber = $doorNumber;
     }
 
-    public function setImage(string $image)
+    public function setImage(string $image): void
     {
         $this->image = $image;
     }
 
-    public function setType(string $type)
+    public function setType(string $type): void
     {
         $this->type = $type;
     }
 
-    public function setGear(string $gear)
+    public function setGear(string $gear): void
     {
         $this->gear = $gear;
     }
 
-    public function setPassenger(int $passenger)
+    public function setPassenger(int $passenger): void
     {
         $this->passenger = $passenger;
     }
 
-    public function setEnergyType(string $energyType)
+    public function setEnergyType(string $energyType): void
     {
         $this->energyType = $energyType;
     }
 
-    public function setAgencyId(int $agencyId)
+    public function setAgencyId(int $agencyId): void
     {
         $this->agencyId = $agencyId;
     }
@@ -141,7 +141,7 @@ class Vehicle
         return $this->agencyId;
     }
 
-    public function add()
+    public function add(): void
     {
         try {
             $pdo = $this->repository->getPdo();
@@ -162,7 +162,7 @@ class Vehicle
             echo "Erreur lors de l'ajout du véhicule : " . $e->getMessage();
         }
     }
-    public function update()
+    public function update(): void
     {
         try {
             $pdo = $this->repository->getPdo();
@@ -185,7 +185,7 @@ class Vehicle
         }
     }
 
-    public function delete()
+    public function delete(): void
     {
         try {
             $pdo = $this->repository->getPdo();
