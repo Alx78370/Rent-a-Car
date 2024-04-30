@@ -2,60 +2,41 @@
 
 class Client {
     
-    private int $id_Client;
+    private int $id;
     private string $last_Name;
     private string $first_Name;
     private string $email;
     private string $phone;
     private string $address;
 
-    // Setters avec typage strict pour les entrées et void comme type de retour
-
-    public function setIdClient(int $id_Client) : void
+    public function getId() : int
     {
-        $this->id_Client = $id_Client;
+        return $this->id;
     }
 
-    public function setLastName(string $last_Name) : void
+    public function setId(int $id) : void
     {
-        $this->last_Name = $last_Name;
+        $this->id = $id;
     }
 
-    public function setFirstName(string $first_Name) : void
-    {
-        $this->first_Name = $first_Name;
-    }
-
-    public function setEmail(string $email) : void
-    {
-        $this->email = $email;
-    }
-
-    public function setPhone(string $phone) : void
-    {
-        $this->phone = $phone;
-    }
-
-    public function setAddress(string $address) : void
-    {
-        $this->address = $address;
-    }
-
-    // Getters avec typage strict pour les retours
-
-    public function getIdClient() : int
-    {
-        return $this->id_Client;
-    }
-
-    public function getLastName() : string
+    public function getLast_Name() : string
     {
         return $this->last_Name;
     }
 
-    public function getFirstName() : string
+    public function setLast_Name(string $last_Name) : void
+    {
+        $this->last_Name = $last_Name;
+    }
+
+    public function getFirst_Name() : string
     {
         return $this->first_Name;
+    }
+
+    public function setFirst_Name(string $first_Name) : void
+    {
+        $this->first_Name = $first_Name;
     }
 
     public function getEmail() : string
@@ -63,9 +44,19 @@ class Client {
         return $this->email;
     }
 
+    public function setEmail(string $email) : void
+    {
+        $this->email = $email;
+    }
+
     public function getPhone() : string
     {
         return $this->phone;
+    }
+
+    public function setPhone(string $phone) : void
+    {
+        $this->phone = $phone;
     }
 
     public function getAddress() : string
@@ -73,4 +64,8 @@ class Client {
         return $this->address;
     }
 
+    public function setAddress(string $address) : void
+    {
+        $this->address = $address;
+    }
 }
