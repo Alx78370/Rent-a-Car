@@ -1,7 +1,7 @@
 <?php
 
-class Client
-{
+class Client {
+    
     private int $id_Client;
     private string $last_Name;
     private string $first_Name;
