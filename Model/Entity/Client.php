@@ -106,8 +106,4 @@ class Client
         $stmt->execute();
     }
 }
-<<<<<<< HEAD
-
 ?>
-=======
->>>>>>> 0f44fa8333ee87583ced8cad1ccd633691175b03
