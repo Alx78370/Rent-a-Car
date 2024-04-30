@@ -81,7 +81,7 @@ class Vehicle
         return $this->agencyId;
     }
 
-    public function save()
+    public function add()
     {
         $pdo = $this->repository->getPdo();
         $stmt = $pdo->prepare("INSERT INTO vehicle (brand, model, year, daily_Rate, door_nb, image, type, gear, passenger, energy_type, agency_Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
