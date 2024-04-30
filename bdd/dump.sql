@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `agency`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `agency` (
-  `id_Agency` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone` varchar(15) NOT NULL,
-  PRIMARY KEY (`id_Agency`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,14 +48,14 @@ DROP TABLE IF EXISTS `availability`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `availability` (
-  `id_Availability` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `vehicle_Id` int NOT NULL,
   `starting_Date` date NOT NULL,
   `ending_Date` date NOT NULL,
   `status` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_Availability`),
+  PRIMARY KEY (`id`),
   KEY `Vehicle_id` (`vehicle_Id`),
-  CONSTRAINT `availability_ibfk_1` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id_Vehicle`)
+  CONSTRAINT `availability_ibfk_1` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -76,13 +76,13 @@ DROP TABLE IF EXISTS `client`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `client` (
-  `id_Client` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `last_Name` varchar(255) NOT NULL,
   `first_Name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_Client`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `email_2` (`email`),
   UNIQUE KEY `phone` (`phone`),
@@ -107,18 +107,18 @@ DROP TABLE IF EXISTS `reservation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reservation` (
-  `id_Reservation` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `client_Id` int NOT NULL,
   `vehicle_Id` int NOT NULL,
   `start_Date` date NOT NULL,
   `end_Date` date NOT NULL,
   `total_Price` decimal(10,2) NOT NULL,
   `status` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_Reservation`),
+  PRIMARY KEY (`id`),
   KEY `client_Id` (`client_Id`),
   KEY `vehicle_Id` (`vehicle_Id`),
-  CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`client_Id`) REFERENCES `client` (`id_Client`),
-  CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id_Vehicle`)
+  CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`client_Id`) REFERENCES `client` (`id`),
+  CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -139,7 +139,7 @@ DROP TABLE IF EXISTS `vehicle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vehicle` (
-  `id_Vehicle` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `brand` varchar(255) NOT NULL,
   `model` varchar(255) NOT NULL,
   `year` year NOT NULL,
@@ -151,9 +151,9 @@ CREATE TABLE `vehicle` (
   `passenger_Nb` int NOT NULL,
   `energy_type` varchar(45) NOT NULL,
   `agency_Id` int NOT NULL,
-  PRIMARY KEY (`id_Vehicle`),
+  PRIMARY KEY (`id`),
   KEY `agency_Id` (`agency_Id`),
-  CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`agency_Id`) REFERENCES `agency` (`id_Agency`)
+  CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`agency_Id`) REFERENCES `agency` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -175,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-29 15:48:41
+-- Dump completed on 2024-04-30 11:35:09
