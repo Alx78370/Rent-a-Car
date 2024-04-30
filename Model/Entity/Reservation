@@ -8,20 +8,7 @@ class Reservation {
     private DateTime $endDate;
     private float $totalPrice;
     private string $status;
-    private EntityRepository $repository;  // Utilisez une instance de EntityRepository pour gérer la base de données
-
-    // Constructor with typing and dependency injection for the repository
-    public function __construct(EntityRepository $repository, int $id, int $clientId, int $vehicleId, $startDate, $endDate, float $totalPrice, string $status) {
-        $this->repository = $repository;
-        $this->id = $id;
-        $this->clientId = $clientId;
-        $this->vehicleId = $vehicleId;
-        $this->startDate = new DateTime($startDate);
-        $this->endDate = new DateTime($endDate);
-        $this->totalPrice = $totalPrice;
-        $this->status = $status;
-    }
-
+    
     // Getters with return typing
     public function getId(): int {
         return $this->id;
@@ -49,41 +36,7 @@ class Reservation {
 
     public function getStatus(): string {
         return $this->status;
-    }
-
-    // Database operations
-    public function add(): void {
-        $pdo = $this->repository->getPdo();
-        $stmt = $pdo->prepare("INSERT INTO reservations (clientId, vehicleId, startDate, endDate, totalPrice, status) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->bindParam(1, $this->clientId);
-        $stmt->bindParam(2, $this->vehicleId);
-        $stmt->bindParam(3, $this->startDate->format('Y-m-d H:i:s'));
-        $stmt->bindParam(4, $this->endDate->format('Y-m-d H:i:s'));
-        $stmt->bindParam(5, $this->totalPrice);
-        $stmt->bindParam(6, $this->status);
-        $stmt->execute();
-    }
-
-    public function update(): void {
-        $pdo = $this->repository->getPdo();
-        $stmt = $pdo->prepare("UPDATE reservations SET clientId = ?, vehicleId = ?, startDate = ?, endDate = ?, totalPrice = ?, status = ? WHERE id = ?");
-        $stmt->bindParam(1, $this->clientId);
-        $stmt->bindParam(2, $this->vehicleId);
-        $stmt->bindParam(3, $this->startDate->format('Y-m-d H:i:s'));
-        $stmt->bindParam(4, $this->endDate->format('Y-m-d H:i:s'));
-        $stmt->bindParam(5, $this->totalPrice);
-        $stmt->bindParam(6, $this->status);
-        $stmt->bindParam(7, $this->id);
-        $stmt->execute();
-    }
-
-    public function delete(): void {
-        $pdo = $this->repository->getPdo();
-        $stmt = $pdo->prepare("DELETE FROM reservations WHERE id = ?");
-        $stmt->bindParam(1, $this->id);
-        $stmt->execute();
-    }
-}
-
+    }   
+} 
 ?>
 
