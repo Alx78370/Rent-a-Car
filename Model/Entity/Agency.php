@@ -1,74 +1,97 @@
 <?php
-class Agency {
-    private int $id;
-    private string $nomAgence;
-    private string $adresse;
-    private string $telephone;
+
+class Agency
+{
+    private int $idAgency;
+    private string $agencyName;
+    private string $address;
+    private string $phone;
+
     private EntityRepository $repository;
 
-    public function __construct(EntityRepository $repository) {
+    public function __construct(EntityRepository $repository)
+    {
         $this->repository = $repository;
     }
 
-    // Setters with type declarations
-    public function setId(int $id): void {
-        $this->id = $id;
+    public function setIdAgency(int $idAgency)
+    {
+        $this->idAgency = $idAgency;
     }
 
-    public function setNomAgence(string $nomAgence): void {
-        $this->nomAgence = $nomAgence;
+    public function setAgencyName(string $agencyName)
+    {
+        $this->agencyName = $agencyName;
     }
 
-    public function setAdresse(string $adresse): void {
-        $this->adresse = $adresse;
+    public function setAddress(string $address)
+    {
+        $this->address = $address;
     }
 
-    public function setTelephone(string $telephone): void {
-        $this->telephone = $telephone;
+    public function setPhone(string $phone)
+    {
+        $this->phone = $phone;
     }
 
-    // Getters with return type declarations
-    public function getId(): int {
-        return $this->id;
+    public function getIdAgency(): int
+    {
+        return $this->idAgency;
     }
 
-    public function getNomAgence(): string {
-        return $this->nomAgence;
+    public function getAgencyName(): string
+    {
+        return $this->agencyName;
     }
 
-    public function getAdresse(): string {
-        return $this->adresse;
+    public function getAddress(): string
+    {
+        return $this->address;
     }
 
-    public function getTelephone(): string {
-        return $this->telephone;
+    public function getPhone(): string
+    {
+        return $this->phone;
     }
 
-    // Database operations
-    public function add(): void {
-        $pdo = $this->repository->getPdo();
-        $stmt = $pdo->prepare("INSERT INTO agency (nomAgence, adresse, telephone) VALUES (?, ?, ?)");
-        $stmt->bindParam(1, $this->nomAgence);
-        $stmt->bindParam(2, $this->adresse);
-        $stmt->bindParam(3, $this->telephone);
-        $stmt->execute();
+    public function add()
+    {
+        try {
+            $pdo = $this->repository->getPdo();
+            $stmt = $pdo->prepare("INSERT INTO agency (agency_Name, address, phone) VALUES (?, ?, ?)");
+            $stmt->bindParam(1, $this->agencyName);
+            $stmt->bindParam(2, $this->address);
+            $stmt->bindParam(3, $this->phone);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Erreur lors de l'ajout de l'agence : " . $e->getMessage();
+        }
     }
 
-    public function update(): void {
-        $pdo = $this->repository->getPdo();
-        $stmt = $pdo->prepare("UPDATE agency SET nomAgence = ?, adresse = ?, telephone = ? WHERE id = ?");
-        $stmt->bindParam(1, $this->nomAgence);
-        $stmt->bindParam(2, $this->adresse);
-        $stmt->bindParam(3, $this->telephone);
-        $stmt->bindParam(4, $this->id);
-        $stmt->execute();
+    public function update()
+    {
+        try {
+            $pdo = $this->repository->getPdo();
+            $stmt = $pdo->prepare("UPDATE agency SET agency_Name = ?, address = ?, phone = ? WHERE id_Agency = ?");
+            $stmt->bindParam(1, $this->agencyName);
+            $stmt->bindParam(2, $this->address);
+            $stmt->bindParam(3, $this->phone);
+            $stmt->bindParam(4, $this->idAgency);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Erreur lors de la mise à jour de l'agence : " . $e->getMessage();
+        }
     }
 
-    public function delete(): void {
-        $pdo = $this->repository->getPdo();
-        $stmt = $pdo->prepare("DELETE FROM agency WHERE id = ?");
-        $stmt->bindParam(1, $this->id);
-        $stmt->execute();
+    public function delete()
+    {
+        try {
+            $pdo = $this->repository->getPdo();
+            $stmt = $pdo->prepare("DELETE FROM agency WHERE id_Agency = ?");
+            $stmt->bindParam(1, $this->idAgency);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Erreur lors de la suppression de l'agence : " . $e->getMessage();
+        }
     }
 }
-?>
