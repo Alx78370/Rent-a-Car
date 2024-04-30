@@ -7,7 +7,6 @@ class Availability {
     private DateTime $endingDate;
     private string $status;
     
-
     // Setters avec typage strict pour les entrées et void comme type de retour
 
     public function setIdAvailability(int $idAvailability) : void {
@@ -52,6 +51,3 @@ class Availability {
         return $this->status;
     }
 }
-
-?>
-
