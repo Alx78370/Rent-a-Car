@@ -14,14 +14,6 @@ class Vehicle
     private int $passenger;
     private string $energyType;
     private int $agencyId;
-    private EntityRepository $repository;
-
-    // Constructeur qui initialise la référence au repository pour les interactions avec la base de données
-
-    public function __construct(EntityRepository $repository)
-    {
-        $this->repository = $repository;
-    }
 
     // Setters avec typage strict pour les entrées et void comme type de retour
 
@@ -145,68 +137,5 @@ class Vehicle
     public function getAgencyId(): int
     {
         return $this->agencyId;
-    }
-
-    // Méthode pour ajouter un client dans la base de données
-
-    public function add(): void
-    {
-        try {
-            $pdo = $this->repository->getPdo();
-            $stmt = $pdo->prepare("INSERT INTO vehicle (brand, model, year, daily_Rate, door_nb, image, type, gear, passenger, energy_type, agency_Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bindParam(1, $this->brand);
-            $stmt->bindParam(2, $this->model);
-            $stmt->bindParam(3, $this->year);
-            $stmt->bindParam(4, $this->dailyRate);
-            $stmt->bindParam(5, $this->doorNumber);
-            $stmt->bindParam(6, $this->image);
-            $stmt->bindParam(7, $this->type);
-            $stmt->bindParam(8, $this->gear);
-            $stmt->bindParam(9, $this->passenger);
-            $stmt->bindParam(10, $this->energyType);
-            $stmt->bindParam(11, $this->agencyId);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            echo "Erreur lors de l'ajout du véhicule : " . $e->getMessage();
-        }
-    }
-
-    // Méthode pour mettre à jour un client dans la base de données
-
-    public function update(): void
-    {
-        try {
-            $pdo = $this->repository->getPdo();
-            $stmt = $pdo->prepare("UPDATE vehicle SET brand = ?, model = ?, year = ?, daily_Rate = ?, door_nb = ?, image = ?, type = ?, gear = ?, passenger = ?, energy_type = ?, agency_Id = ? WHERE id_Vehicle = ?");
-            $stmt->bindParam(1, $this->brand);
-            $stmt->bindParam(2, $this->model);
-            $stmt->bindParam(3, $this->year);
-            $stmt->bindParam(4, $this->dailyRate);
-            $stmt->bindParam(5, $this->doorNumber);
-            $stmt->bindParam(6, $this->image);
-            $stmt->bindParam(7, $this->type);
-            $stmt->bindParam(8, $this->gear);
-            $stmt->bindParam(9, $this->passenger);
-            $stmt->bindParam(10, $this->energyType);
-            $stmt->bindParam(11, $this->agencyId);
-            $stmt->bindParam(12, $this->idVehicle);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            echo "Erreur lors de la mise à jour du véhicule : " . $e->getMessage();
-        }
-    }
-
-    // Méthode pour supprimer un client de la base de données
-
-    public function delete(): void
-    {
-        try {
-            $pdo = $this->repository->getPdo();
-            $stmt = $pdo->prepare("DELETE FROM vehicle WHERE id_Vehicle = ?");
-            $stmt->bindParam(1, $this->idVehicle);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            echo "Erreur lors de la suppression6 du véhicule : " . $e->getMessage();
-        }
     }
 }
