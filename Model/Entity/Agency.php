@@ -49,6 +49,5 @@ class Agency {
     public function getPhone() : string
     {
         return $this->phone;
-    }
-
+    }  
 }
