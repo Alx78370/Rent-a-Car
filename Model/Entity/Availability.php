@@ -1,6 +1,7 @@
 <?php
 
 class Availability {
+    
     private int $idAvailability;
     private int $vehicleId;
     private DateTime $startingDate;

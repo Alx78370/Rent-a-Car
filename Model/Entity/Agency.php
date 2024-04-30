@@ -1,7 +1,7 @@
 <?php
 
-class Agency
-{
+class Agency {
+    
     private int $idAgency;
     private string $agencyName;
     private string $address;

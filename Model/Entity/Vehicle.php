@@ -1,7 +1,7 @@
 <?php
 
-class Vehicle
-{
+class Vehicle {
+    
     private int $idVehicle;
     private string $brand;
     private string $model;

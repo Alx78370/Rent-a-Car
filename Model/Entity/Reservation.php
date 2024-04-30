@@ -1,6 +1,7 @@
 <?php
 
 class Reservation {
+    
     private int $id;
     private int $clientId;
     private int $vehicleId;
