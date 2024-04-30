@@ -2,43 +2,29 @@
 
 class Agency
 {
-    private int $idAgency;
-    private string $agencyName;
+    private int $id;
+    private string $name;
     private string $address;
     private string $phone;
 
-    // Setters avec typage strict pour les entrées et void comme type de retour
-
-    public function setIdAgency(int $idAgency) : void
+    public function getId() : int
     {
-        $this->idAgency = $idAgency;
+        return $this->id;
     }
 
-    public function setAgencyName(string $agencyName) : void
+    public function setId(int $id) : void
     {
-        $this->agencyName = $agencyName;
+        $this->id = $id;
     }
 
-    public function setAddress(string $address) : void
+    public function getName() : string
     {
-        $this->address = $address;
+        return $this->name;
     }
 
-    public function setPhone(string $phone) : void
+    public function setName(string $name) : void
     {
-        $this->phone = $phone;
-    }
-
-    // Getters avec typage strict pour les retours
-
-    public function getIdAgency() : int
-    {
-        return $this->idAgency;
-    }
-
-    public function getAgencyName() : string
-    {
-        return $this->agencyName;
+        $this->name = $name;
     }
 
     public function getAddress() : string
@@ -46,8 +32,20 @@ class Agency
         return $this->address;
     }
 
+    public function setAddress(string $address) : void
+    {
+        $this->address = $address;
+    }
+
     public function getPhone() : string
     {
         return $this->phone;
     }
+
+    public function setPhone(string $phone) : void
+    {
+        $this->phone = $phone;
+    }
 }
+
+    

@@ -1,53 +1,59 @@
 <?php
 
 class Availability {
-    private int $idAvailability;
-    private int $vehicleId;
-    private DateTime $startingDate;
-    private DateTime $endingDate;
+    private int $id;
+    private int $vehicle_Id;
+    private DateTime $starting_Date;
+    private DateTime $ending_Date;
     private string $status;
     
-    // Setters avec typage strict pour les entrées et void comme type de retour
-
-    public function setIdAvailability(int $idAvailability) : void {
-        $this->idAvailability = $idAvailability;
-    }    
-
-    public function setVehicleId(int $vehicleId) : void {
-        $this->vehicleId = $vehicleId;
-    }    
-
-    public function setStartingDate($startingDate) : void {
-        $this->startingDate = new DateTime($startingDate);
+    public function getId() : int
+    {
+        return $this->id;
     }
 
-    public function setEndingDate($endingDate) : void {
-        $this->endingDate = new DateTime($endingDate);
-    }
-    
-    public function setStatus(string $status) : void {
-        $this->status = $status;
+    public function setId(int $id) : void
+    {
+        $this->id = $id;
     }
 
-    // Getters avec typage strict pour les retours
-
-    public function getIdAvailability() : int {
-        return $this->idAvailability;
+    public function getVehicle_Id() : int
+    {
+        return $this->vehicle_Id;
     }
 
-    public function getVehicleId() : int {
-        return $this->vehicleId;
+    public function setVehicle_Id(int $vehicle_Id) : void
+    {
+        $this->vehicle_Id = $vehicle_Id;
     }
 
-    public function getStartingDate() : DateTime {
-        return $this->startingDate;
+    public function getStarting_Date() : DateTime
+    {
+        return $this->starting_Date;
     }
 
-    public function getEndingDate() : DateTime {
-        return $this->endingDate;
+    public function setStarting_Date(DateTime $starting_Date) : void
+    {
+        $this->starting_Date = $starting_Date;
     }
 
-    public function getStatus() : string {
+    public function getEnding_Date() : DateTime
+    {
+        return $this->ending_Date;
+    }
+
+    public function setEnding_Date(DateTime $ending_Date) : void
+    {
+        $this->ending_Date = $ending_Date;
+    }
+
+    public function getStatus() : string
+    {
         return $this->status;
+    }
+
+    public function setStatus(string $status) : void
+    {
+        $this->status = $status;
     }
 }

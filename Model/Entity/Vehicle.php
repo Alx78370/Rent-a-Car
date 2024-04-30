@@ -2,86 +2,29 @@
 
 class Vehicle
 {
-    private int $idVehicle;
+    private int $id;
     private string $brand;
     private string $model;
     private int $year;
-    private float $dailyRate;
-    private int $doorNumber;
+    private float $daily_Rate;
+    private int $door_nb;
     private string $image;
     private string $type;
     private string $gear;
-    private int $passenger;
-    private string $energyType;
-    private int $agencyId;
+    private int $passenger_Nb;
+    private string $energy_Type;
+    private int $agency_Id;
 
-    // Setters avec typage strict pour les entrées et void comme type de retour
+   
 
-    public function setIdVehicle(int $idVehicle) : void
+    public function getId() : int
     {
-        $this->idVehicle = $idVehicle;
+        return $this->id;
     }
 
-    public function setBrand(string $brand) : void
+    public function setId(int $id) : void
     {
-        $this->brand = $brand;
-    }
-
-    public function setModel(string $model) : void
-    {
-        $this->model = $model;
-    }
-
-    public function setYear(int $year) : void
-    {
-        $this->year = $year;
-    }
-
-    public function setDailyRate(float $dailyRate) : void
-    {
-        $this->dailyRate = $dailyRate;
-    }
-
-    public function setDoorNumber(int $doorNumber) : void
-    {
-        $this->doorNumber = $doorNumber;
-    }
-
-    public function setImage(string $image) : void
-    {
-        $this->image = $image;
-    }
-
-    public function setType(string $type) : void
-    {
-        $this->type = $type;
-    }
-
-    public function setGear(string $gear) : void
-    {
-        $this->gear = $gear;
-    }
-
-    public function setPassenger(int $passenger) : void
-    {
-        $this->passenger = $passenger;
-    }
-
-    public function setEnergyType(string $energyType) : void
-    {
-        $this->energyType = $energyType;
-    }
-
-    public function setAgencyId(int $agencyId) : void
-    {
-        $this->agencyId = $agencyId;
-    }
-
-    // Getters avec typage strict pour les retours
-
-    public function getIdVehicle() : int
-    {
-        return $this->idVehicle;
+        $this->id = $id;
     }
 
     public function getBrand() : string
@@ -89,9 +32,19 @@ class Vehicle
         return $this->brand;
     }
 
+    public function setBrand(string $brand) : void
+    {
+        $this->brand = $brand;
+    }
+
     public function getModel() : string
     {
         return $this->model;
+    }
+
+    public function setModel(string $model) : void
+    {
+        $this->model = $model;
     }
 
     public function getYear() : int
@@ -99,14 +52,29 @@ class Vehicle
         return $this->year;
     }
 
-    public function getDailyRate() : float
+    public function setYear(int $year) : void
     {
-        return $this->dailyRate;
+        $this->year = $year;
     }
 
-    public function getDoorNumber() : int
+    public function getDaily_Rate() : float
     {
-        return $this->doorNumber;
+        return $this->daily_Rate;
+    }
+
+    public function setDaily_Rate(float $daily_Rate) : void
+    {
+        $this->daily_Rate = $daily_Rate;
+    }
+
+    public function getDoor_nb() : int
+    {
+        return $this->door_nb;
+    }
+
+    public function setDoor_nb(int $door_nb) : void
+    {
+        $this->door_nb = $door_nb;
     }
 
     public function getImage() : string
@@ -114,9 +82,19 @@ class Vehicle
         return $this->image;
     }
 
+    public function setImage(string $image) : void
+    {
+        $this->image = $image;
+    }
+
     public function getType() : string
     {
         return $this->type;
+    }
+
+    public function setType(string $type) : void
+    {
+        $this->type = $type;
     }
 
     public function getGear() : string
@@ -124,18 +102,38 @@ class Vehicle
         return $this->gear;
     }
 
-    public function getPassenger() : int
+    public function setGear(string $gear) : void
     {
-        return $this->passenger;
+        $this->gear = $gear;
     }
 
-    public function getEnergyType() : string
+    public function getPassenger_Nb() : int
     {
-        return $this->energyType;
+        return $this->passenger_Nb;
     }
 
-    public function getAgencyId() : int
+    public function setPassenger_Nb(int $passenger_Nb) : void
     {
-        return $this->agencyId;
+        $this->passenger_Nb = $passenger_Nb;
+    }
+
+    public function getEnergy_Type() : string
+    {
+        return $this->energy_Type;
+    }
+
+    public function setEnergy_Type(string $energy_Type) : void
+    {
+        $this->energy_Type = $energy_Type;
+    }
+
+    public function getAgency_Id() : int
+    {
+        return $this->agency_Id;
+    }
+
+    public function setAgency_Id(int $agency_Id) : void
+    {
+        $this->agency_Id = $agency_Id;
     }
 }

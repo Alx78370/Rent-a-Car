@@ -38,4 +38,6 @@ class EntityRepository
     }
 
     // Créer le crud ici et l'adapté à toutes les entités
-}
+    
+
+} 
