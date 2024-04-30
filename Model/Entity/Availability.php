@@ -57,3 +57,4 @@ class Availability {
         $this->status = $status;
     }
 }
+?>
