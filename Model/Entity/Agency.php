@@ -6,13 +6,16 @@ class Agency
     private string $agencyName;
     private string $address;
     private string $phone;
-
     private EntityRepository $repository;
+
+    // Constructeur qui initialise la référence au repository pour les interactions avec la base de données
 
     public function __construct(EntityRepository $repository)
     {
         $this->repository = $repository;
     }
+
+    // Setters avec typage strict pour les entrées et void comme type de retour
 
     public function setIdAgency(int $idAgency): void
     {
@@ -34,6 +37,8 @@ class Agency
         $this->phone = $phone;
     }
 
+    // Getters avec typage strict pour les retours
+
     public function getIdAgency(): int
     {
         return $this->idAgency;
@@ -54,6 +59,8 @@ class Agency
         return $this->phone;
     }
 
+    // Méthode pour ajouter un client dans la base de données
+
     public function add(): void
     {
         try {
@@ -67,6 +74,8 @@ class Agency
             echo "Erreur lors de l'ajout de l'agence : " . $e->getMessage();
         }
     }
+
+    // Méthode pour mettre à jour un client dans la base de données
 
     public function update(): void
     {
@@ -82,6 +91,8 @@ class Agency
             echo "Erreur lors de la mise à jour de l'agence : " . $e->getMessage();
         }
     }
+
+    // Méthode pour supprimer un client de la base de données
 
     public function delete(): void
     {

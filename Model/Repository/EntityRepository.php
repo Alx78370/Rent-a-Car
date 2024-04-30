@@ -18,7 +18,6 @@ class EntityRepository
         return $this->pdo;
     }
 
-
     public function getAll($table)
     {
         $statement = $this->pdo->prepare("SELECT * FROM:table");

@@ -16,10 +16,14 @@ class Vehicle
     private int $agencyId;
     private EntityRepository $repository;
 
+    // Constructeur qui initialise la référence au repository pour les interactions avec la base de données
+
     public function __construct(EntityRepository $repository)
     {
         $this->repository = $repository;
     }
+
+    // Setters avec typage strict pour les entrées et void comme type de retour
 
     public function setIdVehicle(int $idVehicle): void
     {
@@ -81,6 +85,8 @@ class Vehicle
         $this->agencyId = $agencyId;
     }
 
+    // Getters avec typage strict pour les retours
+
     public function getIdVehicle(): int
     {
         return $this->idVehicle;
@@ -141,6 +147,8 @@ class Vehicle
         return $this->agencyId;
     }
 
+    // Méthode pour ajouter un client dans la base de données
+
     public function add(): void
     {
         try {
@@ -162,6 +170,9 @@ class Vehicle
             echo "Erreur lors de l'ajout du véhicule : " . $e->getMessage();
         }
     }
+
+    // Méthode pour mettre à jour un client dans la base de données
+
     public function update(): void
     {
         try {
@@ -184,6 +195,8 @@ class Vehicle
             echo "Erreur lors de la mise à jour du véhicule : " . $e->getMessage();
         }
     }
+
+    // Méthode pour supprimer un client de la base de données
 
     public function delete(): void
     {
