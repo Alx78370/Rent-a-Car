@@ -8,6 +8,10 @@ $agencys = $agencyRepository->getAll();
 <!DOCTYPE html>
 <html lang="fr">
 
+<head>
+
+</head>
+
 <body>
     <div class="expDiv">879 ans d'expertise</div>
     <div class="divBigHomePage1">
@@ -62,34 +66,31 @@ $agencys = $agencyRepository->getAll();
 
         <!-- Reservation Modal -->
         <div id="reservationModal" class="modal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="reservationModalLabel">Gérer votre réservation</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body d-flex flex-column align-items-center homePageReservation">
-                <p class="card-text fs-5">Modifiez votre réservation comme vous le souhaitez, rapidement et facilement.</p>
-                <form class="w-75">
-                    <div class="mb-3">
-                        <label for="reservationNumber" class="form-label fs-5">Numéro de réservation</label>
-                        <input type="text" class="form-control fs-5" id="reservationNumber" placeholder="Entrez votre numéro de réservation">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reservationModalLabel">Gérer votre réservation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="emailAddress" class="form-label fs-5">Adresse e-mail</label>
-                        <input type="email" class="form-control fs-5" id="emailAddress" placeholder="Entrez votre adresse e-mail">
+                    <div class="modal-body d-flex flex-column align-items-center homePageReservation">
+                        <p class="card-text fs-5">Modifiez votre réservation comme vous le souhaitez, rapidement et facilement.</p>
+                        <form class="w-75">
+                            <div class="mb-3">
+                                <label for="reservationNumber" class="form-label fs-5">Numéro de réservation</label>
+                                <input type="text" class="form-control fs-5" id="reservationNumber" placeholder="Entrez votre numéro de réservation">
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailAddress" class="form-label fs-5">Adresse e-mail</label>
+                                <input type="email" class="form-control fs-5" id="emailAddress" placeholder="Entrez votre adresse e-mail">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-secondary fs-5">Suivant</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-outline-secondary fs-5">Suivant</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-
 
         <div class="container">
             <div class="card p-5 homePageCard">
@@ -157,29 +158,7 @@ $agencys = $agencyRepository->getAll();
         </div>
     </footer>
 
-
-    <script>
-        var connexionLink = document.getElementById('connexionLink');
-        var connexionModal = new bootstrap.Modal(document.getElementById('connexionModal'));
-
-        connexionLink.onclick = function() {
-            connexionModal.show();
-        }
-
-        function redirectToGoogle() {
-            
-            window.location.href = 'URL_DE_CONNEXION_GOOGLE';
-        }
-
-        var reservationLink = document.getElementById('reservationLink');
-        var reservationModal = new bootstrap.Modal(document.getElementById('reservationModal'));
-
-        reservationLink.onclick = function() {
-            reservationModal.show();
-        }
-
-    </script>
-
+    <script src="../script.js" type="text/javascript"></script>
 </body>
 
 </html>
