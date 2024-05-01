@@ -4,7 +4,7 @@
 <html lang="fr">
 
 <body>
-    <div class="expDiv">254 ans d'expertise</div>
+    <div class="expDiv">879 ans d'expertise</div>
     <div class="divBigHomePage1">
         <header>
             <div class="container divHomepage1">
@@ -13,8 +13,9 @@
                         <a class="navbar-brand" href="#">Rent a car</a>
                     </div>
                     <div class="container divHomepage3">
-                        <a class="nav-link" href="homePage.html.php">Connexion/Deconnexion</a>
-                        <a class="nav-link" href="homePage.html.php">Gerer mes reservations</a>
+                        <a class="nav-link" href="homePage.html.php">Gérer mes réservations</a>
+                        <a class="nav-link" href="homePage.html.php"><i class="fa-solid fa-globe"></i> FR</a>
+                        <a class="nav-link" href="homePage.html.php"><i class="bi bi-person-fill"></i> Connexion | Deconnexion</a>
                     </div>
                 </nav>
             </div>
@@ -45,11 +46,12 @@
                         <input class="form-control" type="date">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="">Date de départ</label>
+                        <label class="form-label" for="">Date de retour</label>
                         <input class="form-control" type="date">
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-primary btn-lg" type="submit"><a href="">Voir les véhicules</a></button>
+                    </div>
                 </form>
             </div>
         </div>
