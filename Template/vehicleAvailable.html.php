@@ -1,6 +1,8 @@
 <?php
 include "../include.php";
 include "./layout.html.php";
+require_once "../Model/Repository/VehicleRepository.php";
+$vehicles = getall();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -8,28 +10,66 @@ include "./layout.html.php";
 <html>
 
 <body>
-    <div>
+    <div class="vehiclePage1">
         <h1>QUEL VÉHICULE SOUHAITEZ-VOUS CONDUIRE ?</h1>
     </div>
-    <div class="btn-group">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Trier par
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Popularité</a></li>
-            <li><a class="dropdown-item" href="#">Prix du plus bas au plus élevé</a></li>
-            <li><a class="dropdown-item" href="#">Prix du plus élevé au plus bas</a></li>
-        </ul>
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Type de véhicule
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Popularité</a></li>
-            <li><a class="dropdown-item" href="#">Prix du plus bas au plus élevé</a></li>
-            <li><a class="dropdown-item" href="#">Prix du plus élevé au plus bas</a></li>
-        </ul>
+    <div class="vehiclePage2">
+        <div class="btn-group gap-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Trier par
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Popularité</a></li>
+                <li><a class="dropdown-item" href="#">Prix du plus bas au plus élevé</a></li>
+                <li><a class="dropdown-item" href="#">Prix du plus élevé au plus bas</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Type de véhicule
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Berline</a></li>
+                <li><a class="dropdown-item" href="#">SUV</a></li>
+                <li><a class="dropdown-item" href="#">Coupé</a></li>
+                <li><a class="dropdown-item" href="#">Cabriolet</a></li>
+                <li><a class="dropdown-item" href="#">Voiture familiale</a></li>
+                <li><a class="dropdown-item" href="#">Break</a></li>
+                <li><a class="dropdown-item" href="#">Véhicule électrique</a></li>
+                <li><a class="dropdown-item" href="#">Véhicule de luxe</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Boîte de vitesses
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Automatique</a></li>
+                <li><a class="dropdown-item" href="#">Manuelle</a></li>
+            </ul>
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Passagers
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">2+</a></li>
+                <li><a class="dropdown-item" href="#">4+</a></li>
+                <li><a class="dropdown-item" href="#">5+</a></li>
+                <li><a class="dropdown-item" href="#">7+</a></li>
+            </ul>
+        </div>
     </div>
+    <div class="vehiclePage3">
+        <?php foreach ($vehicles as $vehicle) {  ?>
+            <div class="card-group">
+                <div class="card">
+                    <a href="">
+                        <img src="../image/imageVehicle/<?= htmlspecialchars($vehicle['image']) ?>" class="card-img-top" alt="...">
+                    </a>
 
+                    <div class="card-body">
+                        <p class="card-text">Prix : 50€/jour</p>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
 </body>
 
 </html>
