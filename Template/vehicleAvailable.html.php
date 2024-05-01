@@ -57,13 +57,26 @@ $vehicles = $vehicleRepository->getAll();
         </div>
     </div>
     <div class="vehiclePage3">
-        <?php foreach ($vehicles as $vehicle) {
-    echo "ID: " . $vehicle->id . "<br>";
-    echo "Marque: " . $vehicle->brand . "<br>"; // Assurez-vous que vehicleBrand est un attribut correct
-    echo "Nom: " . $vehicle->model . "<br>"; // Assurez-vous que vehicleName est un attribut correct
-    echo "Type: " . $vehicle->type . "<br>"; // Assurez-vous que model est un attribut correct
-    echo "<hr>";
-}?>
+        <?php foreach ($vehicles as $vehicle) : ?>
+            <div class="row row-cols-3">
+                <div class="col">
+                    <div class="card">
+                        <h5><?= htmlspecialchars($vehicle->brand) . ' ' . htmlspecialchars($vehicle->model) ?></h5>
+                        <p><?= htmlspecialchars($vehicle->type) . ' | ' . htmlspecialchars($vehicle->energy_type) ?></p>
+                        <div>
+                            <p class="btn btn-secondary btnVehicleAvailable"><i class="bi bi-person"></i><?= htmlspecialchars($vehicle->passenger_Nb) ?></p>
+                            <p class="btn btn-secondary btnVehicleAvailable"> <img class="iconGear" src="../Image/icon_gearbox.png" alt=""><?= htmlspecialchars($vehicle->gear) ?></p>
+                        </div>
+                        <a href="">
+                            <img src="<?= htmlspecialchars($vehicle->image) ?>" class="card-img" alt="...">
+                        </a>
+                        <div>
+                            <p><?= htmlspecialchars($vehicle->daily_Rate) ?>€ / jour</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
 </body>
 

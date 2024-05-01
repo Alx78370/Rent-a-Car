@@ -24,7 +24,7 @@ abstract class EntityRepository
         }
         return $table;
     }
-    
+
     public function getPdo()
     {
         return $this->pdo;
@@ -34,14 +34,13 @@ abstract class EntityRepository
      * @return array exemple : [0 => Agency {id : 1, agencyName : AgenceDuNord, address : '23 rue du clodo', phone : 0669696969}]   
      */
 
-     public function getAll(): array
-     {
-         // Construction sécurisée de la requête SQL
-         $query = "SELECT * FROM `{$this->table}`";
-         $statement = $this->pdo->prepare($query);
-         $statement->execute();
-         return $statement->fetchAll(PDO::FETCH_CLASS);
-     }
+
+    public function getAll(): array
+    {
+        $statement = $this->pdo->prepare("SELECT * FROM `{$this->table}`");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
 
     /**
      * @param int $id exemple : ["1"]
@@ -50,8 +49,7 @@ abstract class EntityRepository
 
     public function getById(int $id): object
     {
-        $statement = $this->pdo->prepare("SELECT * FROM :table WHERE id= :id");
-        $statement->bindParam(":table", $this->table);
+        $statement = $this->pdo->prepare("SELECT * FROM `{$this->table}` WHERE id= :id");
         $statement->bindParam(":id", $id);
         $statement->execute();
         $table = ucfirst($this->table);
@@ -65,8 +63,7 @@ abstract class EntityRepository
 
     public function create(string $columns, string $values): void
     {
-        $statement = $this->pdo->prepare("INSERT INTO :table (:columns) VALUE (:values)");
-        $statement->bindParam(":table", $this->table);
+        $statement = $this->pdo->prepare("INSERT INTO `{$this->table}` (:columns) VALUE (:values)");
         $statement->bindParam(":columns", $columns);
         $statement->bindParam(":values", $values);
         $statement->execute();
@@ -79,8 +76,7 @@ abstract class EntityRepository
 
     public function update(string $columns, string $values): void
     {
-        $statement = $this->pdo->prepare("UPDATE :table SET :columns = ':values'");
-        $statement->bindParam(":table", $this->table);
+        $statement = $this->pdo->prepare("UPDATE `{$this->table}` SET :columns = ':values'");
         $statement->bindParam(":columns", $columns);
         $statement->bindParam(":values", $values);
         $statement->execute();
@@ -92,9 +88,8 @@ abstract class EntityRepository
 
     public function delete(string $filtre): void
     {
-        $query = "DELETE FROM :table WHERE :filtre";
+        $query = "DELETE FROM `{$this->table}` WHERE :filtre";
         $statement = $this->pdo->prepare($query);
-        $statement->bindParam(":table", $this->table);
         $statement->bindParam(":filtre", $filtre);
         $statement->execute();
     }

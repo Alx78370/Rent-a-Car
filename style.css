@@ -167,6 +167,16 @@
     margin-bottom: 10px;
     padding: 15px;
 }
+.btnVehicleAvailable {
+    cursor: default !important;
+    background-color: #f4f4f976 !important;
+    color: black !important;
+}
+.iconGear {
+    width: 12px;
+    margin-bottom: 2px;
+    margin-right: 5px;
+}
 /* Reservation*/
 
 .reservation{
