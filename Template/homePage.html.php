@@ -1,5 +1,5 @@
 <?php
- include "../include.php";
+include "../include.php";
 require_once "../Model/Repository/AgencyRepository.php";
 $agencyRepository = new AgencyRepository();
 $agencys = $agencyRepository->getAll();
@@ -7,12 +7,6 @@ $agencys = $agencyRepository->getAll();
 
 <!DOCTYPE html>
 <html lang="fr">
-<style>
-
-
-
-
-</style>
 
 <body>
     <div class="expDiv">879 ans d'expertise</div>
@@ -37,34 +31,34 @@ $agencys = $agencyRepository->getAll();
 
         <!-- Connexion Modal -->
         <div id="connexionModal" class="modal" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <button type="button" class="btn btn-outline-danger d-block mx-auto mb-3">
-                    <i class="fab fa-google me-2"></i>Connexion avec Google
-                </button>
-                <form>
-                    <div class="mb-3">
-                        <label for="email" class="form-label visually-hidden">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label visually-hidden">Mot de passe</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
+                    <div class="modal-body">
+                        <button type="button" class="btn btn-outline-danger d-block mx-auto mb-3">
+                            <i class="fab fa-google me-2"></i>Connexion avec Google
+                        </button>
+                        <form>
+                            <div class="mb-3">
+                                <label for="email" class="form-label visually-hidden">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label visually-hidden">Mot de passe</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary d-block mx-auto mb-3">Connexion</button>
+                            <div class="text-center">
+                                <a href="suscribe.html.php" class="text-decoration-none d-block mb-2">S'inscrire</a>
+                            </div>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary d-block mx-auto mb-3">Connexion</button>
-                    <div class="text-center">
-                        <a href="suscribe.html.php" class="text-decoration-none d-block mb-2">S'inscrire</a>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
 
 
@@ -77,14 +71,14 @@ $agencys = $agencyRepository->getAll();
                         <label class=" form-label" for="agencyStart">Prise en charge</label>
                             <select class="form-select" aria-label="Default select example" name="agencyStart">
                                 <option selected disabled>Nos agences</option>
-                                <option value=""><?= htmlspecialchars($agency->name)?></option>
+                                <option value=""><?= htmlspecialchars($agency->name) ?></option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="agency">Retour</label>
                             <select class="form-select" aria-label="Default select example" name="agencyReturn">
                                 <option selected disabled>Nos agences</option>
-                                <option value=""><?= htmlspecialchars($agency->name)?></option>
+                                <option value=""><?= htmlspecialchars($agency->name) ?></option>
                             </select>
                         </div>
                     <?php endforeach; ?>
@@ -135,20 +129,20 @@ $agencys = $agencyRepository->getAll();
     </footer>
 
 
-
     <script>
-     var connexionLink = document.getElementById('connexionLink');
-    var connexionModal = new bootstrap.Modal(document.getElementById('connexionModal'));
+        var connexionLink = document.getElementById('connexionLink');
+        var connexionModal = new bootstrap.Modal(document.getElementById('connexionModal'));
 
-    connexionLink.onclick = function() {
-        connexionModal.show();
-    }
+        connexionLink.onclick = function() {
+            connexionModal.show();
+        }
 
-    function redirectToGoogle() {
-        // Redirection vers la page de connexion Google
-        window.location.href = 'URL_DE_CONNEXION_GOOGLE';
-    }
+        function redirectToGoogle() {
+            // Redirection vers la page de connexion Google
+            window.location.href = 'URL_DE_CONNEXION_GOOGLE';
+        }
     </script>
+
 </body>
 
 </html>
