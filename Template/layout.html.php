@@ -32,7 +32,7 @@ include "../include.php";
     </header>
     <!-- Connexion Modal -->
     <div id="connexionModal" class="modal" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-zoom-in">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h5>
@@ -63,7 +63,7 @@ include "../include.php";
 
     <!-- Reservation Modal -->
     <div id="reservationModal" class="modal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-zoom-in">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="reservationModalLabel">Gérer votre réservation</h5>
