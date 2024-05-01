@@ -17,9 +17,9 @@
                 </a>
             </div>
             <div class="col-md-8 d-flex justify-content-end">
-                <a href="/manage-reservations" class="nav-link me-2">Gérer mes réservations</a>
-                <a href="/login" class="nav-link me-2">Connexion</a>
-                <a href="/register" class="nav-link me-2">Inscription</a>
+                <a href="" class="nav-link me-2">Gérer mes réservations</a>
+                <a href="" class="nav-link me-2">Connexion</a>
+                <a href="" class="nav-link me-2">Inscription</a>
             </div>
         </div>
     </header>
