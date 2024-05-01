@@ -5,6 +5,7 @@ require_once "../Model/Repository/VehicleRepository.php";
 $vehicleRepository = new VehicleRepository();
 $vehicles = $vehicleRepository->getAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

@@ -14,20 +14,20 @@ abstract class EntityRepository
         }
         $this->table = $this->checkTableName($table);
     }
-
-    public function getPdo()
-    {
-        return $this->pdo;
-    }
-
     private function checkTableName($table)
     {
         // Liste blanche des noms de table valides
-        $allowedTables = ['vehicle', 'agency', 'client', 'reservation', 'availability']; // Ajoutez ici tous vos noms de tables valides
+
+        $allowedTables = ['vehicle', 'agency', 'client', 'reservation', 'availability'];
         if (!in_array($table, $allowedTables)) {
             throw new InvalidArgumentException("Invalid table name: {$table}");
         }
         return $table;
+    }
+
+    public function getPdo()
+    {
+        return $this->pdo;
     }
 
     /**
