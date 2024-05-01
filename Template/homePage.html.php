@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rent a car</title>
+    <link rel="stylesheet" href="../style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -12,11 +13,24 @@
 </head>
 
 <body>
-    <div>
-        <img src="../image/mercedes-benz-car-wallpaper" alt="">
+    <div class="expDiv">254 ans d'expertise</div>
+    <div class="divBigHomePage1">
+        <header>
+            <div class="container divHomepage1">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container divHomepage2">
+                        <a class="navbar-brand" href="#">Rent a car</a>
+                    </div>
+                    <div class="container divHomepage3">
+                        <a class="nav-link" href="homePage.html.php">Connexion/Deconnexion</a>
+                        <a class="nav-link" href="homePage.html.php">Gerer mes reservations</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
         <div class="container">
             <div class="card p-5">
-                <form action="vehicleAvailable.html.php" method="POST">
+                <form class="formHomePage" action="vehicleAvailable.html.php" method="POST">
                     <div class="mb-3">
                         <label class="form-label" for="agencyStart">Prise en charge</label>
                         <select class="form-select" aria-label="Default select example" name="agencyStart">

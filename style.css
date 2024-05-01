@@ -1,0 +1,33 @@
+.expDiv {
+    text-align: center;
+    background-color: #FF5F00;
+}
+.divHomepage2 {
+    display: flex;
+    justify-content: start !important;
+}
+.divHomepage3 {
+    display: flex;
+    justify-content: end !important;
+    gap: 20px;
+}
+.navbar {
+    background-color: transparent;
+    padding: 10px;
+}
+.divBigHomePage1 {
+    background-image: url(Image/maestro_car.png);
+    background-color: gray;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+}
+.formHomePage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
