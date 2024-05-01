@@ -4,24 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 
 <body>
-    <header>
-        <div class="row align-items-center">
+    <header class=header">
+
+        <div class="row align-items-start">
             <div class="col-md-4">
                 <a href="/">
-                    <img src="path_to_your_logo.png" class="ms-3 mt-2" alt="Logo" height="50">
+                    <img src="/image/car-logo.webp" class="ms-2" alt="Logo" height="80" width="80">
                 </a>
             </div>
-            <div class="col-md-8 d-flex justify-content-end">
-                <a href="" class="nav-link me-2">Gérer mes réservations</a>
-                <a href="" class="nav-link me-2">Connexion</a>
-                <a href="" class="nav-link me-2">Inscription</a>
+            <div class="col-md-8 d-flex justify-content-end align-items-start text-white">
+                <a href="" class="nav-link me-3 mt-3"><i class="fa-solid fa-car me-2"></i>Gérer mes réservations</a>
+                <a href="" class="nav-link me-3 mt-3"><i class="fa-solid fa-user me-2"></i>Connexion | Inscription</a>
             </div>
         </div>
+
     </header>
 
     <!-- Permet d'afficher le header, le contenue et le footer -->
