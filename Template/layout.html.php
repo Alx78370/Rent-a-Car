@@ -29,18 +29,19 @@
     <main>
 
         <!-- Permet d'afficher le header, le contenue et le footer -->
+        
     </main>
     <footer class="footer">
         <div class="row align-items-start">            
             <div class="col-md-12 d-flex justify-content-center align-items-start text-white">
-                <p class="footer-text me-3">rental.com©</p>
-                <a href="" class="nav-link me-3 underline-animation">Aide & Contact</a>
-                <a href="" class="nav-link me-3 underline-animation">Informations générales</a>
-                <a href="" class="nav-link me-3 underline-animation">Mentions légales</a>
-                <a href="" class="nav-link me-3 underline-animation">Données personnelles</a>
-                <a href="" class="nav-link me-3 underline-animation">CGL</a>
-                <a href="" class="nav-link me-3 underline-animation">Paramètres des cookies</a>
-                <p class="footer-text">©rental.com</p>
+                <p class="footer-text me-3 mt-1">rental.com©</p>
+                <a href="" class="nav-link me-3 mt-1 underline-animation">Aide & Contact</a>
+                <a href="" class="nav-link me-3 mt-1 underline-animation">Informations générales</a>
+                <a href="" class="nav-link me-3 mt-1 underline-animation">Mentions légales</a>
+                <a href="" class="nav-link me-3 mt-1 underline-animation">Données personnelles</a>
+                <a href="" class="nav-link me-3 mt-1 underline-animation">CGL</a>
+                <a href="" class="nav-link me-3 mt-1 underline-animation">Paramètres des cookies</a>
+                <p class="footer-text mt-1">©rental.com</p>
             </div>
             
         </div>
