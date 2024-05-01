@@ -15,7 +15,7 @@
 
         <div class="row align-items-start">
             <div class="col-md-4">
-                <a href="/">
+                <a href="homePage.html.php">
                     <img src="/image/car-logo.png" class="ms-2" alt="Logo" height="80" width="80">
                 </a>
             </div>
@@ -33,7 +33,7 @@
     <footer class="footer">
         <div class="row align-items-start">            
             <div class="col-md-12 d-flex justify-content-center align-items-start text-white">
-                <p class="footer-text me-3">©rental.com</p>
+                <p class="footer-text me-3">rental.com©</p>
                 <a href="" class="nav-link me-3">Aide & Contact</a>
                 <a href="" class="nav-link me-3">Informations générales</a>
                 <a href="" class="nav-link me-3">Mentions légales</a>
