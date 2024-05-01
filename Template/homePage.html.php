@@ -13,8 +13,8 @@
                         <a class="navbar-brand" href="#">Rent a car</a>
                     </div>
                     <div class="container divHomepage3">
-                        <a class="nav-link" href="homePage.html.php">Connexion/Deconnexion</a>
-                        <a class="nav-link" href="homePage.html.php">Gerer mes reservations</a>
+                        <a class="nav-link underline-animation" href="homePage.html.php">Connexion/Deconnexion</a>
+                        <a class="nav-link underline-animation" href="homePage.html.php">Gerer mes reservations</a>
                     </div>
                 </nav>
             </div>
