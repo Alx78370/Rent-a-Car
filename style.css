@@ -31,3 +31,12 @@
     align-items: center;
     justify-content: space-between;
 }
+.header{
+    background-color: #1A1A1A;    
+}
+.footer{
+    background-color: #1A1A1A;    
+}
+.footer-text {
+    color: #888; 
+}

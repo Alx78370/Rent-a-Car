@@ -11,26 +11,39 @@
 </head>
 
 <body>
-    <header class=header">
+    <header class="header">
 
         <div class="row align-items-start">
             <div class="col-md-4">
                 <a href="/">
-                    <img src="/image/car-logo.webp" class="ms-2" alt="Logo" height="80" width="80">
+                    <img src="/image/car-logo.png" class="ms-2" alt="Logo" height="80" width="80">
                 </a>
             </div>
             <div class="col-md-8 d-flex justify-content-end align-items-start text-white">
-                <a href="" class="nav-link me-3 mt-3"><i class="fa-solid fa-car me-2"></i>Gérer mes réservations</a>
-                <a href="" class="nav-link me-3 mt-3"><i class="fa-solid fa-user me-2"></i>Connexion | Inscription</a>
+                <a href="" class="nav-link me-3 mt-4"><i class="fa-solid fa-car me-2"></i>Gérer mes réservations</a>
+                <a href="" class="nav-link me-3 mt-4"><i class="fa-solid fa-user me-2"></i>Connexion | Inscription</a>
             </div>
         </div>
 
     </header>
+    <main>
 
-    <!-- Permet d'afficher le header, le contenue et le footer -->
-
-    <footer>
-
+        <!-- Permet d'afficher le header, le contenue et le footer -->
+    </main>
+    <footer class="footer">
+        <div class="row align-items-start">            
+            <div class="col-md-12 d-flex justify-content-center align-items-start text-white">
+                <p class="footer-text me-3">©rental.com</p>
+                <a href="" class="nav-link me-3">Aide & Contact</a>
+                <a href="" class="nav-link me-3">Informations générales</a>
+                <a href="" class="nav-link me-3">Mentions légales</a>
+                <a href="" class="nav-link me-3">Données personnelles</a>
+                <a href="" class="nav-link me-3">CGL</a>
+                <a href="" class="nav-link me-3">Paramètres des cookies</a>
+                <p class="footer-text">©rental.com</p>
+            </div>
+            
+        </div>
     </footer>
 </body>
 
