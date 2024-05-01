@@ -1,4 +1,10 @@
-<?php include "../include.php"; ?>
+<?php
+ include "../include.php";
+require_once "../Model/Repository/AgencyRepository.php";
+$agencyRepository = new AgencyRepository();
+$agencys = $agencyRepository->getAll();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -15,7 +21,7 @@
                     </div>
                     <div class="container divHomepage3">
                         <a class="nav-link underline-animation" href="/Template/reservation.html.php"><i class="fa-solid fa-car"></i> <strong>Gérer mes réservations</strong></a>
-                        <a class="nav-link underline-animation" href="homePage.html.php"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
+                        <a class="nav-link underline-animation" href="/Template/vehicleAvailable.html.php"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
                         <a class="nav-link underline-animation" href="homePage.html.php"><i class="bi bi-person-fill"></i> <strong>Connexion | Deconnexion</strong></a>
                     </div>
                 </nav>
@@ -24,24 +30,23 @@
         <div class="container">
             <div class="card p-5 homePageCard">
                 <form class="formHomePage" action="vehicleAvailable.html.php" method="POST">
-                    <div class="mb-3">
-                        <label class="form-label" for="agencyStart">Prise en charge</label>
-                        <select class="form-select" aria-label="Default select example" name="agencyStart">
-                            <option selected disabled>Nos agences</option>
-                            <option value="1">Paris</option>
-                            <option value="2">Marseille</option>
-                            <option value="3">Bordeaux</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="agency">Retour</label>
-                        <select class="form-select" aria-label="Default select example" name="agencyReturn">
-                            <option selected disabled>Nos agences</option>
-                            <option value="1">Paris</option>
-                            <option value="2">Marseille</option>
-                            <option value="3">Bordeaux</option>
-                        </select>
-                    </div>
+                    <?php foreach ($agencys as $agency) : ?>
+                        <div class="mb-3">
+                            <label class="form-label
+                        <label class=" form-label" for="agencyStart">Prise en charge</label>
+                            <select class="form-select" aria-label="Default select example" name="agencyStart">
+                                <option selected disabled>Nos agences</option>
+                                <option value=""><?= htmlspecialchars($agency->name)?></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="agency">Retour</label>
+                            <select class="form-select" aria-label="Default select example" name="agencyReturn">
+                                <option selected disabled>Nos agences</option>
+                                <option value=""><?= htmlspecialchars($agency->name)?></option>
+                            </select>
+                        </div>
+                    <?php endforeach; ?>
                     <div class="mb-3">
                         <label class="form-label" for="">Date de départ</label>
                         <input class="form-control" type="date">
@@ -88,7 +93,7 @@
         </div>
     </footer>
 
-        
+
 
 </body>
 

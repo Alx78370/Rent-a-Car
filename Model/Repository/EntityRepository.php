@@ -12,9 +12,19 @@ abstract class EntityRepository
         } else {
             $this->pdo = new PDO("mysql:host=localhost;dbname=rent_a_car", "root", "");
         }
-        $this->table = $table;
+        $this->table = $this->checkTableName($table);
     }
+    private function checkTableName($table)
+    {
+        // Liste blanche des noms de table valides
 
+        $allowedTables = ['vehicle', 'agency', 'client', 'reservation', 'availability'];
+        if (!in_array($table, $allowedTables)) {
+            throw new InvalidArgumentException("Invalid table name: {$table}");
+        }
+        return $table;
+    }
+    
     public function getPdo()
     {
         return $this->pdo;
@@ -24,14 +34,14 @@ abstract class EntityRepository
      * @return array exemple : [0 => Agency {id : 1, agencyName : AgenceDuNord, address : '23 rue du clodo', phone : 0669696969}]   
      */
 
-    public function getAll(): array
-    {
-        $statement = $this->pdo->prepare("SELECT * FROM :table");
-        $statement->bindParam(":table", $this->table);
-        $statement->execute();
-        $table = ucfirst($this->table);
-        return $statement->fetchAll(PDO::FETCH_CLASS, $table::class);
-    }
+     public function getAll(): array
+     {
+         // Construction sécurisée de la requête SQL
+         $query = "SELECT * FROM `{$this->table}`";
+         $statement = $this->pdo->prepare($query);
+         $statement->execute();
+         return $statement->fetchAll(PDO::FETCH_CLASS);
+     }
 
     /**
      * @param int $id exemple : ["1"]

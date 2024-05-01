@@ -2,8 +2,10 @@
 include "../include.php";
 include "./layout.html.php";
 require_once "../Model/Repository/VehicleRepository.php";
-$vehicles = getall();
+$vehicleRepository = new VehicleRepository();
+$vehicles = $vehicleRepository->getAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -55,20 +57,13 @@ $vehicles = getall();
         </div>
     </div>
     <div class="vehiclePage3">
-        <?php foreach ($vehicles as $vehicle) {  ?>
-            <div class="card-group">
-                <div class="card">
-                    <a href="">
-                        <img src="../image/imageVehicle/<?= htmlspecialchars($vehicle['image']) ?>" class="card-img-top" alt="...">
-                    </a>
-
-                    <div class="card-body">
-                        <p class="card-text">Prix : 50€/jour</p>
-                        <a href="#" class="btn btn-primary">Réserver</a>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+        <?php foreach ($vehicles as $vehicle) {
+    echo "ID: " . $vehicle->id . "<br>";
+    echo "Marque: " . $vehicle->brand . "<br>"; // Assurez-vous que vehicleBrand est un attribut correct
+    echo "Nom: " . $vehicle->model . "<br>"; // Assurez-vous que vehicleName est un attribut correct
+    echo "Type: " . $vehicle->type . "<br>"; // Assurez-vous que model est un attribut correct
+    echo "<hr>";
+}?>
     </div>
 </body>
 
