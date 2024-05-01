@@ -1,3 +1,5 @@
+/* HomePage */
+
 .expDiv {
     text-align: center;
     background-color: #FF5F00;
@@ -10,6 +12,7 @@
     display: flex;
     justify-content: end !important;
     gap: 20px;
+    color: white;
 }
 .navbar {
     background-color: transparent;
@@ -31,6 +34,33 @@
     align-items: center;
     justify-content: space-between;
 }
+.homePageCard {
+    border-radius: 20px !important;
+}
+.homePageH1H2 {
+    background-color: #FF5F00;
+    text-align: center;
+    padding: 15px;
+}
+.homePageH1H2 h1 {
+    color: black;
+    font-size: 5rem;
+    line-height: 5.7rem;
+}
+.homePageH1H2 h2 {
+    color: black;
+    font-size: 1.1rem;
+}
+.divHomePage4 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Layout */
+
 .header{
     background-color: #1A1A1A;    
 }
