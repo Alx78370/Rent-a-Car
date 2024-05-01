@@ -2,8 +2,10 @@
 include "../include.php";
 include "./layout.html.php";
 require_once "../Model/Repository/VehicleRepository.php";
-$vehicles = getall();
+$vehicleRepository = new VehicleRepository();
+$vehicles = $vehicleRepository->getAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -55,20 +57,26 @@ $vehicles = getall();
         </div>
     </div>
     <div class="vehiclePage3">
-        <?php foreach ($vehicles as $vehicle) {  ?>
-            <div class="card-group">
-                <div class="card">
-                    <a href="">
-                        <img src="../image/imageVehicle/<?= htmlspecialchars($vehicle['image']) ?>" class="card-img-top" alt="...">
-                    </a>
-
-                    <div class="card-body">
-                        <p class="card-text">Prix : 50€/jour</p>
-                        <a href="#" class="btn btn-primary">Réserver</a>
+        <?php foreach ($vehicles as $vehicle) : ?>
+            <div class="row row-cols-3">
+                <div class="col">
+                    <div class="card">
+                        <h5><?= htmlspecialchars($vehicle->brand) . ' ' . htmlspecialchars($vehicle->model) ?></h5>
+                        <p><?= htmlspecialchars($vehicle->type) . ' | ' . htmlspecialchars($vehicle->energy_type) ?></p>
+                        <div>
+                            <p class="btn btn-secondary btnVehicleAvailable"><i class="bi bi-person"></i><?= htmlspecialchars($vehicle->passenger_Nb) ?></p>
+                            <p class="btn btn-secondary btnVehicleAvailable"> <img class="iconGear" src="../Image/icon_gearbox.png" alt=""><?= htmlspecialchars($vehicle->gear) ?></p>
+                        </div>
+                        <a href="">
+                            <img src="<?= htmlspecialchars($vehicle->image) ?>" class="card-img" alt="...">
+                        </a>
+                        <div>
+                            <p><?= htmlspecialchars($vehicle->daily_Rate) ?>€ / jour</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        <?php } ?>
+        <?php endforeach; ?>
     </div>
 </body>
 

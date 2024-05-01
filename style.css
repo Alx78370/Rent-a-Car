@@ -1,5 +1,7 @@
 /* HomePage */
-
+* {
+    text-decoration: none !important;
+}
 .expDiv {
     text-align: center;
     background-color: #FF5F00;
@@ -37,6 +39,16 @@
 .homePageCard {
     border-radius: 20px !important;
 }
+.homePageCard button {
+    background-color: #FF5F00;
+}
+.homePageCard button:hover {
+    background-color: #d15a16;
+    color: white;
+}
+.homePageCard a {
+    color: white;
+}
 .homePageH1H2 {
     background-color: #FF5F00;
     text-align: center;
@@ -57,6 +69,35 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 50px;
+    gap: 50px;
+}
+.divHomePage4 h3 {
+    font-size: 1rem;
+    color: black;
+    font-weight: 700;
+    margin: 20px;
+}
+.divHomePage4 p {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+.divHomePageCard4 {
+    transition: transform 0.5s ease;
+    flex: 1;
+    cursor: default;
+}
+.divHomePageCard4:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+}
+.divFooter {
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
 }
 
 /* Layout */
@@ -125,6 +166,16 @@
     color: black;
     margin-bottom: 10px;
     padding: 15px;
+}
+.btnVehicleAvailable {
+    cursor: default !important;
+    background-color: #f4f4f976 !important;
+    color: black !important;
+}
+.iconGear {
+    width: 12px;
+    margin-bottom: 2px;
+    margin-right: 5px;
 }
 /* Reservation*/
 
