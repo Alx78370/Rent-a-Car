@@ -51,7 +51,7 @@
                         <input class="form-control" type="date">
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-primary btn-lg underline-animation" type="submit"><a href="">Voir les véhicules</a></button>
+                        <button class="btn btn-lg homePageBtn" type="submit"><a href="">Voir les véhicules</a></button>
                     </div>
                 </form>
             </div>
@@ -62,19 +62,31 @@
         <h2 class="homePageH2">Trouvez la voiture idéale pour votre prochain voyage</h2>
     </div>
     <div class="container divHomePage4">
-        <div class="card">
-            <p>Portée mondiale</p>
-            <p>Plus de 2 000 stations SIXT dans plus de 105 pays</p>
+        <div class="card divHomePageCard4">
+            <h3>Portée galactique</h3>
+            <p><strong>Plus de 3 stations Sext dans seulement 1 pays ! Profitez-en</strong></p>
         </div>
-        <div class="card">
-            <p>Qualité garantie</p>
-            <p>Voitures neuves - en moyenne 3 mois d'ancienneté</p>
+        <div class="card divHomePageCard4">
+            <h3>Qualité garantie</h3>
+            <p><strong>Voitures neuves - en moyenne 3 mois d'ancienneté</strong></p>
         </div>
-        <div class="card">
-            <p>Service client</p>
-            <p>Service client 24h/24 et 7j/7</p>
+        <div class="card divHomePageCard4">
+            <h3>Service client</h3>
+            <p><strong>Service client 24h/24 et 7j/7 <br> pour votre satisfaction</strong></p>
         </div>
     </div>
+    <footer>
+        <div class=" divFooter">
+            <div class="divFooter2">
+                <a class="nav-link underline-animation" href="homePage.html.php"><i class="fa-solid fa-car"></i> <strong>Gérer mes réservations</strong></a>
+                <a class="nav-link underline-animation" href="homePage.html.php"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
+                <a class="nav-link underline-animation" href="homePage.html.php"><i class="bi bi-person-fill"></i> <strong>Connexion | Deconnexion</strong></a>
+            </div>
+            <div class="divFooter3">
+                <p>© 2022 Sext - Tous droits réservés</p>
+            </div>
+        </div>
+    </footer>
 
         
 
