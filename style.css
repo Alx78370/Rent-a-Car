@@ -31,3 +31,15 @@
     align-items: center;
     justify-content: space-between;
 }
+.header{
+    background-color: #1A1A1A;    
+}
+.footer{
+    background-color: #1A1A1A; 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.footer-text {
+    color: #888;     
+}
