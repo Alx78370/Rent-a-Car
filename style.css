@@ -195,4 +195,22 @@
     background-color: rgb(195, 108, 1); 
 }
 
+/* Modal zoom in */
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-zoom-in {
+    animation: zoomIn 0.3s; /* Définit la durée de l'animation */
+}
+
+
 
