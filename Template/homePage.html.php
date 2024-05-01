@@ -14,9 +14,9 @@
                         </a>
                     </div>
                     <div class="container divHomepage3">
-                        <a class="nav-link" href="homePage.html.php"><i class="fa-solid fa-car"></i> <strong>Gérer mes réservations</strong></a>
-                        <a class="nav-link" href="homePage.html.php"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
-                        <a class="nav-link" href="homePage.html.php"><i class="bi bi-person-fill"></i> <strong>Connexion | Deconnexion</strong></a>
+                        <a class="nav-link underline-animation" href="homePage.html.php"><i class="fa-solid fa-car"></i> <strong>Gérer mes réservations</strong></a>
+                        <a class="nav-link underline-animation" href="homePage.html.php"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
+                        <a class="nav-link underline-animation" href="homePage.html.php"><i class="bi bi-person-fill"></i> <strong>Connexion | Deconnexion</strong></a>
                     </div>
                 </nav>
             </div>
@@ -51,7 +51,7 @@
                         <input class="form-control" type="date">
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-primary btn-lg" type="submit"><a href="">Voir les véhicules</a></button>
+                        <button class="btn btn-primary btn-lg underline-animation" type="submit"><a href="">Voir les véhicules</a></button>
                     </div>
                 </form>
             </div>
