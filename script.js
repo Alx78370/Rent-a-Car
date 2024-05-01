@@ -8,6 +8,14 @@ connexionLink.onclick = function() {
 }
 
 function redirectToGoogle() {
-    // Redirection vers la page de connexion Google
+    
     window.location.href = 'URL_DE_CONNEXION_GOOGLE';
+}
+
+
+var reservationLink = document.getElementById('reservationLink');
+var reservationModal = new bootstrap.Modal(document.getElementById('reservationModal'));
+
+reservationLink.onclick = function() {
+    reservationModal.show();
 }

@@ -21,9 +21,9 @@ $agencys = $agencyRepository->getAll();
                         <h2 class="text-white ml-1"><strong>Sext</strong></h2>
                     </div>
                     <div class="container divHomepage3">
-                        <a class="nav-link underline-animation" href="/Template/reservation.html.php"><i class="fa-solid fa-car"></i> <strong>Gérer mes réservations</strong></a>
+                        <a id="reservationLink" class="nav-link underline-animation" href="#"><i class="fa-solid fa-car"></i> <strong>Gérer mes réservations</strong></a>
                         <a class="nav-link underline-animation" href="/Template/vehicleAvailable.html.php"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
-                        <a class="nav-link underline-animation" href="homePage.html.php"><i class="bi bi-person-fill"></i> <strong>Connexion | Deconnexion</strong></a>
+                        <a id="connexionLink" class="nav-link underline-animation" href="#"><i class="bi bi-person-fill"></i> <strong>Connexion | Inscription</strong></a>
                     </div>
                 </nav>
             </div>
@@ -38,7 +38,7 @@ $agencys = $agencyRepository->getAll();
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <button type="button" class="btn btn-outline-danger d-block mx-auto mb-3">
+                        <button type="button" class="btn btn-outline-secondary d-block mx-auto mb-3">
                             <i class="fab fa-google me-2"></i>Connexion avec Google
                         </button>
                         <form>
@@ -50,15 +50,44 @@ $agencys = $agencyRepository->getAll();
                                 <label for="password" class="form-label visually-hidden">Mot de passe</label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
                             </div>
-                            <button type="submit" class="btn btn-primary d-block mx-auto mb-3">Connexion</button>
+                            <button type="submit" class="btn btn-outline-secondary d-block mx-auto mb-3">Connexion</button>
                             <div class="text-center">
-                                <a href="suscribe.html.php" class="text-decoration-none d-block mb-2">S'inscrire</a>
+                                <a href="suscribe.html.php" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Reservation Modal -->
+        <div id="reservationModal" class="modal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reservationModalLabel">Gérer votre réservation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-column align-items-center homePageReservation">
+                <p class="card-text fs-5">Modifiez votre réservation comme vous le souhaitez, rapidement et facilement.</p>
+                <form class="w-75">
+                    <div class="mb-3">
+                        <label for="reservationNumber" class="form-label fs-5">Numéro de réservation</label>
+                        <input type="text" class="form-control fs-5" id="reservationNumber" placeholder="Entrez votre numéro de réservation">
+                    </div>
+                    <div class="mb-3">
+                        <label for="emailAddress" class="form-label fs-5">Adresse e-mail</label>
+                        <input type="email" class="form-control fs-5" id="emailAddress" placeholder="Entrez votre adresse e-mail">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-secondary fs-5">Suivant</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 
@@ -91,7 +120,7 @@ $agencys = $agencyRepository->getAll();
                         <input class="form-control" type="date">
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-lg homePageBtn" type="submit"><a href="">Voir les véhicules</a></button>
+                        <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit"><a href="">Voir les véhicules</a></button>
                     </div>
                 </form>
             </div>
@@ -138,9 +167,17 @@ $agencys = $agencyRepository->getAll();
         }
 
         function redirectToGoogle() {
-            // Redirection vers la page de connexion Google
+            
             window.location.href = 'URL_DE_CONNEXION_GOOGLE';
         }
+
+        var reservationLink = document.getElementById('reservationLink');
+        var reservationModal = new bootstrap.Modal(document.getElementById('reservationModal'));
+
+        reservationLink.onclick = function() {
+            reservationModal.show();
+        }
+
     </script>
 
 </body>
