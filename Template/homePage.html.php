@@ -50,6 +50,7 @@
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-primary btn-lg" type="submit"><a href="">Voir les véhicules</a></button>
+                    </div>
                 </form>
             </div>
         </div>
