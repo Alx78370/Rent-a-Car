@@ -7,7 +7,8 @@ include "layout.html.php"
         <div class="card" style="width: 40rem;">
             <div class="card-body">
                 <h3 class="card-title text-center"><strong>Gérez votre réservation</strong></h3>
-                <p class="card-text fs-5">Modifiez votre réservation comme vous le souhaitez, rapidement et facilement.</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <p class="card-text fs-5">Modifiez votre réservation comme vous le souhaitez, rapidement et facilement.</p>                
                 <hr>
                 <form>
                     <div class="mb-3">
