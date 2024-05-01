@@ -64,6 +64,7 @@
 .header{
     background-color: #1A1A1A;    
 }
+
 .footer{
     background-color: #1A1A1A; 
     position: fixed;
@@ -124,4 +125,19 @@
     color: black;
     margin-bottom: 10px;
     padding: 15px;
+}
+/* Reservation*/
+
+.reservation{
+    background-color: gray;
+}
+
+.reservation input:focus {
+    border-color: #FF5F00; 
+    box-shadow: 0 0 0 0.25rem rgba(255, 95, 0, 0.25); 
+}
+
+.reservation button[type="submit"] {
+    background-color: #FF5F00; 
+    border-color: #FF5F00;
 }
