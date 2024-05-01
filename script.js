@@ -1,7 +1,7 @@
-/*script du modal*/
+/*script du modal connexion*/
 
-var connexionLink = document.getElementById('connexionLink');
-var connexionModal = new bootstrap.Modal(document.getElementById('connexionModal'));
+let connexionLink = document.getElementById('connexionLink');
+let connexionModal = new bootstrap.Modal(document.getElementById('connexionModal'));
 
 connexionLink.onclick = function() {
     connexionModal.show();
@@ -12,9 +12,10 @@ function redirectToGoogle() {
     window.location.href = 'URL_DE_CONNEXION_GOOGLE';
 }
 
+/*script du modal reservation*/
 
-var reservationLink = document.getElementById('reservationLink');
-var reservationModal = new bootstrap.Modal(document.getElementById('reservationModal'));
+let reservationLink = document.getElementById('reservationLink');
+let reservationModal = new bootstrap.Modal(document.getElementById('reservationModal'));
 
 reservationLink.onclick = function() {
     reservationModal.show();
