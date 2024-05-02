@@ -36,6 +36,11 @@
     align-items: center;
     justify-content: space-between;
 }
+.homePageCardGen {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 .homePageCard {
     border-radius: 20px !important;
 }

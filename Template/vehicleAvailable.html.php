@@ -1,10 +1,3 @@
-<?php
-include "../include.php";
-include "./layout.html.php";
-require_once "../Model/Repository/VehicleRepository.php";
-$vehicleRepository = new VehicleRepository();
-$vehicles = $vehicleRepository->getAll();
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
