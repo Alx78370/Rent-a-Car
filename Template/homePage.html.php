@@ -87,34 +87,33 @@
 
         <div class="container homePageCardGen">
             <div class="card p-5 homePageCard">
-                <form class="formHomePage" action="vehicleAvailable.html.php" method="POST">
+                <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
                     <?php foreach ($agencies as $agency) : ?>
                         <div class="mb-3">
-                            <label class="form-label
                         <label class=" form-label" for="agencyStart">Prise en charge</label>
                             <select class="form-select" aria-label="Default select example" name="agencyStart">
-                                <option selected disabled>Nos agences</option>
-                                <option value=""><?= htmlspecialchars($agency->name) ?></option>
+                                <option disabled>Nos agences</option>
+                                <option selected value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="agency">Retour</label>
-                            <select class="form-select" aria-label="Default select example" name="agencyReturn">
+                            <select class="form-select" aria-label="Default select example" name="agencyReturn" required>
                                 <option selected disabled>Nos agences</option>
-                                <option value=""><?= htmlspecialchars($agency->name) ?></option>
+                                <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
                             </select>
                         </div>
                     <?php endforeach; ?>
                     <div class="mb-3">
                         <label class="form-label" for="">Date de départ</label>
-                        <input class="form-control" type="date">
+                        <input class="form-control" type="date" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="">Date de retour</label>
-                        <input class="form-control" type="date">
+                        <input class="form-control" type="date" required>
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit"><a href="">Voir les véhicules</a></button>
+                        <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit">Voir les véhicules</button>
                     </div>
                 </form>
             </div>
