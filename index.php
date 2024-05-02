@@ -1,6 +1,5 @@
 <?php 
-// Est le routeur, permet d'appeler suivant le besoin d'afficher la page néccessaire 
-// Exemple d'inclusion dans index.php pour des configurations globales
+
 require_once "include.php";
 
 require_once './Controller/controllerVehicle.php';
@@ -25,5 +24,3 @@ if (array_key_exists($page, $routes)) {
 } else {
     echo '404 Page Not Found';
 }
-
-

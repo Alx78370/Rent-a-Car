@@ -10,7 +10,7 @@ class homeController {
     }
 
     public function showHomePage() {
-        $agencies = $this->agencyRepo->getAll();  // Récupérer toutes les agences
+        $agencies = $this->agencyRepo->getAll();
         require_once __DIR__ . '/../Template/homePage.html.php';
     }
 
