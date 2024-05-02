@@ -51,9 +51,7 @@ DROP TABLE IF EXISTS `availability`;
 CREATE TABLE `availability` (
   `id` int NOT NULL AUTO_INCREMENT,
   `vehicle_Id` int NOT NULL,
-  `starting_Date` date NOT NULL,
-  `ending_Date` date NOT NULL,
-  `status` varchar(50) NOT NULL,
+  `availability_Date` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Vehicle_id` (`vehicle_Id`),
   CONSTRAINT `availability_ibfk_1` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id`)
@@ -114,7 +112,6 @@ CREATE TABLE `reservation` (
   `start_Date` date NOT NULL,
   `end_Date` date NOT NULL,
   `total_Price` decimal(10,2) NOT NULL,
-  `status` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `client_Id` (`client_Id`),
   KEY `vehicle_Id` (`vehicle_Id`),
@@ -155,7 +152,7 @@ CREATE TABLE `vehicle` (
   PRIMARY KEY (`id`),
   KEY `agency_Id` (`agency_Id`),
   CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`agency_Id`) REFERENCES `agency` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,7 +161,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (1,'fiat','500',2005,25.09,3,'../image/imageVehicle/Fiat_500.png','Berline','Manuelle',4,'Essence',1),(2,'Volkswagen','Polo',2010,28.59,5,'../image/imageVehicle/VW_Polo.png','Berline','Manuelle',5,'Essence',1),(3,'Bmw','X1',2017,60.34,5,'../image/imageVehicle/Bmw_X1.png','SUV','Automatique',5,'Essence',1),(4,'Peugeot','3008',2019,36.15,5,'../image/imageVehicle/Peugeot_3008.png','Berline','Automatique',5,'Hybride',1);
+INSERT INTO `vehicle` VALUES (1,'fiat','500',2005,25.09,3,'../image/imageVehicle/Fiat_500.png','Berline','Manuelle',4,'Essence',1),(2,'Volkswagen','Polo',2010,28.59,5,'../image/imageVehicle/VW_Polo.png','Berline','Manuelle',5,'Essence',1),(3,'Bmw','X1',2017,60.34,5,'../image/imageVehicle/Bmw_X1.png','SUV','Automatique',5,'Essence',1),(4,'Peugeot','3008',2019,36.15,5,'../image/imageVehicle/Peugeot_3008.png','Berline','Automatique',5,'Hybride',1),(5,'Volvo','EX30',2019,30.50,5,'../Image/imageVehicle/Volvo_EX30.png','Berline','Automatique',5,'Electrique',1),(6,'Bmw','Série 1',2020,51.78,5,'../image/imageVehicle/Bmw_Série_1.png','Berline','Automatique',5,'Essence',1);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -177,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-02  1:09:53
+-- Dump completed on 2024-05-02 16:47:35

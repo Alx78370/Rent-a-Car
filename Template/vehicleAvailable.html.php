@@ -56,12 +56,22 @@
                     <div class="card">
                         <a href="">
                             <h5><?= htmlspecialchars($vehicle->brand) . ' ' . htmlspecialchars($vehicle->model) ?></h5>
-                            <p class="vehicleType"><?= htmlspecialchars($vehicle->type) . ' | ' . htmlspecialchars($vehicle->energy_type) ?></p>
+                            <?php if ($vehicle->energy_type == 'Electrique') { ?>
+                                <p class="vehicleType"><?= htmlspecialchars($vehicle->type) ?></p>
+                                <p class="btn btn-secondary btnVehicleElec"><?= htmlspecialchars($vehicle->energy_type) ?></p>
+                            <?php } else { ?>
+                                <p class="vehicleType"><?= htmlspecialchars($vehicle->type) . ' | ' . htmlspecialchars($vehicle->energy_type) ?></p>
+                            <?php } ?>
                             <div>
                                 <p class="btn btn-secondary btnVehicleAvailable"><i class="bi bi-person"></i><?= htmlspecialchars($vehicle->passenger_Nb) ?></p>
-                                <p class="btn btn-secondary btnVehicleAvailable"> <img class="iconGear" src="../Image/icon_gearbox.png" alt=""><?= htmlspecialchars($vehicle->gear) ?></p>
+                                <?php if ($vehicle->gear == 'Manuelle') { ?>
+                                    <p class="btn btn-secondary btnVehicleAvailable"><img class="iconGear" src="../Image/icon_gearbox.png" alt=""><?= htmlspecialchars($vehicle->gear) ?></p>
+                                <?php } else { ?>
+                                    <p class="btn btn-secondary btnVehicleAvailable"><img class="iconGear" src="../Image/icon_auto.png" alt=""><?= htmlspecialchars($vehicle->gear) ?></p>
+                                <?php } ?>
                             </div>
                             <div>
+
                                 <img src="<?= htmlspecialchars($vehicle->image) ?>" class="card-img" alt="...">
                             </div>
                             <div>
