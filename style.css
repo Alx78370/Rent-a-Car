@@ -108,7 +108,9 @@
 /* Layout */
 
 .header{
-    background-color: #1A1A1A;    
+    background-color: #1A1A1A;  
+    padding-left: 10%;  
+    padding-right: 10%;
 }
 
 .footer{
@@ -116,6 +118,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: 2000;
 }
 .footer-text {
     color: #888;     
@@ -170,7 +173,6 @@
     border: none;
     color: black;
     margin-bottom: 10px;
-    padding: 15px;
 }
 .btnVehicleAvailable {
     cursor: default !important;
@@ -181,6 +183,52 @@
     width: 12px;
     margin-bottom: 2px;
     margin-right: 5px;
+}
+.vehiclePage3 {
+    margin-left: 11%;
+    margin-right: 11%;
+    margin-top: 2%;
+}
+.vehiclePage3 .row {
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+.vehiclePage3 .card {
+    background: rgb(159,173,180);
+    background: radial-gradient(circle, rgba(159,173,180,1) 23%, rgba(52,63,66,1) 70%, rgba(21,25,28,1) 90%);
+    border-radius: 15px !important;
+    padding: 15px !important;
+}
+.vehiclePage3 a {
+    color: white;
+}
+.vehiclePage3 .card:hover {
+    outline: 4px solid rgb(125, 125, 125);
+    outline-offset: 4px;
+    transition: 0.1s;
+}
+.vehiclePage3 .card:active {
+    outline: 4px solid #FF5F01;
+    outline-offset: 4px;
+    transition: 0.1s;
+}
+.vehicleType {
+    color: gray;
+    font-size: smaller;
+}
+.btnVehicleAvailable {
+    background-color: rgb(79,88,91) !important;
+    color: white !important;
+    border-radius: 20px !important;
+    font-size: smaller !important;
+    padding-top: 2px !important;
+    padding-bottom:2px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+.vehiclePriceDay {
+    font-size: larger;
+    margin-bottom: unset;
 }
 
 /* Modal connexion*/
@@ -213,9 +261,29 @@
     }
 }
 
-.modal-zoom-in {
-    animation: zoomIn 0.3s; /* Définit la durée de l'animation */
+@keyframes zoomOut {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0);
+        opacity: 0;
+    }
 }
+
+.modal-zoom-in, .modal-zoom-out {
+    animation-fill-mode: forwards;
+}
+
+.modal-zoom-in {
+    animation: zoomIn 0.3s;
+}
+
+.modal-zoom-out {
+    animation: zoomOut 0.3s;
+}
+
 
 
 
