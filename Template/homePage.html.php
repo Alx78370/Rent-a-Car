@@ -87,7 +87,7 @@
 
         <div class="container homePageCardGen">
             <div class="card p-5 homePageCard">
-                <form class="formHomePage" action="vehicleAvailable.html.php" method="POST">
+                <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
                     <?php foreach ($agencies as $agency) : ?>
                         <div class="mb-3">
                             <label class="form-label
@@ -106,15 +106,15 @@
                         </div>
                     <?php endforeach; ?>
                     <div class="mb-3">
-                        <label class="form-label" for="">Date de départ</label>
-                        <input class="form-control" type="date">
+                        <label class="form-label" for="start_Date">Date de départ</label>
+                        <input class="form-control" type="date" id="start_Date" name="start_Date">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="">Date de retour</label>
-                        <input class="form-control" type="date">
+                        <label class="form-label" for="end_Date">Date de retour</label>
+                        <input class="form-control" type="date" id="end_Date" name="end_Date">
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-lg btn-outline-secondary homePageBtn mt-4" type="submit"><a href="">Voir les véhicules</a></button>
+                        <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit">Voir les véhicules</button>
                     </div>
                 </form>
             </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -51,31 +50,31 @@
     </div>
     <div class="vehiclePage3">
         <div class="row row-cols-3">
-            <?php foreach ($vehicles as $vehicle) : ?>
+            <?php foreach ($vehiclesAvailable as $vehicleAvailable) : ?>
                 <div class="row">
                     <div class="card">
                         <a href="">
-                            <h5><?= htmlspecialchars($vehicle->brand) . ' ' . htmlspecialchars($vehicle->model) ?></h5>
-                            <?php if ($vehicle->energy_type == 'Electrique') { ?>
-                                <p class="vehicleType"><?= htmlspecialchars($vehicle->type) ?></p>
-                                <p class="btn btn-secondary btnVehicleElec"><?= htmlspecialchars($vehicle->energy_type) ?></p>
+                            <h5><?= htmlspecialchars($vehicleAvailable->brand) . ' ' . htmlspecialchars($vehicleAvailable->model) ?></h5>
+                            <?php if ($vehicleAvailable->energy_type == 'Electrique') { ?>
+                                <p class="vehicleType"><?= htmlspecialchars($vehicleAvailable->type) ?></p>
+                                <p class="btn btn-secondary btnVehicleElec"><img class="iconElec" src="../Image/icon_elec.png" alt=""><?= htmlspecialchars($vehicleAvailable->energy_type) ?></p>
                             <?php } else { ?>
-                                <p class="vehicleType"><?= htmlspecialchars($vehicle->type) . ' | ' . htmlspecialchars($vehicle->energy_type) ?></p>
+                                <p class="vehicleType"><?= htmlspecialchars($vehicleAvailable->type) . ' | ' . htmlspecialchars($vehicleAvailable->energy_type) ?></p>
                             <?php } ?>
                             <div>
-                                <p class="btn btn-secondary btnVehicleAvailable"><i class="bi bi-person"></i><?= htmlspecialchars($vehicle->passenger_Nb) ?></p>
-                                <?php if ($vehicle->gear == 'Manuelle') { ?>
-                                    <p class="btn btn-secondary btnVehicleAvailable"><img class="iconGear" src="../Image/icon_gearbox.png" alt=""><?= htmlspecialchars($vehicle->gear) ?></p>
+                                <p class="btn btn-secondary btnVehicleAvailable"><i class="bi bi-person"></i><?= htmlspecialchars($vehicleAvailable->passenger_Nb) ?></p>
+                                <?php if ($vehicleAvailable->gear == 'Manuelle') { ?>
+                                    <p class="btn btn-secondary btnVehicleAvailable"><img class="iconGear" src="../Image/icon_gearbox.png" alt=""><?= htmlspecialchars($vehicleAvailable->gear) ?></p>
                                 <?php } else { ?>
-                                    <p class="btn btn-secondary btnVehicleAvailable"><img class="iconGear" src="../Image/icon_auto.png" alt=""><?= htmlspecialchars($vehicle->gear) ?></p>
+                                    <p class="btn btn-secondary btnVehicleAvailable"><img class="iconGear" src="../Image/icon_auto.png" alt=""><?= htmlspecialchars($vehicleAvailable->gear) ?></p>
                                 <?php } ?>
                             </div>
                             <div>
 
-                                <img src="<?= htmlspecialchars($vehicle->image) ?>" class="card-img" alt="...">
+                                <img src="<?= htmlspecialchars($vehicleAvailable->image) ?>" class="card-img" alt="...">
                             </div>
                             <div>
-                                <p class="vehiclePriceDay"><?= htmlspecialchars($vehicle->daily_Rate) ?>€ / jour</p>
+                                <p class="vehiclePriceDay"><?= htmlspecialchars($vehicleAvailable->daily_Rate) ?>€ / jour</p>
                             </div>
                         </a>
                     </div>
