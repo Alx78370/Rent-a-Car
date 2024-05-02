@@ -15,6 +15,6 @@ class VehicleController {
         $vehicles = $this->vehicleRepo->getAll();  // Récupérer tous les véhicules
         require_once './Template/layout.html.php';
         require_once __DIR__ . '/../Template/vehicleAvailable.html.php';
-    }
+    }    
 
 }

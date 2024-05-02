@@ -93,14 +93,14 @@
                             <label class="form-label
                         <label class=" form-label" for="agencyStart">Prise en charge</label>
                             <select class="form-select" aria-label="Default select example" name="agencyStart">
-                                <option selected disabled>Nos agences</option>
+                                <option selected disabled hidden>Nos agences</option>
                                 <option value=""><?= htmlspecialchars($agency->name) ?></option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="agency">Retour</label>
                             <select class="form-select" aria-label="Default select example" name="agencyReturn">
-                                <option selected disabled>Nos agences</option>
+                                <option selected disabled hidden>Nos agences</option>
                                 <option value=""><?= htmlspecialchars($agency->name) ?></option>
                             </select>
                         </div>
@@ -114,12 +114,13 @@
                         <input class="form-control" type="date">
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit"><a href="">Voir les véhicules</a></button>
+                        <button class="btn btn-lg btn-outline-secondary homePageBtn mt-4" type="submit"><a href="">Voir les véhicules</a></button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
     <div class="homePageH1H2">
         <h1 class="homePageH1">Louez une voiture <br> en toute simplicité</h1>
         <h2 class="homePageH2">Trouvez la voiture idéale pour votre prochain voyage</h2>
@@ -138,6 +139,30 @@
             <p><strong>Service client 24h/24 et 7j/7 <br> pour votre satisfaction</strong></p>
         </div>
     </div>
+    <div class="container">
+        <div id="vehicleCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <?php if (!empty($images)) : ?>
+                    <?php $isActive = true; ?>
+                    <?php foreach ($images as $image) : ?>
+                        <div class="carousel-item <?= $isActive ? 'active' : '' ?>">
+                            <img src="<?= $image->image ?>" class="d-block w-100" alt="Vehicle Image">
+                        </div>
+                        <?php $isActive = false; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <a class="carousel-control-prev" href="#vehicleCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#vehicleCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
     <footer>
         <div class=" divFooter">
             <div class="divFooter2">
@@ -150,8 +175,11 @@
             </div>
         </div>
     </footer>
-
     <script src="../script.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
 </body>
 
 </html>
