@@ -1,10 +1,3 @@
-<?php
-include "../include.php";
-require_once "../Model/Repository/AgencyRepository.php";
-$agencyRepository = new AgencyRepository();
-$agencys = $agencyRepository->getAll();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -26,7 +19,7 @@ $agencys = $agencyRepository->getAll();
                     </div>
                     <div class="container divHomepage3">
                         <a id="reservationLink" class="nav-link underline-animation" href="#"><i class="fa-solid fa-car"></i> <strong>Gérer mes réservations</strong></a>
-                        <a class="nav-link underline-animation" href="/Template/vehicleAvailable.html.php"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
+                        <a class="nav-link underline-animation" href="index.php?page=vehicleAvailable"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
                         <a id="connexionLink" class="nav-link underline-animation" href="#"><i class="bi bi-person-fill"></i> <strong>Connexion | Inscription</strong></a>
                     </div>
                 </nav>
@@ -92,10 +85,10 @@ $agencys = $agencyRepository->getAll();
             </div>
         </div>
 
-        <div class="container">
+        <div class="container homePageCardGen">
             <div class="card p-5 homePageCard">
                 <form class="formHomePage" action="vehicleAvailable.html.php" method="POST">
-                    <?php foreach ($agencys as $agency) : ?>
+                    <?php foreach ($agencies as $agency) : ?>
                         <div class="mb-3">
                             <label class="form-label
                         <label class=" form-label" for="agencyStart">Prise en charge</label>
