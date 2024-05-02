@@ -92,7 +92,7 @@ $agencys = $agencyRepository->getAll();
             </div>
         </div>
 
-        <div class="container">
+        <div class="container homePageCardGen">
             <div class="card p-5 homePageCard">
                 <form class="formHomePage" action="vehicleAvailable.html.php" method="POST">
                     <?php foreach ($agencys as $agency) : ?>
