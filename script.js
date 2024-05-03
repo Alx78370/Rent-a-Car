@@ -32,16 +32,18 @@ function applyZoomOutAndClose(modalId) {
     }, { once: true });
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    const startDateInput = document.getElementById('start_Date'); // accès à l'élément de date de départ
+    const endDateInput = document.getElementById('end_Date'); // accès à l'élément de date de retour
 
-function updateReturnDateMin() {
-    const startDateInput = document.getElementById("start_Date");
-    const returnDateInput = document.getElementById("end_Date");
+    startDateInput.addEventListener('change', function() {
+        const startDate = new Date(this.value); // obtention de la date de départ
+        const endDate = new Date(startDate); // copie de la date de départ pour calculer la date de fin
+        endDate.setFullYear(startDate.getFullYear() + 1); // ajout d'un an à la date de départ
 
-    // Met à jour la date minimale de l'input Date de retour
-    returnDateInput.min = startDateInput.value;
-    
-    // Vérifie si la date de retour actuelle est invalide par rapport à la date minimale
-    if (returnDateInput.value < startDateInput.value) {
-        returnDateInput.value = startDateInput.value;
-    }
-}
+        // mise à jour des attributs min et max de la date de retour
+        endDateInput.min = this.value; // la date min est la date de départ
+        endDateInput.max = endDate.toISOString().split('T')[0]; // formatage et mise à jour de la date max
+    });
+});
+
