@@ -92,45 +92,25 @@
                         <div class="mb-3">
                         <label class=" form-label" for="agencyStart">Prise en charge</label>
                             <select class="form-select" aria-label="Default select example" name="agencyStart">
-<<<<<<< HEAD
-                                <option disabled>Nos agences</option>
-                                <option selected value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
-=======
                                 <option selected disabled hidden>Nos agences</option>
                                 <option value=""><?= htmlspecialchars($agency->name) ?></option>
->>>>>>> 2f9260f89699d3f272d99abe34fb4d361586cf76
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="agency">Retour</label>
-<<<<<<< HEAD
-                            <select class="form-select" aria-label="Default select example" name="agencyReturn" required>
-                                <option selected disabled>Nos agences</option>
-                                <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
-=======
                             <select class="form-select" aria-label="Default select example" name="agencyReturn">
                                 <option selected disabled hidden>Nos agences</option>
                                 <option value=""><?= htmlspecialchars($agency->name) ?></option>
->>>>>>> 2f9260f89699d3f272d99abe34fb4d361586cf76
                             </select>
                         </div>
                     <?php endforeach; ?>
                     <div class="mb-3">
-<<<<<<< HEAD
-                        <label class="form-label" for="">Date de départ</label>
-                        <input class="form-control" type="date" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="">Date de retour</label>
-                        <input class="form-control" type="date" required>
-=======
                         <label class="form-label" for="start_Date">Date de départ</label>
-                        <input class="form-control" type="date" id="start_Date" name="start_Date" min="03/05/2024" max="03/05/2025">
+                        <input class="form-control" type="date" id="start_Date" name="start_Date" min="<?= $date ?>" max="2025-05-03">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="end_Date">Date de retour</label>
                         <input class="form-control" type="date" id="end_Date" name="end_Date">
->>>>>>> 2f9260f89699d3f272d99abe34fb4d361586cf76
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit">Voir les véhicules</button>
@@ -143,6 +123,7 @@
     <div class="homePageH1H2">
         <h1 class="homePageH1">Louez une voiture <br> en toute simplicité</h1>
         <h2 class="homePageH2">Trouvez la voiture idéale pour votre prochain voyage</h2>
+
     </div>
     <div class="container divHomePage4">
         <div class="card divHomePageCard4">

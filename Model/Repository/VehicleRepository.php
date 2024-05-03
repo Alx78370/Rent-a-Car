@@ -17,4 +17,9 @@ class VehicleRepository extends EntityRepository
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
+    public function getCurrentDate(): string
+    {
+        $date = new DateTime();
+        return $date->format('Y-m-d');
+    }
 }
