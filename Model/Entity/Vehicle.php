@@ -14,6 +14,7 @@ class Vehicle
     private int $passenger_Nb;
     private string $energy_Type;
     private int $agency_Id;
+    private int $availability;
 
    
 
@@ -135,6 +136,16 @@ class Vehicle
     public function setAgency_Id(int $agency_Id) : void
     {
         $this->agency_Id = $agency_Id;
+    }
+
+    public function getAvailability() : int
+    {
+        return $this->availability;
+    }
+
+    public function setAvailability(int $availability) : void
+    {
+        $this->availability = $availability;
     }
 }
 
