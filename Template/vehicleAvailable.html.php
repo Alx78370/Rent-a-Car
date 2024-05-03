@@ -49,9 +49,9 @@
         </div>
     </div>
     <div class="vehiclePage3">
-        <div class="row row-cols-3">
+        <div class="row">
             <?php foreach ($vehiclesAvailable as $vehicleAvailable) : ?>
-                <div class="row">
+                <div class="col-md-4 mb-4">
                     <div class="card">
                         <a href="">
                             <h5><?= htmlspecialchars($vehicleAvailable->brand) . ' ' . htmlspecialchars($vehicleAvailable->model) ?></h5>

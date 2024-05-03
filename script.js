@@ -31,3 +31,17 @@ function applyZoomOutAndClose(modalId) {
         modalInstance.hide(); // Ferme le modal une fois l'animation terminée
     }, { once: true });
 }
+
+
+function updateReturnDateMin() {
+    const startDateInput = document.getElementById("start_Date");
+    const returnDateInput = document.getElementById("end_Date");
+
+    // Met à jour la date minimale de l'input Date de retour
+    returnDateInput.min = startDateInput.value;
+    
+    // Vérifie si la date de retour actuelle est invalide par rapport à la date minimale
+    if (returnDateInput.value < startDateInput.value) {
+        returnDateInput.value = startDateInput.value;
+    }
+}

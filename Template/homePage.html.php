@@ -90,7 +90,7 @@
                 <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
                     <?php foreach ($agencies as $agency) : ?>
                         <div class="mb-3">
-                        <label class=" form-label" for="agencyStart">Prise en charge</label>
+                            <label class=" form-label" for="agencyStart">Prise en charge</label>
                             <select class="form-select" aria-label="Default select example" name="agencyStart">
                                 <option selected disabled hidden>Nos agences</option>
                                 <option value=""><?= htmlspecialchars($agency->name) ?></option>
