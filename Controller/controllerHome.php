@@ -20,10 +20,8 @@ class homeController
     {
         $agencies = $this->agencyRepo->getAll();  // Récupérer toutes les agences
         $images = $this->vehicleRepo->getAll(); // cette méthode renvoie toutes les données de véhicules
+        $date = $this->vehicleRepo->getCurrentDate();  // Récupérer la date actuelle
         require_once __DIR__ . '/../Template/homePage.html.php';
     }
-    public function showCurrentDate()
-    {
-        $currentDate = $this->entityRepo->getCurrentDate();  // Récupérer la date actuelle
-    }
+    
 }

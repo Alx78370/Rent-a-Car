@@ -90,7 +90,6 @@
                 <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
                     <?php foreach ($agencies as $agency) : ?>
                         <div class="mb-3">
-                            <label class="form-label
                         <label class=" form-label" for="agencyStart">Prise en charge</label>
                             <select class="form-select" aria-label="Default select example" name="agencyStart">
                                 <option selected disabled hidden>Nos agences</option>
@@ -107,7 +106,7 @@
                     <?php endforeach; ?>
                     <div class="mb-3">
                         <label class="form-label" for="start_Date">Date de départ</label>
-                        <input class="form-control" type="date" id="start_Date" name="start_Date" value="<?= $currentDate ?>" min="<?= $currentDate ?>" max="2025-05-03">
+                        <input class="form-control" type="date" id="start_Date" name="start_Date" min="<?= $date ?>" max="2025-05-03">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="end_Date">Date de retour</label>
@@ -124,6 +123,7 @@
     <div class="homePageH1H2">
         <h1 class="homePageH1">Louez une voiture <br> en toute simplicité</h1>
         <h2 class="homePageH2">Trouvez la voiture idéale pour votre prochain voyage</h2>
+
     </div>
     <div class="container divHomePage4">
         <div class="card divHomePageCard4">

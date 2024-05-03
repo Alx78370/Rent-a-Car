@@ -10,7 +10,6 @@ require_once './Controller/controllerHome.php';
 $routes = [
     'home' => function () {
         $controller = new homeController();
-        $controller->showCurrentDate();
         $controller->showHomePage();
     },
     'vehicleAvailable' => function () {
