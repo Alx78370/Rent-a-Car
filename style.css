@@ -143,6 +143,10 @@
     width: 100%;
 }
 
+#vehicleCarousel {
+    margin-top: -280px;  
+}
+
 /* vehicle page */
 
 .vehiclePage1 {
@@ -301,6 +305,7 @@
 .modal-zoom-out {
     animation: zoomOut 0.3s;
 }
+
 
 
 
