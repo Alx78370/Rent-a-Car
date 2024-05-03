@@ -107,7 +107,7 @@
                     <?php endforeach; ?>
                     <div class="mb-3">
                         <label class="form-label" for="start_Date">Date de départ</label>
-                        <input class="form-control" type="date" id="start_Date" name="start_Date">
+                        <input class="form-control" type="date" id="start_Date" name="start_Date" min="03/05/2024" max="03/05/2025">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="end_Date">Date de retour</label>

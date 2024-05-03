@@ -20,4 +20,9 @@ class homeController
         $images = $this->vehicleRepo->getAll(); // cette méthode renvoie toutes les données de véhicules
         require_once __DIR__ . '/../Template/homePage.html.php';
     }
+    public function showCurrentDate()
+    {
+        $date = $this->getCurrentDate();  // Récupérer la date actuelle
+        require_once __DIR__ . '/../Template/homePage.html.php';
+    }
 }
