@@ -8,6 +8,7 @@
 <body>
     <div class="expDiv">879 ans d'expertise</div>
     <div class="divBigHomePage1">
+
         <header>
             <div class="container divHomepage1">
                 <nav class="navbar navbar-expand-lg">
@@ -118,6 +119,7 @@
                 </form>
             </div>
         </div>
+
     </div>
 
     <div class="homePageH1H2">
