@@ -2,11 +2,13 @@
 
 require_once __DIR__ . '../../Model/Repository/AgencyRepository.php';
 require_once __DIR__ . '../../Model/Repository/VehicleRepository.php';
+require_once __DIR__ . '../../Model/Repository/EntityRepository.php';
 
 class homeController
 {
     private $agencyRepo;
     private $vehicleRepo;
+    private $entityRepo;
 
     public function __construct()
     {
@@ -22,7 +24,6 @@ class homeController
     }
     public function showCurrentDate()
     {
-        $date = $this->getCurrentDate();  // Récupérer la date actuelle
-        require_once __DIR__ . '/../Template/homePage.html.php';
+        $currentDate = $this->entityRepo->getCurrentDate();  // Récupérer la date actuelle
     }
 }
