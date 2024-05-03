@@ -189,13 +189,9 @@
     margin-right: 5px;
 }
 .vehiclePage3 {
-    margin-left: 11%;
-    margin-right: 11%;
-    margin-top: 2%;
-}
-.vehiclePage3 .row {
-    justify-content: space-between;
-    margin-bottom: 3%;
+    margin-left: 10% !important;
+    margin-right: 10%!important;
+    margin-top: 2% !important;
 }
 .vehiclePage3 .card {
     background: rgb(159,173,180);
