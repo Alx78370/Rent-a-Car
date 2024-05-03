@@ -25,20 +25,28 @@ abstract class EntityRepository
         return $table;
     }
 
+    /**
+     * @return PDO
+     */
+
     public function getPdo()
     {
         return $this->pdo;
     }
 
     /**
-     * @return array exemple : [0 => Agency {id : 1, agencyName : AgenceDuNord, address : '23 rue du clodo', phone : 0669696969}]   
+     * @return string exemple : "2021-06-01"
      */
 
     public function getCurrentDate(): string
     {
-        $date = new DateTime();
-        return $date->format('Y-m-d');
+        $currentDate = new DateTime();
+        return $currentDate->format('Y-m-d');
     }
+
+    /**
+     * @return array exemple : [0 => Agency {id : 1, agencyName : AgenceDuNord, address : '23 rue du clodo', phone : 0669696969}]   
+     */
 
     public function getAll(): array
     {
