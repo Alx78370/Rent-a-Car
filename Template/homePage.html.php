@@ -92,21 +92,21 @@
                     <div class="mb-3">
                         <label class=" form-label" for="agencyStart">Prise en charge</label>
                         <select class="form-select" aria-label="Default select example" name="agencyStart">
-                                <?php foreach ($agencies as $agency) : ?>
-                                <option selected disabled hidden>Nos agences</option>
-                                <option value=""><?= htmlspecialchars($agency->name) ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="agency">Retour</label>
-                            <select class="form-select" aria-label="Default select example" name="agencyReturn">
                             <?php foreach ($agencies as $agency) : ?>
                                 <option selected disabled hidden>Nos agences</option>
-                                <option value=""><?= htmlspecialchars($agency->name) ?></option>
+                                <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
                             <?php endforeach; ?>
-                            </select>
-                        </div>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="agency">Retour</label>
+                        <select class="form-select" aria-label="Default select example" name="agencyReturn">
+                            <?php foreach ($agencies as $agency) : ?>
+                                <option selected disabled hidden>Nos agences</option>
+                                <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                     <div class="mb-3">
                         <label class="form-label" for="start_Date">Date de départ</label>
                         <input class="form-control" type="date" id="start_Date" name="start_Date" min="<?= $date ?>" max="2025-05-03">
