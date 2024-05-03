@@ -11,6 +11,7 @@ $routes = [
     'home' => function () {
         $controller = new homeController();
         $controller->showHomePage();
+        $controller->showCurrentDate();
     },
     'vehicleAvailable' => function () {
         // Si les données du formulaire sont bien remplies
