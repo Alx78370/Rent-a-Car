@@ -14,6 +14,7 @@ class VehicleRepository extends EntityRepository
         $statement = $this->pdo->prepare("SELECT * 
         FROM vehicle 
         WHERE availability = 1 
+        AND agency_Id = :agencyStart
         AND id NOT IN (
             SELECT vehicle_Id 
             FROM reservation 
@@ -25,6 +26,7 @@ class VehicleRepository extends EntityRepository
             ) AND client_Id IS NOT NULL
         );
         ");
+        $statement->bindParam(":agencyStart", $_POST['agencyStart'], PDO::PARAM_INT);
         $statement->bindParam(":start_Date", $_POST['start_Date'], PDO::PARAM_STR);
         $statement->bindParam(":end_Date", $_POST['end_Date'], PDO::PARAM_STR);
         $statement->execute();

@@ -28,7 +28,7 @@ CREATE TABLE `agency` (
   `address` varchar(255) NOT NULL,
   `phone` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `agency` (
 
 LOCK TABLES `agency` WRITE;
 /*!40000 ALTER TABLE `agency` DISABLE KEYS */;
-INSERT INTO `agency` VALUES (1,'Sext Paris','23 rue du Paradis 75010 Paris','0606060606');
+INSERT INTO `agency` VALUES (1,'Sext Paris','23 rue du Paradis 75010 Paris','0606060606'),(2,'Sext Marseille','45 avenue de l\'avenue 13010 Marseille','0607080910'),(3,'Sext Lille','56 rue de la soif 59000 Lille','0605040302');
 /*!40000 ALTER TABLE `agency` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +140,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (1,'fiat','500',2005,25.09,3,'../image/imageVehicle/Fiat_500.png','Berline','Manuelle',4,'Essence',1,1),(2,'Volkswagen','Polo',2010,28.59,5,'../image/imageVehicle/VW_Polo.png','Berline','Manuelle',5,'Essence',1,1),(3,'Bmw','X1',2017,60.34,5,'../image/imageVehicle/Bmw_X1.png','SUV','Automatique',5,'Essence',1,1),(4,'Peugeot','3008',2019,36.15,5,'../image/imageVehicle/Peugeot_3008.png','Berline','Automatique',5,'Hybride',1,1),(5,'Volvo','EX30',2019,30.50,5,'../Image/imageVehicle/Volvo_EX30.png','Berline','Automatique',5,'Electrique',1,1),(6,'Bmw','Série 1',2020,51.78,5,'../image/imageVehicle/Bmw_Série_1.png','Berline','Automatique',5,'Essence',1,1);
+INSERT INTO `vehicle` VALUES (1,'fiat','500',2005,25.09,3,'../image/imageVehicle/Fiat_500.png','Berline','Manuelle',4,'Essence',1,1),(2,'Volkswagen','Polo',2010,28.59,5,'../image/imageVehicle/VW_Polo.png','Berline','Manuelle',5,'Essence',1,1),(3,'Bmw','X1',2017,60.34,5,'../image/imageVehicle/Bmw_X1.png','SUV','Automatique',5,'Essence',3,1),(4,'Peugeot','3008',2019,36.15,5,'../image/imageVehicle/Peugeot_3008.png','Berline','Automatique',5,'Hybride',1,1),(5,'Volvo','EX30',2019,30.50,5,'../Image/imageVehicle/Volvo_EX30.png','Berline','Automatique',5,'Electrique',2,1),(6,'Bmw','Série 1',2020,51.78,5,'../image/imageVehicle/Bmw_Série_1.png','Berline','Automatique',5,'Essence',3,1);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -153,4 +153,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-03 11:19:51
+-- Dump completed on 2024-05-03 15:28:21
