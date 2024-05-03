@@ -59,17 +59,21 @@ function loadVehicleDetails(vehicle) {
     modalBody.innerHTML = `
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-img colDetails">
+                    <h3>${vehicle.brand} ${vehicle.model}</h3>
+                    <p class="vehicleType">${vehicle.type} | ${vehicle.energy_type}</p>
                     <img src="${vehicle.image}" class="img-fluid" alt="Image de ${vehicle.brand} ${vehicle.model}">
+                    <div class="infoVehicle">
+                        <p><i class="bi bi-person-fill"></i> ${vehicle.passenger_Nb} sièges</p>
+                        <p><img class="iconGear" src="../Image/icon_gearbox.png" alt="">${vehicle.gear}</p>
+                        <p><i class="bi bi-calendar2-check"></i> ${vehicle.year}</p>
+                        <p><img class="iconGear" src="../Image/icon_door.png" alt="">${vehicle.door_nb} portes</p>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <p><strong>Marque:</strong> ${vehicle.brand}</p>
-                    <p><strong>Modèle:</strong> ${vehicle.model}</p>
-                    <p><strong>Type:</strong> ${vehicle.type}</p>
-                    <p><strong>Énergie:</strong> ${vehicle.energy_type}</p>
-                    <p><strong>Nombre de passagers:</strong> ${vehicle.passenger_Nb}</p>
-                    <p><strong>Boîte de vitesses:</strong> ${vehicle.gear}</p>
-                    <p><strong>Tarif journalier:</strong> ${vehicle.daily_Rate}€</p>
+                <div class="col-md-6 colDetails">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <p>${vehicle.daily_Rate}€ / jour</p>
+                <a href="" class="btn btn-primary btn-suivant">Suivant</a>
                 </div>
             </div>
         </div>

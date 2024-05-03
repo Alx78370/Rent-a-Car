@@ -302,6 +302,48 @@
 }
 
 
+/* Modal vehicle details */
 
-
-
+.modal-header {
+    display: none !important;
+}
+.modal-footer {
+    display: none !important;
+}
+.modal-dialog {
+    max-width: 60%!important;
+}
+.modal-body {
+    padding: 0 !important;
+}
+.colDetails {
+    padding: 20px !important;
+}
+.btn-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.btn-suivant {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #FF5F00 !important;
+    color: white !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border: none !important;
+}
+.col-img {
+    border-top-left-radius: 0.5rem !important;
+    border-bottom-left-radius: 0.5rem !important;
+    color: white;
+    background: rgb(159,173,180);
+    background: radial-gradient(circle, rgba(159,173,180,1) 23%, rgba(52,63,66,1) 70%, rgba(21,25,28,1) 90%);
+}
+.infoVehicle {
+    display: flex;
+    justify-content: space-between;
+}
