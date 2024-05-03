@@ -7,7 +7,7 @@ class Reservation {
     private DateTime $start_Date;
     private DateTime $end_Date;
     private float $total_Price;
-    private string $status;       
+    private string $reservation_Nb;       
 
 
     public function getId() : int
@@ -70,14 +70,14 @@ class Reservation {
         $this->total_Price = $total_Price;
     }
 
-    public function getStatus() : string
+    public function getReservation_Nb() : string
     {
-        return $this->status;
+        return $this->reservation_Nb;
     }
 
-    public function setStatus(string $status) : void
+    public function setReservation_Nb(string $reservation_Nb) : void
     {
-        $this->status = $status;
+        $this->reservation_Nb = $reservation_Nb;
     }
 }
 ?>
