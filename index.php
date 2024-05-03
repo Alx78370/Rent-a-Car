@@ -1,5 +1,6 @@
-<?php 
-
+<?php
+// Est le routeur, permet d'appeler suivant le besoin d'afficher la page néccessaire 
+// Exemple d'inclusion dans index.php pour des configurations globales
 require_once "include.php";
 
 require_once './Controller/controllerVehicle.php';
@@ -7,13 +8,19 @@ require_once './Controller/controllerHome.php';
 
 // Définition des routes
 $routes = [
-    'vehicleAvailable' => function() {
-        $controller = new VehicleController();
-        $controller->showVehicles();
-    },
-    'home' => function() {
+    'home' => function () {
         $controller = new homeController();
         $controller->showHomePage();
+        $controller->showCurrentDate();
+    },
+    'vehicleAvailable' => function () {
+        // Si les données du formulaire sont bien remplies
+        if (isset($_POST['start_Date']) && isset($_POST['end_Date'])) {
+            $controller = new VehicleController();
+            $controller->showVehicleAvailable();
+        } else {
+            echo '404 Page Not Found';
+        }
     }
 ];
 

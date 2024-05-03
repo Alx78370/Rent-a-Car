@@ -143,6 +143,10 @@
     width: 100%;
 }
 
+#vehicleCarousel {
+    margin-top: -280px;  
+}
+
 /* vehicle page */
 
 .vehiclePage1 {
@@ -237,9 +241,12 @@
     padding-right: 10px !important;
     position: absolute !important;
     top: 15px !important;
-    right: 15px !important;
-    
-
+    right: 15px !important;  
+}
+.iconElec {
+    width: 12px;
+    margin-bottom: 2px;
+    margin-right: 5px;
 }
 .vehiclePriceDay {
     font-size: larger;
@@ -298,6 +305,7 @@
 .modal-zoom-out {
     animation: zoomOut 0.3s;
 }
+
 
 
 

@@ -34,6 +34,11 @@ abstract class EntityRepository
      * @return array exemple : [0 => Agency {id : 1, agencyName : AgenceDuNord, address : '23 rue du clodo', phone : 0669696969}]   
      */
 
+    public function getCurrentDate(): string
+    {
+        $date = new DateTime();
+        return $date->format('Y-m-d');
+    }
 
     public function getAll(): array
     {
