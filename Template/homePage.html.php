@@ -107,7 +107,7 @@
                     <?php endforeach; ?>
                     <div class="mb-3">
                         <label class="form-label" for="start_Date">Date de départ</label>
-                        <input class="form-control" type="date" id="start_Date" name="start_Date" min="03/05/2024" max="03/05/2025">
+                        <input class="form-control" type="date" id="start_Date" name="start_Date" value="<?= $currentDate ?>" min="<?= $currentDate ?>" max="2025-05-03">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="end_Date">Date de retour</label>
@@ -179,7 +179,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-   
+
 </body>
 
 </html>

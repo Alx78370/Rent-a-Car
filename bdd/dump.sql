@@ -42,33 +42,6 @@ INSERT INTO `agency` VALUES (1,'Sext Paris','23 rue du Paradis 75010 Paris','060
 UNLOCK TABLES;
 
 --
--- Table structure for table `availability`
---
-
-DROP TABLE IF EXISTS `availability`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `availability` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `vehicle_Id` int NOT NULL,
-  `availability_Date` date NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `Vehicle_id` (`vehicle_Id`),
-  CONSTRAINT `availability_ibfk_1` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `availability`
---
-
-LOCK TABLES `availability` WRITE;
-/*!40000 ALTER TABLE `availability` DISABLE KEYS */;
-INSERT INTO `availability` VALUES (1,1,'2024-05-02'),(2,1,'2024-05-03'),(3,2,'2024-05-04'),(4,3,'2024-05-05'),(5,3,'2024-05-06'),(6,3,'2024-05-07'),(7,4,'2024-05-08'),(8,5,'2024-05-09'),(9,6,'2024-05-10');
-/*!40000 ALTER TABLE `availability` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `client`
 --
 
@@ -114,7 +87,9 @@ CREATE TABLE `reservation` (
   `start_Date` date NOT NULL,
   `end_Date` date NOT NULL,
   `total_Price` decimal(10,2) NOT NULL,
+  `reservation_Nb` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `reservation_Nb` (`reservation_Nb`),
   KEY `client_Id` (`client_Id`),
   KEY `vehicle_Id` (`vehicle_Id`),
   CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`client_Id`) REFERENCES `client` (`id`),
@@ -128,7 +103,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-INSERT INTO `reservation` VALUES (1,1,5,'2024-05-09','2024-05-09',30.50);
+INSERT INTO `reservation` VALUES (1,1,5,'2024-05-09','2024-05-09',30.50,'');
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,6 +127,7 @@ CREATE TABLE `vehicle` (
   `passenger_Nb` int NOT NULL,
   `energy_type` varchar(45) NOT NULL,
   `agency_Id` int NOT NULL,
+  `availability` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `agency_Id` (`agency_Id`),
   CONSTRAINT `vehicle_ibfk_1` FOREIGN KEY (`agency_Id`) REFERENCES `agency` (`id`)
@@ -164,7 +140,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (1,'fiat','500',2005,25.09,3,'../image/imageVehicle/Fiat_500.png','Berline','Manuelle',4,'Essence',1),(2,'Volkswagen','Polo',2010,28.59,5,'../image/imageVehicle/VW_Polo.png','Berline','Manuelle',5,'Essence',1),(3,'Bmw','X1',2017,60.34,5,'../image/imageVehicle/Bmw_X1.png','SUV','Automatique',5,'Essence',1),(4,'Peugeot','3008',2019,36.15,5,'../image/imageVehicle/Peugeot_3008.png','Berline','Automatique',5,'Hybride',1),(5,'Volvo','EX30',2019,30.50,5,'../Image/imageVehicle/Volvo_EX30.png','Berline','Automatique',5,'Electrique',1),(6,'Bmw','Série 1',2020,51.78,5,'../image/imageVehicle/Bmw_Série_1.png','Berline','Automatique',5,'Essence',1);
+INSERT INTO `vehicle` VALUES (1,'fiat','500',2005,25.09,3,'../image/imageVehicle/Fiat_500.png','Berline','Manuelle',4,'Essence',1,1),(2,'Volkswagen','Polo',2010,28.59,5,'../image/imageVehicle/VW_Polo.png','Berline','Manuelle',5,'Essence',1,1),(3,'Bmw','X1',2017,60.34,5,'../image/imageVehicle/Bmw_X1.png','SUV','Automatique',5,'Essence',1,1),(4,'Peugeot','3008',2019,36.15,5,'../image/imageVehicle/Peugeot_3008.png','Berline','Automatique',5,'Hybride',1,1),(5,'Volvo','EX30',2019,30.50,5,'../Image/imageVehicle/Volvo_EX30.png','Berline','Automatique',5,'Electrique',1,1),(6,'Bmw','Série 1',2020,51.78,5,'../image/imageVehicle/Bmw_Série_1.png','Berline','Automatique',5,'Essence',1,1);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -177,4 +153,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-02 18:27:24
+-- Dump completed on 2024-05-03 11:19:51
