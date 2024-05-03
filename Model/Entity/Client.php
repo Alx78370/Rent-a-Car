@@ -8,6 +8,7 @@ class Client {
     private string $email;
     private string $phone;
     private string $address;
+    private string $password;
 
     public function getId() : int
     {
@@ -67,6 +68,16 @@ class Client {
     public function setAddress(string $address) : void
     {
         $this->address = $address;
+    }
+
+    public function getPassword() : string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password) : void
+    {
+        $this->password = $password;
     }
 }
 
