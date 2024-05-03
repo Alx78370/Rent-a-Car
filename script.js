@@ -31,3 +31,19 @@ function applyZoomOutAndClose(modalId) {
         modalInstance.hide(); // Ferme le modal une fois l'animation terminée
     }, { once: true });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const startDateInput = document.getElementById('start_Date'); // accès à l'élément de date de départ
+    const endDateInput = document.getElementById('end_Date'); // accès à l'élément de date de retour
+
+    startDateInput.addEventListener('change', function() {
+        const startDate = new Date(this.value); // obtention de la date de départ
+        const endDate = new Date(startDate); // copie de la date de départ pour calculer la date de fin
+        endDate.setFullYear(startDate.getFullYear() + 1); // ajout d'un an à la date de départ
+
+        // mise à jour des attributs min et max de la date de retour
+        endDateInput.min = this.value; // la date min est la date de départ
+        endDateInput.max = endDate.toISOString().split('T')[0]; // formatage et mise à jour de la date max
+    });
+});
+
