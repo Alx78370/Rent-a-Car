@@ -144,7 +144,8 @@
 }
 
 #vehicleCarousel {
-    margin-top: -280px;  
+    margin-top: -250px; 
+    z-index:-1; 
 }
 
 /* vehicle page */
