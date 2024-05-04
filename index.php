@@ -25,6 +25,7 @@ $routes = [
     'reservationDetails' => function ()  {
         $controller = new ReservationController();
         $controller->showReservationDetails();
+        
     }
 ];
 

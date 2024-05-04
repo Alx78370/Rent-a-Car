@@ -21,16 +21,6 @@ reservationLink.onclick = function() {
     reservationModal.show();
 }
 
-function applyZoomOutAndClose(modalId) {
-    const modalElement = document.getElementById(modalId);
-    const modalInstance = bootstrap.Modal.getInstance(modalElement); // Récupère l'instance du modal
-    const modalDialog = modalElement.querySelector('.modal-dialog');
-
-    modalDialog.classList.add('modal-zoom-out');
-    modalDialog.addEventListener('animationend', function() {
-        modalInstance.hide(); // Ferme le modal une fois l'animation terminée
-    }, { once: true });
-}
 
 document.addEventListener("DOMContentLoaded", function() {
     const startDateInput = document.getElementById('start_Date'); // accès à l'élément de date de départ
@@ -47,3 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+$(document).ready(function(){
+    $('#vehicleCarousel').carousel();
+});

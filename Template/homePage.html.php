@@ -68,24 +68,25 @@
                     </div>
                     <div class="modal-body d-flex flex-column align-items-center homePageReservation">
                         <p class="card-text fs-5">Modifiez votre réservation comme vous le souhaitez, rapidement et facilement.</p>
-                        <form class="w-75">
+                        <form class="w-75" action="index.php?page=reservationDetails" method="POST">
                             <div class="mb-3">
                                 <label for="reservationNumber" class="form-label fs-5">Numéro de réservation</label>
-                                <input type="text" class="form-control fs-5" id="reservationNumber" placeholder="Entrez votre numéro de réservation">
+                                <input type="text" class="form-control fs-5" id="reservationNumber" name="reservationNumber" placeholder="Entrez votre numéro de réservation" required>
                             </div>
                             <div class="mb-3">
                                 <label for="emailAddress" class="form-label fs-5">Adresse e-mail</label>
-                                <input type="email" class="form-control fs-5" id="emailAddress" placeholder="Entrez votre adresse e-mail">
+                                <input type="email" class="form-control fs-5" id="emailAddress" name="emailAddress" placeholder="Entrez votre adresse e-mail" required>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-outline-secondary fs-5">Suivant</button>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
-
+        
         <div class="container homePageCardGen">
             <div class="card p-5 homePageCard">
                 <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
@@ -143,6 +144,8 @@
             <p><strong>Service client 24h/24 et 7j/7 <br> pour votre satisfaction</strong></p>
         </div>
     </div>
+
+
     <div class="container">
         <div id="vehicleCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
