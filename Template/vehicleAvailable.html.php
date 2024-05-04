@@ -7,6 +7,25 @@
     <div class="vehiclePage1">
         <h1>QUEL VÉHICULE SOUHAITEZ-VOUS CONDUIRE ?</h1>
     </div>
+
+    <!-- Modal pour les détails du véhicule -->
+    <div class="modal fade" id="vehicleModal" tabindex="-1" aria-labelledby="vehicleModalLabel" aria-hidden="true">
+        <div class="modal-dialog vehicle modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header vehicle">
+                    <h5 class="modal-title" id="vehicleModalLabel">Détails du véhicule</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body vehicle">
+                    <!-- Le contenu du modal sera injecté ici via JavaScript -->
+                </div>
+                <div class="modal-footer vehicle">
+                    <a href="" class="btn btn-primary">Réserver ce véhicule</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="vehiclePage2">
         <div class="btn-group gap-3">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,7 +72,7 @@
             <?php foreach ($vehiclesAvailable as $vehicleAvailable) : ?>
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <a href="">
+                        <a href="#" onclick="loadVehicleDetails(<?= htmlspecialchars(json_encode($vehicleAvailable)) ?>)">
                             <h5><?= htmlspecialchars($vehicleAvailable->brand) . ' ' . htmlspecialchars($vehicleAvailable->model) ?></h5>
                             <?php if ($vehicleAvailable->energy_type == 'Electrique') { ?>
                                 <p class="vehicleType"><?= htmlspecialchars($vehicleAvailable->type) ?></p>
@@ -82,6 +101,9 @@
             <?php endforeach; ?>
         </div>
     </div>
+
+
+
 </body>
 
 </html>
