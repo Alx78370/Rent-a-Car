@@ -154,6 +154,16 @@
 .carousel-item {
     height: 570px;   
 }
+#vehicleCarousel .carousel-control-prev-icon,
+#vehicleCarousel .carousel-control-next-icon {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(93%) contrast(88%);
+}
+
+#vehicleCarousel .carousel-control-prev,
+#vehicleCarousel .carousel-control-next {
+    color: #000; /* Couleur du texte des contrôles pour une meilleure visibilité */
+}
+
 
 /* vehicle page */
 
@@ -273,7 +283,14 @@
 .homePageReservation button:hover {
     background-color: rgb(195, 108, 1); 
 }
+.modal-connexion .modal-dialog {
+    max-width: 50%; /* Ajustez la largeur selon vos préférences */
+}
 
+/* Styles spécifiques au modal de réservation */
+.modal-reservation .modal-dialog {
+    max-width: 50%; /* Ajustez la largeur selon vos préférences */
+}
 /* Modal zoom in */
 
 @keyframes zoomIn {
@@ -295,28 +312,39 @@
 
 .imageReservationDetail{
     margin-top: -60px; 
-    z-index:-1;  
-}
+    z-index:-1; 
+   }
 .reservationDetail{
     background-image: radial-gradient(circle, rgba(87,97,103,1) 0%, rgba(187,200,207,1) 0%, rgba(87,97,103,1) 54%, rgba(4,11,17,1) 85%, rgba(4,11,17,1) 100%);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
 }
-
+.info-group {
+    border: 1px solid black;
+    border-radius:10px 10px 0px 0px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.info-group2 {
+    border: 1px solid black;
+    border-radius:0px 0px 10px 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
 
 /* Modal vehicle details */
 
-.modal-header vehicle {
+.modal-vehicle .modal-header {
     display: none !important;
 }
-.modal-footer vehicle{
+.modal-vehicle .modal-footer {
     display: none !important;
 }
-.modal-dialog vehicle{
+.modal-vehicle .modal-dialog {
     max-width: 60%!important;
 }
-.modal-body vehicle{
+.modal-vehicle .modal-body {
     padding: 0 !important;
 }
 .colDetails {

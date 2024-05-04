@@ -28,11 +28,11 @@
         </header>
 
         <!-- Connexion Modal -->
-        <div id="connexionModal" class="modal" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
+        <div id="connexionModal" class="modal modal-connexion" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-zoom-in">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h5>
+                        <h3 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -42,11 +42,11 @@
                         <form>
                             <div class="mb-3">
                                 <label for="email" class="form-label visually-hidden">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                <input type="email" class="form-control fs-5" id="email" name="email" placeholder="Email" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label visually-hidden">Mot de passe</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
+                                <input type="password" class="form-control fs-5" id="password" name="password" placeholder="Mot de passe" required>
                             </div>
                             <button type="submit" class="btn btn-outline-secondary d-block mx-auto mb-3">Connexion</button>
                             <div class="text-center">
@@ -59,22 +59,23 @@
         </div>
 
         <!-- Reservation Modal -->
-        <div id="reservationModal" class="modal" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
+
+        <div id="reservationModal" class="modal modal-reservation" tabindex="-1" aria-labelledby="reservationModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-zoom-in">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="reservationModalLabel">Gérer votre réservation</h5>
+                        <h3 class="modal-title" id="reservationModalLabel">Gérer votre réservation</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex flex-column align-items-center homePageReservation">
                         <p class="card-text fs-5">Modifiez votre réservation comme vous le souhaitez, rapidement et facilement.</p>
                         <form class="w-75" action="index.php?page=reservationDetails" method="POST">
                             <div class="mb-3">
-                                <label for="reservationNumber" class="form-label fs-5">Numéro de réservation</label>
+                                <label for="reservationNumber" class="form-label fs-5"><strong>Numéro de réservation</strong></label>
                                 <input type="text" class="form-control fs-5" id="reservationNumber" name="reservationNumber" placeholder="Entrez votre numéro de réservation" required>
                             </div>
                             <div class="mb-3">
-                                <label for="emailAddress" class="form-label fs-5">Adresse e-mail</label>
+                                <label for="emailAddress" class="form-label fs-5"><strong>Adresse e-mail</strong></label>
                                 <input type="email" class="form-control fs-5" id="emailAddress" name="emailAddress" placeholder="Entrez votre adresse e-mail" required>
                             </div>
                             <div class="text-center">
@@ -86,42 +87,43 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="container homePageCardGen">
-            <div class="card p-5 homePageCard">
-                <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
-                    <div class="mb-3">
-                        <label class=" form-label" for="agencyStart">Prise en charge</label>
-                        <select class="form-select" aria-label="Default select example" name="agencyStart">
-                            <?php foreach ($agencies as $agency) : ?>
-                                <option selected disabled hidden>Nos agences</option>
-                                <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="agency">Retour</label>
-                        <select class="form-select" aria-label="Default select example" name="agencyReturn">
-                            <?php foreach ($agencies as $agency) : ?>
-                                <option selected disabled hidden>Nos agences</option>
-                                <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="start_Date">Date de départ</label>
-                        <input class="form-control" type="date" id="start_Date" name="start_Date" min="<?= $date ?>" max="2025-05-03">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="end_Date">Date de retour</label>
-                        <input class="form-control" type="date" id="end_Date" name="end_Date">
-                    </div>
-                    <div class="mb-3">
-                        <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit">Voir les véhicules</button>
-                    </div>
-                </form>
+    <div class="card p-5 homePageCard">
+        <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="agencyStart">Prise en charge</label>
+                <select class="form-select" aria-label="Default select example" name="agencyStart" required>
+                    <option value="" disabled selected hidden>Choisissez une agence</option>
+                    <?php foreach ($agencies as $agency) : ?>
+                        <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
-        </div>
+            <div class="mb-3">
+                <label class="form-label" for="agency">Retour</label>
+                <select class="form-select" aria-label="Default select example" name="agencyReturn" required>
+                    <option value="" disabled selected hidden>Choisissez une agence</option>
+                    <?php foreach ($agencies as $agency) : ?>
+                        <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="start_Date">Date de départ</label>
+                <input class="form-control" type="date" id="start_Date" name="start_Date" min="<?= $date ?>" max="2025-05-03" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="end_Date">Date de retour</label>
+                <input class="form-control" type="date" id="end_Date" name="end_Date" required>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit">Voir les véhicules</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 
     </div>
 
@@ -145,6 +147,7 @@
         </div>
     </div>
 
+    <!-- Caroussel -->
 
     <div class="container">
         <div id="vehicleCarousel" class="carousel slide" data-ride="carousel">

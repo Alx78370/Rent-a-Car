@@ -9,17 +9,17 @@
     </div>
 
     <!-- Modal pour les détails du véhicule -->
-    <div class="modal fade" id="vehicleModal" tabindex="-1" aria-labelledby="vehicleModalLabel" aria-hidden="true">
-        <div class="modal-dialog vehicle modal-dialog-centered">
+    <div class="modal fade modal-vehicle" id="vehicleModal" tabindex="-1" aria-labelledby="vehicleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header vehicle">
+                <div class="modal-header">
                     <h5 class="modal-title" id="vehicleModalLabel">Détails du véhicule</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body vehicle">
+                <div class="modal-body">
                     <!-- Le contenu du modal sera injecté ici via JavaScript -->
                 </div>
-                <div class="modal-footer vehicle">
+                <div class="modal-footer">
                     <a href="" class="btn btn-primary">Réserver ce véhicule</a>
                 </div>
             </div>
