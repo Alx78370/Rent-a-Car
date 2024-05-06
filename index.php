@@ -27,7 +27,11 @@ $routes = [
         $controller = new ReservationController();
         $controller->showReservationDetails();
         
-    }
+    },
+    'insurance' => function () {
+        $controller = new insuranceController();
+        $controller->showInsurances();
+    },
 ];
 
 $page = $_GET['page'] ?? 'home';
