@@ -42,6 +42,33 @@ INSERT INTO `agency` VALUES (1,'Sext Paris','23 rue du Paradis 75010 Paris','060
 UNLOCK TABLES;
 
 --
+-- Table structure for table `availability`
+--
+
+DROP TABLE IF EXISTS `availability`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `availability` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `vehicle_Id` int NOT NULL,
+  `availability_Date` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Vehicle_id` (`vehicle_Id`),
+  CONSTRAINT `availability_ibfk_1` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `availability`
+--
+
+LOCK TABLES `availability` WRITE;
+/*!40000 ALTER TABLE `availability` DISABLE KEYS */;
+INSERT INTO `availability` VALUES (1,1,'2024-05-02'),(2,1,'2024-05-03'),(3,2,'2024-05-04'),(4,3,'2024-05-05'),(5,3,'2024-05-06'),(6,3,'2024-05-07'),(7,4,'2024-05-08'),(8,5,'2024-05-09'),(9,6,'2024-05-10');
+/*!40000 ALTER TABLE `availability` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `client`
 --
 
@@ -55,6 +82,7 @@ CREATE TABLE `client` (
   `email` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
+  `password` varchar(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `email_2` (`email`),
@@ -69,8 +97,32 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (1,'Herlant','Killian','killian.herlant@gmail.com','0601275896','195 rue des pyrénées 75020 Paris');
+INSERT INTO `client` VALUES (1,'Herlant','Killian','killian.herlant@gmail.com','0601275896','195 rue des pyrénées 75020 Paris','');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `insurance`
+--
+
+DROP TABLE IF EXISTS `insurance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `insurance` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `insurance`
+--
+
+LOCK TABLES `insurance` WRITE;
+/*!40000 ALTER TABLE `insurance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `insurance` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -88,10 +140,13 @@ CREATE TABLE `reservation` (
   `end_Date` date NOT NULL,
   `total_Price` decimal(10,2) NOT NULL,
   `reservation_Nb` varchar(45) NOT NULL,
+  `insurance_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `reservation_Nb` (`reservation_Nb`),
   KEY `client_Id` (`client_Id`),
   KEY `vehicle_Id` (`vehicle_Id`),
+  KEY `fk_insurance` (`insurance_id`),
+  CONSTRAINT `fk_insurance` FOREIGN KEY (`insurance_id`) REFERENCES `insurance` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`client_Id`) REFERENCES `client` (`id`),
   CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -103,7 +158,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-INSERT INTO `reservation` VALUES (1,1,5,'2024-05-09','2024-05-09',30.50,'');
+INSERT INTO `reservation` VALUES (1,1,5,'2024-05-09','2024-05-09',30.50,'',NULL);
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-03 15:28:21
+-- Dump completed on 2024-05-06 11:47:02
