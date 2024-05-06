@@ -2,11 +2,11 @@
 const connexionLink = document.getElementById('connexionLink');
 const connexionModal = new bootstrap.Modal(document.getElementById('connexionModal'));
 
-connexionLink.onclick = function() {
+connexionLink.onclick = function () {
     connexionModal.show();
 }
 
-function redirectToGoogle() {  
+function redirectToGoogle() {
     window.location.href = 'URL_DE_CONNEXION_GOOGLE';
 }
 
@@ -14,17 +14,17 @@ function redirectToGoogle() {
 const reservationLink = document.getElementById('reservationLink');
 const reservationModal = new bootstrap.Modal(document.getElementById('reservationModal'));
 
-reservationLink.onclick = function() {
+reservationLink.onclick = function () {
     reservationModal.show();
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const startDateInput = document.getElementById('start_Date');
     const endDateInput = document.getElementById('end_Date');
 
     if (startDateInput && endDateInput) {
-        startDateInput.addEventListener('change', function() {
+        startDateInput.addEventListener('change', function () {
             const startDate = new Date(this.value);
             const endDate = new Date(startDate);
             endDate.setFullYear(startDate.getFullYear() + 1);
@@ -62,17 +62,63 @@ function loadVehicleDetails(vehicle) {
                 </div>
                 <div class="col-md-6 colDetails">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
+                <form action="index.php?page=reservation" method="post">
+                <h5>Options de paiement</h5>
+                    <div class="form-check vehicleDetailOption">
+                        <label form-check-label for="payement_Option1">Meilleur prix</label>
+                        <input class="form-check-input" type="radio" id="payement_Option1" name="payement_Option1" checked>
+                    </div>
+                    <div class="form-check">
+                        <label form-check-label for="payement_Option2">Restez flexible</label>
+                        <input class="form-check-input" type="radio" id="payement_Option2" name="payement_Option2" >
+                    </div>
+                <h5>Kilométrage</h5>
+                    <div class="form-check">
+                        <label form-check-label for="km_Limited">750 km</label>
+                        <input class="form-check-input" type="radio" id="km_Limited" name="km_Limited" checked>
+                    </div>
+                    <div class="form-check">
+                        <label form-check-label for="km_illimited">Illimité</label>
+                        <input class="form-check-input" type="radio"  id="km_illimited" name="km_illimited">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-suivant">Réserver</button>
+                </form>
                 <p>${vehicle.daily_Rate}€ / jour</p>
-                <a href="" class="btn btn-primary btn-suivant">Suivant</a>
                 </div>
             </div>
         </div>
     `;
+    // Désélectionne l'option 1 si l'option 2 est sélectionnée
+    document.getElementById('payement_Option2').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('payement_Option1').checked = false;
+        }
+    });
 
+    // Désélectionne l'option 3 si l'option 4 est sélectionnée
+    document.getElementById('km_illimited').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('km_Limited').checked = false;
+        }
+    });
+
+    // Désélectionne l'option 2 si l'option 1 est sélectionnée
+    document.getElementById('payement_Option1').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('payement_Option2').checked = false;
+        }
+    });
+
+    // Désélectionne l'option 4 si l'option 3 est sélectionnée
+    document.getElementById('km_Limited').addEventListener('change', function () {
+        if (this.checked) {
+            document.getElementById('km_illimited').checked = false;
+        }
+    });
     // Afficher le modal avec les détails du véhicule
     modal.show();
 }
-
 
 
 

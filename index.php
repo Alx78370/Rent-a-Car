@@ -1,6 +1,7 @@
 <?php
-// Est le routeur, permet d'appeler suivant le besoin d'afficher la page néccessaire 
-// Exemple d'inclusion dans index.php pour des configurations globales
+
+session_start();
+
 require_once "include.php";
 
 require_once './Controller/controllerVehicle.php';
@@ -32,7 +33,11 @@ $routes = [
         $controller = new ClientController();
         $controller->showClientDetails();
         
-    }
+    },
+    'insurance' => function () {
+        $controller = new insuranceController();
+        $controller->showInsurances();
+    },
 ];
 
 $page = $_GET['page'] ?? 'home';
