@@ -5,6 +5,7 @@ require_once "include.php";
 
 require_once './Controller/controllerVehicle.php';
 require_once './Controller/controllerHome.php';
+require_once './Controller/controllerReservation.php';
 
 // Définition des routes
 $routes = [
@@ -20,6 +21,11 @@ $routes = [
         } else {
             echo '404 Page Not Found';
         }
+    },
+    'reservationDetails' => function ()  {
+        $controller = new ReservationController();
+        $controller->showReservationDetails();
+        
     }
 ];
 
