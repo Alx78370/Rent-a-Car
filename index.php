@@ -6,6 +6,7 @@ require_once "include.php";
 require_once './Controller/controllerVehicle.php';
 require_once './Controller/controllerHome.php';
 require_once './Controller/controllerReservation.php';
+require_once './Controller/controllerClient.php';
 
 // Définition des routes
 $routes = [
@@ -25,6 +26,11 @@ $routes = [
     'reservationDetails' => function ()  {
         $controller = new ReservationController();
         $controller->showReservationDetails();
+        
+    },
+    'clientDetails' => function ()  {
+        $controller = new ClientController();
+        $controller->showClientDetails();
         
     }
 ];
