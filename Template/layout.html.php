@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,15 +11,16 @@
                 <h2 class="text-white ml-1"><strong>Sext</strong></h2>
             </div>
             <div class="col-md-10 d-flex justify-content-end align-items-center text-white">
-                <a id="reservationLink" class="nav-link me-3 mt-4 underline-animation" href="#">
-                    <i class="fa-solid fa-car me-2"></i><strong>Gérer mes réservations</strong>
-                </a>
-                <a class="nav-link me-3 mt-4 underline-animation" href="/Template/vehicleAvailable.html.php">
-                    <i class="fa-solid fa-globe"></i> <strong>FR</strong>
-                </a>
-                <a id="connexionLink" class="nav-link me-3 mt-4 underline-animation" href="#">
-                    <i class="fa-solid fa-user me-2"></i><strong>Connexion | Inscription</strong>
-                </a>
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <a class="nav-link underline-animation" href="index.php?page=logDetail">
+                        <i class="bi bi-person-fill"></i> <strong><?= htmlspecialchars($_SESSION['user']['username']); ?></strong>
+                    </a>
+                    <a class="nav-link underline-animation" href="index.php?page=logout"><i class="bi bi-box-arrow-right"></i> <strong>Déconnexion</strong></a>
+                <?php else : ?>
+                    <a id="connexionLink" class="nav-link underline-animation" href="#" data-toggle="modal" data-target="#connexionModal">
+                        <i class="bi bi-person-fill"></i> <strong>Connexion | Inscription</strong>
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -32,7 +32,7 @@
                     <h3 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">                    
+                <div class="modal-body">
                     <form>
                         <div class="mb-3">
                             <label for="email" class="form-label visually-hidden">Email</label>

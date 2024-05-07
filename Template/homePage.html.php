@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -7,14 +6,7 @@
 </head>
 
 <body>
-<?php 
-    if (session_status() === PHP_SESSION_NONE) {
-        // La session n'est pas active
-        session_start();
-        echo "La session a été démarrée.";
-    } else {
-        echo "Une session est déjà active.";
-    } ?>
+    <?php session_start(); ?>
     <div class="expDiv">879 ans d'expertise</div>
     <div class="divBigHomePage1">
 
@@ -22,16 +14,24 @@
             <div class="container divHomepage1">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container divHomepage2">
-                        <a href="homePage.html.php">
+                        <a href="index.php?page=home">
                             <img src="/image/car-logo.png" class="ms-2" alt="Logo" height="80" width="80">
                         </a>
                         <h2 class="text-white ml-1"><strong>Sext</strong></h2>
                     </div>
                     <div class="container divHomepage3">
-                        <a id="reservationLink" class="nav-link underline-animation" href="#"><i class="fa-solid fa-car"></i> <strong>Gérer mes réservations</strong></a>
-                        <a class="nav-link underline-animation" href="index.php?page=vehicleAvailable"><i class="fa-solid fa-globe"></i> <strong>FR</strong></a>
-                        <a id="connexionLink" class="nav-link underline-animation" href="#"><i class="bi bi-person-fill"></i> <strong>Connexion | Inscription</strong></a>
+                        <?php if (isset($_SESSION['user'])) : ?>
+                            <a class="nav-link underline-animation" href="index.php?page=logDetail">
+                                <i class="bi bi-person-fill"></i> <strong><?= htmlspecialchars($_SESSION['user']['username']); ?></strong>
+                            </a>
+                            <a class="nav-link underline-animation" href="index.php?page=logout"><i class="bi bi-box-arrow-right"></i> <strong>Déconnexion</strong></a>
+                        <?php else : ?>
+                            <a id="connexionLink" class="nav-link underline-animation" href="#" data-toggle="modal" data-target="#connexionModal">
+                                <i class="bi bi-person-fill"></i> <strong>Connexion | Inscription</strong>
+                            </a>
+                        <?php endif; ?>
                     </div>
+
                 </nav>
             </div>
         </header>
@@ -44,8 +44,8 @@
                         <h3 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">                        
-                        <form action="index.php?page=logDetail" method="POST">
+                    <div class="modal-body">
+                        <form action="index.php?page=login" method="POST">
                             <div class="mb-3">
                                 <label for="email" class="form-label visually-hidden">Email</label>
                                 <input type="email" class="form-control fs-5" id="email" name="email" placeholder="Email" required>
@@ -95,40 +95,40 @@
         </div>
 
         <div class="container homePageCardGen">
-    <div class="card p-5 homePageCard">
-        <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
-            <div class="mb-3">
-                <label class="form-label" for="agencyStart">Prise en charge</label>
-                <select class="form-select" aria-label="Default select example" name="agencyStart" required>
-                    <option value="" disabled selected hidden>Choisissez une agence</option>
-                    <?php foreach ($agencies as $agency) : ?>
-                        <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
-                    <?php endforeach; ?>
-                </select>
+            <div class="card p-5 homePageCard">
+                <form class="formHomePage" action="index.php?page=vehicleAvailable" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label" for="agencyStart">Prise en charge</label>
+                        <select class="form-select" aria-label="Default select example" name="agencyStart" required>
+                            <option value="" disabled selected hidden>Choisissez une agence</option>
+                            <?php foreach ($agencies as $agency) : ?>
+                                <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="agency">Retour</label>
+                        <select class="form-select" aria-label="Default select example" name="agencyReturn" required>
+                            <option value="" disabled selected hidden>Choisissez une agence</option>
+                            <?php foreach ($agencies as $agency) : ?>
+                                <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="start_Date">Date de départ</label>
+                        <input class="form-control" type="date" id="start_Date" name="start_Date" min="<?= $date ?>" max="2025-05-03" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="end_Date">Date de retour</label>
+                        <input class="form-control" type="date" id="end_Date" name="end_Date" required>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit">Voir les véhicules</button>
+                    </div>
+                </form>
             </div>
-            <div class="mb-3">
-                <label class="form-label" for="agency">Retour</label>
-                <select class="form-select" aria-label="Default select example" name="agencyReturn" required>
-                    <option value="" disabled selected hidden>Choisissez une agence</option>
-                    <?php foreach ($agencies as $agency) : ?>
-                        <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="start_Date">Date de départ</label>
-                <input class="form-control" type="date" id="start_Date" name="start_Date" min="<?= $date ?>" max="2025-05-03" required>
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="end_Date">Date de retour</label>
-                <input class="form-control" type="date" id="end_Date" name="end_Date" required>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-lg btn-outline-secondary homePageBtn" type="submit">Voir les véhicules</button>
-            </div>
-        </form>
-    </div>
-</div>
+        </div>
 
 
     </div>
