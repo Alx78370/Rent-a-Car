@@ -6,7 +6,8 @@ require_once './Controller/HomeController.php';
 require_once './Controller/ReservationController.php';
 require_once './Controller/LogController.php';
 
-// Définition des routes
+session_start();
+
 $routes = [
     'home' => function () {
         $controller = new homeController();
@@ -40,6 +41,10 @@ $routes = [
     'login' => function () {
         $controller = new LogController();
         $controller->login();
+    },
+    'logout' => function () {
+        $controller = new LogController();
+        $controller->logout();
     }
 ];
 

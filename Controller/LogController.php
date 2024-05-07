@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '../../Service/RegisterService.php';
 require_once __DIR__ . '../../Service/LoginService.php';
-
+session_start();
 class LogController {
     private $userRepository;
 
@@ -25,7 +25,11 @@ class LogController {
         $registerService = new RegisterService();
         $registerService->register();
     }
-    
+    public function logout() {
+        $loginService = new LoginService();
+        $loginService->logout();
+    }
+  
 }
 
 
