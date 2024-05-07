@@ -71,7 +71,7 @@ abstract class EntityRepository
 
     /**
      * @param string $columns exemple : ["first_name", "last_name"]
-     * @return string $values exemple : ["Christopher", "Farcoz"]
+     * @param string $values exemple : ["Christopher", "Farcoz"]
      */
 
     public function create(string $columns, string $values): void
@@ -84,7 +84,7 @@ abstract class EntityRepository
 
     /**
      * @param string $columns exemple : ["first_name", "last_name"]
-     * @return string $values exemple : ["Christopher", "Farcoz"]
+     * @param string $values exemple : ["Christopher", "Farcoz"]
      */
 
     public function update(string $columns, string $values): void

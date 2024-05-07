@@ -26,8 +26,8 @@ class SubscriptionController {
                 // Gérer l'affichage des erreurs ici
             } else {
                 // Insérer les données de l'utilisateur
-                $result = $this->userRepository->createUser([
-                    'username' => $username,
+                $result = $this->userRepository->create($username,
+                    'username' => 
                     'email' => $email,
                     'phone' => $phone,
                     'address' => $address,
