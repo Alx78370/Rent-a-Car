@@ -18,7 +18,7 @@ class clientController
             $client = $this->clientRepo->getClientDetails($_POST['email'], $_POST['password']);
             if ($client) {
                 require_once './Template/layout.html.php';
-                require_once __DIR__ . '/../Template/login.html.php';
+                require_once __DIR__ . '/../Template/log.html.php';
             } else {
                 echo "Aucun client trouvé";
             }

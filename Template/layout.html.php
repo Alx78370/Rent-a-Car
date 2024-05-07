@@ -32,10 +32,7 @@
                     <h3 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <button type="button" class="btn btn-outline-secondary d-block mx-auto mb-3">
-                        <i class="fab fa-google me-2"></i>Connexion avec Google
-                    </button>
+                <div class="modal-body">                    
                     <form>
                         <div class="mb-3">
                             <label for="email" class="form-label visually-hidden">Email</label>
@@ -47,7 +44,7 @@
                         </div>
                         <button type="submit" class="btn btn-outline-secondary d-block mx-auto mb-3">Connexion</button>
                         <div class="text-center">
-                            <a href="/Template/subscribe.html.php" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
+                            <a href="/Template/register.html.php" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
                         </div>
                     </form>
                 </div>

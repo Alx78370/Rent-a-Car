@@ -18,7 +18,7 @@ abstract class EntityRepository
     {
         // Liste blanche des noms de table valides
 
-        $allowedTables = ['vehicle', 'agency', 'client', 'reservation', 'availability'];
+        $allowedTables = ['vehicle', 'agency', 'client', 'reservation', 'user'];
         if (!in_array($table, $allowedTables)) {
             throw new InvalidArgumentException("Invalid table name: {$table}");
         }
