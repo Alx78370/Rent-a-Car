@@ -1,13 +1,11 @@
 <?php
 
-session_start();
-
 require_once "include.php";
 
-require_once './Controller/controllerVehicle.php';
-require_once './Controller/controllerHome.php';
-require_once './Controller/controllerReservation.php';
-require_once './Controller/controllerUser.php';
+require_once './Controller/VehicleController.php';
+require_once './Controller/HomeController.php';
+require_once './Controller/ReservationController.php';
+require_once './Controller/LogController.php';
 
 // Définition des routes
 $routes = [
@@ -30,7 +28,7 @@ $routes = [
         
     },
     'register' => function () {
-        $controller = new SubscriptionController();
+        $controller = new LogController();
         $controller->register();
         $controller->showRegisterPage();
     },
