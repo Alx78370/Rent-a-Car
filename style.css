@@ -283,14 +283,8 @@
 .homePageReservation button:hover {
     background-color: rgb(195, 108, 1); 
 }
-.modal-connexion .modal-dialog {
-    max-width: 50%; /* Ajustez la largeur selon vos préférences */
-}
 
-/* Styles spécifiques au modal de réservation */
-.modal-reservation .modal-dialog {
-    max-width: 50%; /* Ajustez la largeur selon vos préférences */
-}
+
 /* Modal zoom in */
 
 @keyframes zoomIn {
@@ -305,7 +299,7 @@
 }
 
 .modal-zoom-in {
-    animation: zoomIn 0.3s;
+    animation: zoomIn 0.5s;
 }
 
 /* Reservation detail */

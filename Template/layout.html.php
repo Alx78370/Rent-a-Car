@@ -29,25 +29,22 @@
         <div class="modal-dialog modal-dialog-centered modal-zoom-in">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h5>
+                    <h3 class="modal-title" id="connexionModalLabel">Créer un compte ou se connecter</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <button type="button" class="btn btn-outline-secondary d-block mx-auto mb-3">
-                        <i class="fab fa-google me-2"></i>Connexion avec Google
-                    </button>
+                <div class="modal-body">                    
                     <form>
                         <div class="mb-3">
                             <label for="email" class="form-label visually-hidden">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                            <input type="email" class="form-control fs-5" id="email" name="email" placeholder="Email" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label visually-hidden">Mot de passe</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" required>
+                            <input type="password" class="form-control fs-5" id="password" name="password" placeholder="Mot de passe" required>
                         </div>
                         <button type="submit" class="btn btn-outline-secondary d-block mx-auto mb-3">Connexion</button>
                         <div class="text-center">
-                            <a href="suscribe.html.php" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
+                            <a href="/Template/register.html.php" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
                         </div>
                     </form>
                 </div>
@@ -60,18 +57,18 @@
         <div class="modal-dialog modal-dialog-centered modal-zoom-in">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="reservationModalLabel">Gérer votre réservation</h5>
+                    <h3 class="modal-title" id="reservationModalLabel">Gérer votre réservation</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body d-flex flex-column align-items-center homePageReservation">
                     <p class="card-text fs-5">Modifiez votre réservation comme vous le souhaitez, rapidement et facilement.</p>
                     <form class="w-75">
                         <div class="mb-3">
-                            <label for="reservationNumber" class="form-label fs-5">Numéro de réservation</label>
+                            <label for="reservationNumber" class="form-label fs-5"><strong>Numéro de réservation</strong></label>
                             <input type="text" class="form-control fs-5" id="reservationNumber" placeholder="Entrez votre numéro de réservation">
                         </div>
                         <div class="mb-3">
-                            <label for="emailAddress" class="form-label fs-5">Adresse e-mail</label>
+                            <label for="emailAddress" class="form-label fs-5"><strong>Adresse e-mail</strong></label>
                             <input type="email" class="form-control fs-5" id="emailAddress" placeholder="Entrez votre adresse e-mail">
                         </div>
                         <div class="text-center">

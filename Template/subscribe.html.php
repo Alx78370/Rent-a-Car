@@ -1,2 +1,1 @@
-<?php 
-// Affiche la page d'inscription
+<h1>bienvenue</h1>
