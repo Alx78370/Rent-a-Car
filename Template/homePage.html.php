@@ -47,7 +47,7 @@
                             </div>
                             <button type="submit" class="btn btn-outline-secondary d-block mx-auto mb-3">Connexion</button>
                             <div class="text-center">
-                                <a href="index.php?page=subscribe" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
+                                <a href="index.php?page=register" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
                             </div>
                         </form>
                     </div>

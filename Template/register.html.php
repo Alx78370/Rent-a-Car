@@ -1,6 +1,4 @@
-<?php 
- 
-?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>   
@@ -13,7 +11,7 @@
         <div class="col-lg-4 col-md-6 col-sm-8 col-5 ">
             <h1 class="text-center h1-register">S'inscrire</h1><hr>
             <div class="list-group-item list-group-item-action d-flex align-items-center justify-content-center mb-2 mt-5">
-                <form action="index.php?page=subscribe" method="POST" class="w-100 ">
+                <form action="index.php?page=register" method="POST" class="w-100 ">
                     <div class="form-group row">
                     <div class="form-group row">
                         <label class="register">Nom d'utilisateur :</label>
@@ -33,6 +31,14 @@
                         <label class="register">Email :</label>
                         <input type="text" name="email" class="form-control" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
                         
+                    </div>
+                    <div class="form-group row">
+                        <label class="register">Téléphone :</label>
+                        <input type="text" name="phone" class="form-control" value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>">    
+                    </div>
+                    <div class="form-group row">
+                        <label class="register">Adresse :</label>
+                        <input type="text" name="address" class="form-control" value="<?php echo htmlspecialchars($_POST['address'] ?? ''); ?>">
                     </div>
                     <div class="form-group row">
                         <label class="register">Mot de passe :</label>
