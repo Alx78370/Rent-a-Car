@@ -17,6 +17,15 @@ class LogController {
         require_once './Template/layout.html.php';
         require_once __DIR__ . '../../Template/logDetail.html.php';
     }
+    public function login() {
+        $loginService = new LoginService();
+        $loginService->login();
+    }
+    public function register() {
+        $registerService = new RegisterService();
+        $registerService->register();
+    }
+    
 }
 
 
