@@ -45,14 +45,7 @@
                 Informations non disponibles ou réservation non trouvée.
             </div>
         </div>
-    <?php endif; ?>
-    <style>
-        .info-group {
-            border: 1px solid black;
-            padding: 10px;
-            margin-bottom: 15px;
-        }
-    </style>
+    <?php endif; ?>    
 </body>
 
 
