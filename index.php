@@ -7,7 +7,6 @@ require_once "include.php";
 require_once './Controller/controllerVehicle.php';
 require_once './Controller/controllerHome.php';
 require_once './Controller/controllerReservation.php';
-require_once './Controller/controllerClient.php';
 require_once './Controller/controllerUser.php';
 
 // Définition des routes
@@ -30,10 +29,12 @@ $routes = [
         $controller->showReservationDetails();
         
     },
-    'subscribe' => function () {
+    'register' => function () {
         $controller = new SubscriptionController();
         $controller->register();
+        $controller->showRegisterPage();
     },
+    
     'insurance' => function () {
         $controller = new insuranceController();
         $controller->showInsurances();
