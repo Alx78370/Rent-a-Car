@@ -13,12 +13,13 @@ class UserRepository extends EntityRepository {
     {
         return $this->create($data);
     }
-
-    public function findUserByEmail($email) {
-        $stmt = $this->pdo->prepare("SELECT * FROM user WHERE email = ?");
-        $stmt->execute([$email]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
-        return $stmt->fetch();
+    
+    public function findUserByEmail($email)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM `{$this->table}` WHERE email = :email");
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC); // ou PDO::FETCH_OBJ selon tes préférences
     }
 }
 

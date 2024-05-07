@@ -4,7 +4,7 @@ require_once __DIR__ . '../../Model/Repository/AgencyRepository.php';
 require_once __DIR__ . '../../Model/Repository/VehicleRepository.php';
 require_once __DIR__ . '../../Model/Repository/EntityRepository.php';
 
-class homeController
+class HomeController
 {
     private $agencyRepo;
     private $vehicleRepo;

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '../../Model/Repository/insuranceRepository.php';
 
-class insuranceController {
+class InsuranceController {
     private $insuranceRepo;
 
     public function __construct() {
