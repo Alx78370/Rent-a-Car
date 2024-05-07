@@ -1,7 +1,6 @@
 <?php
 
 require_once "include.php";
-
 require_once './Controller/VehicleController.php';
 require_once './Controller/HomeController.php';
 require_once './Controller/ReservationController.php';
@@ -18,10 +17,7 @@ $routes = [
         if (isset($_POST['start_Date']) && isset($_POST['end_Date'])) {
             $controller = new VehicleController();
             $controller->showVehicleAvailable();
-        } else {
-            echo '404 Page Not Found';
-        }
-    },
+        } },
     'reservationDetails' => function ()  {
         $controller = new ReservationController();
         $controller->showReservationDetails();
@@ -37,12 +33,18 @@ $routes = [
         $controller = new insuranceController();
         $controller->showInsurances();
     },
+    'logDetail' => function () {
+        $controller = new LogController();
+        $controller->showLogDetailPage();
+    },
+    'login' => function () {
+        $controller = new LogController();
+        $controller->login();
+    }
 ];
 
 $page = $_GET['page'] ?? 'home';
 
 if (array_key_exists($page, $routes)) {
     $routes[$page]();
-} else {
-    echo '404 Page Not Found';
 }

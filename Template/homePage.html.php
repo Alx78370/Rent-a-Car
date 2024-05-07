@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,6 +7,14 @@
 </head>
 
 <body>
+<?php 
+    if (session_status() === PHP_SESSION_NONE) {
+        // La session n'est pas active
+        session_start();
+        echo "La session a été démarrée.";
+    } else {
+        echo "Une session est déjà active.";
+    } ?>
     <div class="expDiv">879 ans d'expertise</div>
     <div class="divBigHomePage1">
 
