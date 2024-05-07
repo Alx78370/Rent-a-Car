@@ -36,7 +36,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">                        
-                        <form action="" method="POST">
+                        <form action="index.php?page=logDetail" method="POST">
                             <div class="mb-3">
                                 <label for="email" class="form-label visually-hidden">Email</label>
                                 <input type="email" class="form-control fs-5" id="email" name="email" placeholder="Email" required>
