@@ -6,11 +6,15 @@ class SubscriptionController {
 
     public function __construct() {
         $this->userRepository = new UserRepository();
+        
+    }
+    public function showRegisterPage() {
+        require_once './Template/layout.html.php';
+        require_once __DIR__ . '/../Template/register.html.php';
     }
 
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Collecter les données du formulaire
             $username = $_POST['username'];
             $firstName = $_POST['firstname'];
             $lastName = $_POST['lastname'];
@@ -20,14 +24,9 @@ class SubscriptionController {
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $passwordConfirm = $_POST['password_confirm'];
 
-            // Vérifier si les mots de passe correspondent
-            if ($_POST['password'] !== $passwordConfirm) {
-                $errors['password'] = "Les mots de passe ne correspondent pas.";
-                // Gérer l'affichage des erreurs ici
-            } else {
-                // Insérer les données de l'utilisateur
-                $result = $this->userRepository->create($username,
-                    'username' => 
+
+                $result = $this->userRepository->createUser([
+                    'username' => $username,
                     'email' => $email,
                     'phone' => $phone,
                     'address' => $address,
@@ -37,14 +36,15 @@ class SubscriptionController {
                 ]);
 
                 if ($result) {
-                    // Redirection vers la page d'accueil après inscription réussie
-                    header('Location: homePage.html.php');
+                    header('Location: index.php?page=home');
                     exit();
                 } else {
-                    
+                    // Gérer l'échec de l'insertion ici
+                    echo "Erreur lors de l'enregistrement.";
                 }
             }
         }
     }
-}
-?>
+
+
+

@@ -36,7 +36,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">                        
-                        <form action="" method="POST">
+                        <form action="index.php?page=logDetail" method="POST">
                             <div class="mb-3">
                                 <label for="email" class="form-label visually-hidden">Email</label>
                                 <input type="email" class="form-control fs-5" id="email" name="email" placeholder="Email" required>
@@ -47,7 +47,7 @@
                             </div>
                             <button type="submit" class="btn btn-outline-secondary d-block mx-auto mb-3">Connexion</button>
                             <div class="text-center">
-                                <a href="index.php?page=subscribe" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
+                                <a href="index.php?page=register" class="text-decoration-none d-block mb-2 custom-link fs-3">S'inscrire</a>
                             </div>
                         </form>
                     </div>

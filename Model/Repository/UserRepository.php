@@ -9,11 +9,11 @@ class UserRepository extends EntityRepository {
         parent::__construct($pdo, "user");
     }
 
-
-    
-      
-    
+    public function createUser(array $data): bool
+    {
+        return $this->create($data);
+    }
 }
 
-?>
+
 
