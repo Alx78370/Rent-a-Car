@@ -45,7 +45,11 @@ $routes = [
     'logout' => function () {
         $controller = new LogController();
         $controller->logout();
-    }
+    },
+    'cart' => function () {
+        $controller = new CartController();
+        $controller->showCart();
+    },
 ];
 
 $page = $_GET['page'] ?? 'home';

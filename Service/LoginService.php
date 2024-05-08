@@ -28,14 +28,9 @@ class LoginService {
                 ];
             
                 // Redirection vers la page de profil de l'utilisateur
-                header('Location: index.php?page=logDetail');
+                header('Location: index.php?page=home');
                 exit;
-            } else {
-                // Optionnel: Ajouter un message d'erreur à afficher
-                $_SESSION['error'] = "Identifiant ou mot de passe incorrect.";
-                header('Location: index.php?page=login');
-                exit;
-            }            
+            }          
         }
     }
     
