@@ -63,7 +63,8 @@ function loadVehicleDetails(vehicle) {
                 <div class="col-md-6 colDetails">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 
-                <form action="index.php?page=cart" method="post">
+                <form action="index.php?page=addToCart" method="post">
+
                 <h5>Options de paiement</h5>
                     <div class="form-check vehicleDetailOption">
                         <label form-check-label for="payement_Option1">Meilleur prix</label>
@@ -82,7 +83,12 @@ function loadVehicleDetails(vehicle) {
                         <label form-check-label for="km_illimited">Illimité</label>
                         <input class="form-check-input" type="radio"  id="km_illimited" name="km_illimited">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-suivant">Réserver</button>
+                    <input type="hidden" name="vehicle_id" value="${vehicle.id}">
+                    <input type="hidden" name="daily_rate" value="${vehicle.daily_Rate}">
+                    <input type="hidden" name="brand" value="${vehicle.brand}">
+                    <input type="hidden" name="model" value="${vehicle.model}">
+                    <input type="hidden" name="image" value="${vehicle.image}">
+                    <button type="submit" class="btn btn-primary btn-suivant">Ajouter au panier</button>
                 </form>
                 <p>${vehicle.daily_Rate}€ / jour</p>
                 </div>
