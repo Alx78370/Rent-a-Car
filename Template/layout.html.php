@@ -3,7 +3,7 @@
 
 <body>
     <header class="header">
-        <div class="row align-items-start">
+        <div class="row align-items-center">
             <div class="col-md-2 d-flex align-items-center">
                 <a href="index.php?page=home">
                     <img src="/image/car-logo.png" class="ms-2" alt="Logo" height="80" width="80">
@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-10 d-flex justify-content-end align-items-center text-white">
                 <?php if (isset($_SESSION['user'])) : ?>
-                    <a class="nav-link underline-animation" href="index.php?page=logDetail">
+                    <a class="nav-link underline-animation userName" href="index.php?page=logDetail">
                         <i class="bi bi-person-fill"></i> <strong><?= htmlspecialchars($_SESSION['user']['username']); ?></strong>
                     </a>
                     <a class="nav-link underline-animation" href="index.php?page=logout"><i class="bi bi-box-arrow-right"></i> <strong>Déconnexion</strong></a>
