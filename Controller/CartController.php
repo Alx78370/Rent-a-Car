@@ -24,4 +24,9 @@ class CartController {
         require_once './Template/layout.html.php';
         require_once __DIR__ . '/../Template/cart.html.php';
     }
+    public function removeFromCart($vehicleId) {
+        if (isset($_SESSION['cart'][$vehicleId])) {
+            unset($_SESSION['cart'][$vehicleId]); // Supprimer l'article du panier
+        }
+    }
 }
