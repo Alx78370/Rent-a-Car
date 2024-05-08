@@ -57,6 +57,11 @@ $routes = [
         $controller = new CartController($cartService);
         $controller->showCart();
     },
+    'removeFromCart' => function () use ($cartService) { // Ajoute cette route si elle n'existe pas déjà
+        $controller = new CartController($cartService);
+        $controller->removeFromCart($_GET['vehicleId']);
+        header("Location: index.php?page=cart"); // Rediriger vers la page du panier après la suppression
+    },
 ];
 
 $page = $_GET['page'] ?? 'home';

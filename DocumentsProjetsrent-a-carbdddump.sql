@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.3.0, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: rent_a_car
 -- ------------------------------------------------------
@@ -39,6 +39,33 @@ LOCK TABLES `agency` WRITE;
 /*!40000 ALTER TABLE `agency` DISABLE KEYS */;
 INSERT INTO `agency` VALUES (1,'Sext Paris','23 rue du Paradis 75010 Paris','0606060606'),(2,'Sext Marseille','45 avenue de l\'avenue 13010 Marseille','0607080910'),(3,'Sext Lille','56 rue de la soif 59000 Lille','0605040302');
 /*!40000 ALTER TABLE `agency` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `availability`
+--
+
+DROP TABLE IF EXISTS `availability`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `availability` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `vehicle_Id` int NOT NULL,
+  `availability_Date` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Vehicle_id` (`vehicle_Id`),
+  CONSTRAINT `availability_ibfk_1` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `availability`
+--
+
+LOCK TABLES `availability` WRITE;
+/*!40000 ALTER TABLE `availability` DISABLE KEYS */;
+INSERT INTO `availability` VALUES (1,1,'2024-05-02'),(2,1,'2024-05-03'),(3,2,'2024-05-04'),(4,3,'2024-05-05'),(5,3,'2024-05-06'),(6,3,'2024-05-07'),(7,4,'2024-05-08'),(8,5,'2024-05-09'),(9,6,'2024-05-10');
+/*!40000 ALTER TABLE `availability` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -107,23 +134,20 @@ DROP TABLE IF EXISTS `reservation`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reservation` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `client_Id` int NOT NULL,
   `vehicle_Id` int NOT NULL,
   `start_Date` date NOT NULL,
   `end_Date` date NOT NULL,
   `total_Price` decimal(10,2) NOT NULL,
   `reservation_Nb` varchar(45) NOT NULL,
   `insurance_id` int DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `reservation_Nb` (`reservation_Nb`),
-  KEY `client_Id` (`client_Id`),
   KEY `vehicle_Id` (`vehicle_Id`),
   KEY `fk_insurance` (`insurance_id`),
-  KEY `fk_user_id` (`user_id`),
+  KEY `fk_reservation_user` (`user_id`),
   CONSTRAINT `fk_insurance` FOREIGN KEY (`insurance_id`) REFERENCES `insurance` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`client_Id`) REFERENCES `client` (`id`),
+  CONSTRAINT `fk_reservation_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`vehicle_Id`) REFERENCES `vehicle` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -134,7 +158,7 @@ CREATE TABLE `reservation` (
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
-INSERT INTO `reservation` VALUES (1,1,5,'2024-05-09','2024-05-09',30.50,'',NULL,NULL);
+INSERT INTO `reservation` VALUES (1,5,'2024-05-09','2024-05-09',30.50,'1',NULL,1);
 /*!40000 ALTER TABLE `reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,7 +179,7 @@ CREATE TABLE `user` (
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,7 +188,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'krsbeats','kristow.production@gmail.com','0786060056','3 impasse le village','$2y$10$nmjh6H8sW0a0vK4zOTqlNu6C09DUkCiWRAuAe0k/73r1TGQ7fhr2.','Christopher','Farcoz'),(2,'MilkyWay','christopher.farcoz@gmail.com','0680503378','78 Av. du Président Roosevelt','$2y$10$UbiLMT42AiK3mOxC9PQcbuMSKPdVWDjeMwg40F5XtgJZWQyEEuvdG','Christopher','Farcoz'),(3,'val77720','valentin.valentin@valentin.com','0606060606','30 rue de la bite','$2y$10$kmHVqse1B2PQMZgMuYWGDeIQEKYMEu5Fbo6/PqcJ2NkzPBlVFC2DK','valentin','godefroy');
+INSERT INTO `user` VALUES (1,'masty','yehia.maxime@hotmail.fr','0625751383','67 rue de l\'impasse','$2y$10$/h8uIKxLxAkCKxWE3wajeO86hvMown9ES8AE7CwJi847DnZoOlmbq','max','yehia');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,4 +238,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-08 21:19:25
+-- Dump completed on 2024-05-08 19:55:49
