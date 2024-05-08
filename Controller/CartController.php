@@ -3,19 +3,25 @@
 require_once __DIR__ . '../../Service/CartService.php';
 
 class CartController {
-    private $vehicleRepo;
+    private $cartService;
 
-    public function __construct() {
-        $this->vehicleRepo = new VehicleRepository();
+    public function __construct($cartService) {
+        $this->cartService = $cartService;
     }
 
     public function addToCart() {
-        $this->vehicleRepo->addVehicleToCart();
-    }
+        $vehicleId = $_POST['vehicle_id'];
+        $dailyRate = $_POST['daily_rate'];
+        $brand = $_POST['brand'];
+        $model = $_POST['model'];
+        $image = $_POST['image'];
 
+        $this->cartService->addVehicleToCart($vehicleId, $dailyRate, $brand, $model, $image);
+        header("Location: index.php?page=cart"); // Rediriger vers la page du panier après l'ajout
+        exit; 
+    }
     public function showCart() {
-        $cart = $this->vehicleRepo->getAll();  // Récupérer toutes les agences
+        require_once './Template/layout.html.php';
         require_once __DIR__ . '/../Template/cart.html.php';
     }
-
 }
