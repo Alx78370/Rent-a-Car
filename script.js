@@ -63,7 +63,7 @@ function loadVehicleDetails(vehicle) {
                 <div class="col-md-6 colDetails">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 
-                <form action="index.php?page=reservation" method="post">
+                <form action="index.php?page=cart" method="post">
                 <h5>Options de paiement</h5>
                     <div class="form-check vehicleDetailOption">
                         <label form-check-label for="payement_Option1">Meilleur prix</label>

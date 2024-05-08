@@ -6,9 +6,8 @@ class LoginService {
         $this->userRepository = new UserRepository();
     }
 
-    public function login() {
-        session_start();
-        
+    public function login() { 
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -29,14 +28,9 @@ class LoginService {
                 ];
             
                 // Redirection vers la page de profil de l'utilisateur
-                header('Location: index.php?page=logDetail');
+                header('Location: index.php?page=home');
                 exit;
-            } else {
-                // Optionnel: Ajouter un message d'erreur à afficher
-                $_SESSION['error'] = "Identifiant ou mot de passe incorrect.";
-                header('Location: index.php?page=login');
-                exit;
-            }            
+            }          
         }
     }
     
