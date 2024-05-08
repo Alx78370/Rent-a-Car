@@ -141,6 +141,9 @@
 .underline-animation:hover::after {
     width: 100%;
 }
+.userName {
+    margin-right: 10px;
+}
 
 #vehicleCarousel {
     margin-top: -80px;   

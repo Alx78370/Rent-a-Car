@@ -6,7 +6,6 @@
 </head>
 
 <body>
-    <?php session_start(); ?>
     <div class="expDiv">879 ans d'expertise</div>
     <div class="divBigHomePage1">
 
