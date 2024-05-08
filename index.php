@@ -5,8 +5,12 @@ require_once './Controller/VehicleController.php';
 require_once './Controller/HomeController.php';
 require_once './Controller/ReservationController.php';
 require_once './Controller/LogController.php';
+require_once './Controller/CartController.php';
+
+$cartService = new CartService();
 
 session_start();
+
 
 $routes = [
     'home' => function () {
@@ -46,8 +50,12 @@ $routes = [
         $controller = new LogController();
         $controller->logout();
     },
-    'cart' => function () {
-        $controller = new CartController();
+    'addToCart' => function () use ($cartService) { // Utilise le $cartService créé ci-dessus
+        $controller = new CartController($cartService);
+        $controller->addToCart();
+    },
+    'cart' => function () use ($cartService) { // Ajoute cette route si elle n'existe pas déjà
+        $controller = new CartController($cartService);
         $controller->showCart();
     },
 ];
