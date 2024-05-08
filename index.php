@@ -18,12 +18,8 @@ $routes = [
         if (isset($_POST['start_Date']) && isset($_POST['end_Date'])) {
             $controller = new VehicleController();
             $controller->showVehicleAvailable();
-        } },
-    'reservationDetails' => function ()  {
-        $controller = new ReservationController();
-        $controller->showReservationDetails();
+        } },    
         
-    },
     'register' => function () {
         $controller = new LogController();
         $controller->register();
@@ -34,14 +30,17 @@ $routes = [
         $controller = new insuranceController();
         $controller->showInsurances();
     },
+
     'logDetail' => function () {
         $controller = new LogController();
         $controller->showLogDetailPage();
     },
+
     'login' => function () {
         $controller = new LogController();
         $controller->login();
     },
+    
     'logout' => function () {
         $controller = new LogController();
         $controller->logout();
