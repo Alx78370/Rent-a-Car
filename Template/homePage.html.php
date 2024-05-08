@@ -19,7 +19,9 @@
                         <h2 class="text-white ml-1"><strong>Sext</strong></h2>
                     </div>
                     <div class="container divHomepage3">
+                        
                         <?php if (isset($_SESSION['user'])) : ?>
+                            <a class="nav-link underline-animation" href="index.php?page=cart"><i class="bi bi-cart3"></i> <strong>Panier</strong></a>
                             <a class="nav-link underline-animation" href="index.php?page=logDetail">
                                 <i class="bi bi-person-fill"></i> <strong><?= htmlspecialchars($_SESSION['user']['username']); ?></strong>
                             </a>

@@ -142,7 +142,10 @@
     width: 100%;
 }
 .userName {
-    margin-right: 10px;
+    margin-right: 15px;
+}
+.cartHeader {
+    margin-right: 15px;
 }
 
 #vehicleCarousel {
