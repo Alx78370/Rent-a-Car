@@ -3,17 +3,19 @@
 require_once __DIR__ . '../../Service/CartService.php';
 
 class CartController {
-    private $agencyRepo;
+    private $vehicleRepo;
 
     public function __construct() {
-        $this->agencyRepo = new AgencyRepository();
+        $this->vehicleRepo = new VehicleRepository();
     }
 
-    // Affichage de la page des véhicules avec des véhicules chargés
+    public function addToCart() {
+        $this->vehicleRepo->addVehicleToCart();
+    }
 
-    public function showAgencies() {
-        $agencies = $this->agencyRepo->getAll();  // Récupérer toutes les agences
-        require_once __DIR__ . '/../Template/homePage.html.php';
+    public function showCart() {
+        $cart = $this->vehicleRepo->getAll();  // Récupérer toutes les agences
+        require_once __DIR__ . '/../Template/cart.html.php';
     }
 
 }

@@ -82,7 +82,10 @@ function loadVehicleDetails(vehicle) {
                         <label form-check-label for="km_illimited">Illimité</label>
                         <input class="form-check-input" type="radio"  id="km_illimited" name="km_illimited">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-suivant">Réserver</button>
+                    <div class="form-check">
+                    <input type="hidden" name="vehicle_id" value="${vehicle.id}">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-suivant">Ajouter au panier</button>
                 </form>
                 <p>${vehicle.daily_Rate}€ / jour</p>
                 </div>

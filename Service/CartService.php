@@ -13,20 +13,25 @@ class CartService {
     }
     
     public function addVehicleToCart() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $vehicleId = $_POST['vehicleId'];
-            $vehicle = $this->vehicleRepository->findVehicleById($vehicleId);
-            $cart = $this->cartRepository->getCart();
-            $cart->addVehicle($vehicle);
-            $this->cartRepository->saveCart($cart);
-            header('Location: index.php?page=cart');
+        $vehicleId = $_POST['vehicle_id'];
+        if (!isset($_SESSION['user'])) {
+            header('Location: index.php?page=home');
             exit;
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($vehicleId)) {
+            if (!isset($_SESSION['cart'])) {
+                $_SESSION['cart'] = [];
+            }
+            if (!in_array($vehicleId, $_SESSION['cart'])) {
+                $_SESSION['cart'][] = $vehicleId;
+            }
+            header('Location: index.php?page=vehicleAvailable');
         }
     }
     
     public function removeVehicleFromCart() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $vehicleId = $_POST['vehicleId'];
+            $vehicleId = $_POST['vehicle_id'];
             $vehicle = $this->vehicleRepository->findVehicleById($vehicleId);
             $cart = $this->cartRepository->getCart();
             $cart->removeVehicle($vehicle);
