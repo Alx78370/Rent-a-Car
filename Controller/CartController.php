@@ -17,7 +17,7 @@ class CartController {
         $image = $_POST['image'];
 
         $this->cartService->addVehicleToCart($vehicleId, $dailyRate, $brand, $model, $image);
-        header("Location: index.php?page=cart"); // Rediriger vers la page du panier après l'ajout
+        header("Location: index.php?page=cart");
         exit; 
     }
     public function showCart() {
@@ -26,7 +26,7 @@ class CartController {
     }
     public function removeFromCart($vehicleId) {
         if (isset($_SESSION['cart'][$vehicleId])) {
-            unset($_SESSION['cart'][$vehicleId]); // Supprimer l'article du panier
+            unset($_SESSION['cart'][$vehicleId]);
         }
     }
 }

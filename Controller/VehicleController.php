@@ -11,11 +11,9 @@ class VehicleController
         $this->vehicleRepo = new VehicleRepository();
     }
 
-    // Affichage de la page des véhicules avec des véhicules chargés
-
     public function showVehicleAvailable()
     {
-        $vehiclesAvailable = $this->vehicleRepo->getVehicleAvailable();  // Récupérer tous les véhicules disponib
+        $vehiclesAvailable = $this->vehicleRepo->getVehicleAvailable();
         require_once './Template/layout.html.php';
         require_once __DIR__ . '/../Template/vehicleAvailable.html.php';
     }
