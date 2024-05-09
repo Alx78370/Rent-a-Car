@@ -15,12 +15,19 @@ class CartController {
         $brand = $_POST['brand'];
         $model = $_POST['model'];
         $image = $_POST['image'];
-
-        $this->cartService->addVehicleToCart($vehicleId, $dailyRate, $brand, $model, $image);
-        header("Location: index.php?page=cart");
-        exit; 
+        $startDate = $_SESSION['date_info']['start_date']; // $_POST['start_Date'
+        $endDate = $_SESSION['date_info']['end_date'];
+        var_dump($_SESSION);
+     
+        echo $_POST['start_Date'];
+        echo "tpot";
+        $this->cartService->addVehicleToCart($vehicleId, $dailyRate, $brand, $model, $image, $startDate, $endDate);
+        // header("Location: index.php?page=cart");
+        exit;
     }
+    
     public function showCart() {
+ 
         require_once './Template/layout.html.php';
         require_once __DIR__ . '/../Template/cart.html.php';
     }

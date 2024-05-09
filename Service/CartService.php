@@ -1,6 +1,6 @@
 <?php
 class CartService {
-    public function addVehicleToCart($vehicleId, $dailyRate, $brand, $model, $image) {
+    public function addVehicleToCart($vehicleId, $dailyRate, $brand, $model, $image, $startDate, $endDate) {
         if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = [];
         }
@@ -9,9 +9,12 @@ class CartService {
             'dailyRate' => $dailyRate,
             'brand' => $brand,
             'model' => $model,
-            'image' => $image
+            'image' => $image,
+            'startDate' => $startDate,
+            'endDate' => $endDate
         ];
     }
+    
 
     public function getReservationDate() {
         $startDate = $_POST['start_Date'];
