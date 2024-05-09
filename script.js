@@ -88,6 +88,8 @@ function loadVehicleDetails(vehicle) {
                     <input type="hidden" name="brand" value="${vehicle.brand}">
                     <input type="hidden" name="model" value="${vehicle.model}">
                     <input type="hidden" name="image" value="${vehicle.image}">
+                    <input type="hidden" name="start_date" value="${vehicle.type}">
+                    
                     <button type="submit" class="btn btn-primary btn-suivant">Ajouter au panier</button>
                 </form>
                 <p>${vehicle.daily_Rate}€ / jour</p>

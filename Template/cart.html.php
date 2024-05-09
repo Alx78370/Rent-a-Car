@@ -11,6 +11,8 @@
                 <th>Image</th>
                 <th>Produit</th>
                 <th>Prix</th>
+                <th>Date de départ</th>
+                <th>Date de retour</th>
                 <th>Total</th>
                 <th>Actions</th>
             </tr>
@@ -24,6 +26,7 @@
                         <a href="index.php?page=removeFromCart&vehicleId=<?= $item['vehicleId'] ?>">Supprimer</a>
                         <!-- Ajouter un lien pour modifier la quantité si nécessaire -->
                     </td>
+                    <td><button>Réserver</button></td>
                 </tr>
             <?php endforeach; ?>
         </table>
