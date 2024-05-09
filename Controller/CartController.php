@@ -29,4 +29,9 @@ class CartController {
             unset($_SESSION['cart'][$vehicleId]);
         }
     }
+    public function showReservationDate() {
+        $reservationDate = $this->cartService->getReservationDate();
+        require_once __DIR__ . '/../Template/cart.html.php';
+        return $reservationDate;
+    }
 }

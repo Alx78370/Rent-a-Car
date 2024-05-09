@@ -12,4 +12,13 @@ class CartService {
             'image' => $image
         ];
     }
+
+    public function getReservationDate() {
+        $startDate = $_POST['start_Date'];
+        $endDate = $_POST['end_Date'];
+        return [
+            'startDate' => $startDate,
+            'endDate' => $endDate
+        ];
+    }
 }
