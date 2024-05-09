@@ -18,10 +18,13 @@
                     <th scope="col">Prix par jours</th>
                     <th scope="col">Date de départ</th>
                     <th scope="col">Date de retour</th>
+                    <th scope ="col">Agence de départ</th>
+                    <th scope ="col">Agence de retour</th>
                     <th scope="col">Prix Total</th>
                     <th scope="col">Actions</th>
                 </tr>
                 <?php foreach ($_SESSION['cart'] as $item) : ?>
+                    
                     <tr>
                         <td><img src="<?= htmlspecialchars($item['image']) ?>" alt="Image de <?= htmlspecialchars($item['brand']) . ' ' . htmlspecialchars($item['model']) ?>" style="width:100px;"></td>
                         <td><?= htmlspecialchars($item['brand']) . ' ' . htmlspecialchars($item['model']) ?></td>
@@ -36,7 +39,8 @@
                         $days = $interval->days + 1;
                         $totalPrice = $item['dailyRate'] * $days;
                         ?>
-
+                        <td><?= htmlspecialchars($item['startAgency']) ?></td>
+                        <td><?= htmlspecialchars($item['endAgency']) ?></td>
                         <td><?= htmlspecialchars($totalPrice) ?>€</td>
                         <td>
                             <a href="index.php?page=removeFromCart&vehicleId=<?= $item['vehicleId'] ?>">Supprimer</a>

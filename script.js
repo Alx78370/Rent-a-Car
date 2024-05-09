@@ -39,10 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* script du modal véhicule */
-function loadVehicleDetails(vehicle ,  dateinfostart, dateinfoend) {
+function loadVehicleDetails(vehicle ,  dateinfostart, dateinfoend, agencyinfostart, agencyinfoend) {
+    console.log(agencyinfostart);
+    console.log(agencyinfoend);
     console.log(dateinfoend);
     console.log(dateinfostart);
-    console.log("Vehicle details loaded:", vehicle); // Confirmer que les données sont correctes
+    console.log("Vehicle details loaded:", vehicle);
 
     const modalBody = document.querySelector('#vehicleModal .modal-body');
     const modal = new bootstrap.Modal(document.getElementById('vehicleModal'));
@@ -94,6 +96,8 @@ function loadVehicleDetails(vehicle ,  dateinfostart, dateinfoend) {
                     
                     <input type="hidden" name="start_date" value="${dateinfostart}">
                     <input type="hidden" name="end_date" value="${dateinfoend}">
+                    <input type="hidden" name="start_agency" value="${agencyinfostart}">
+                    <input type="hidden" name="end_agency" value="${agencyinfoend}">
 
                     
                     

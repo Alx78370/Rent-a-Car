@@ -72,7 +72,7 @@
             <?php foreach ($vehiclesAvailable as $vehicleAvailable) : ?>
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <a href="#" onclick="loadVehicleDetails(<?= htmlspecialchars(json_encode($vehicleAvailable), ENT_QUOTES, 'UTF-8'  ) ?>, '<?=$dateInfoStart?>', '<?=$dateInfoEnd?>')">
+                        <a href="#" onclick="loadVehicleDetails(<?= htmlspecialchars(json_encode($vehicleAvailable), ENT_QUOTES, 'UTF-8'  ) ?>, '<?=$dateInfoStart?>', '<?=$dateInfoEnd?>', '<?=$agencyInfoStart?>', '<?=$agencyInfoEnd?>')">
                             <h5><?= htmlspecialchars($vehicleAvailable->brand) . ' ' . htmlspecialchars($vehicleAvailable->model) ?></h5>
                             <?php if ($vehicleAvailable->energy_type == 'Electrique') { ?>
                                 <p class="vehicleType"><?= htmlspecialchars($vehicleAvailable->type) ?></p>
