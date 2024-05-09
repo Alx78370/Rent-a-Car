@@ -15,5 +15,6 @@ class AgencyController {
         $agencies = $this->agencyRepo->getAll();  // Récupérer toutes les agences
         require_once __DIR__ . '/../Template/homePage.html.php';
     }
+    
 
 }

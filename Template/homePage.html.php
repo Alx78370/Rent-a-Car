@@ -108,8 +108,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="agency">Retour</label>
-                        <select class="form-select" aria-label="Default select example" name="agencyReturn" required>
+                        <label class="form-label" for="agencyEnd">Retour</label>
+                        <select class="form-select" aria-label="Default select example" name="agencyEnd" required>
                             <option value="" disabled selected hidden>Choisissez une agence</option>
                             <?php foreach ($agencies as $agency) : ?>
                                 <option value="<?= htmlspecialchars($agency->id) ?>"><?= htmlspecialchars($agency->name) ?></option>

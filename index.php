@@ -49,20 +49,21 @@ $routes = [
         $controller = new LogController();
         $controller->logout();
     },
-    'addToCart' => function () use ($cartService) { // Utilise le $cartService créé ci-dessus
+    'addToCart' => function () use ($cartService) { 
         $controller = new CartController($cartService);   
         $controller->addToCart();
         header("Location: index.php?page=cart");
     },
-    'cart' => function () use ($cartService) { // Ajoute cette route si elle n'existe pas déjà
+    'cart' => function () use ($cartService) { 
         $controller = new CartController($cartService);
         $controller->showCart();
         $controller->showReservationDate();
+        $controller->showReservationAgency();
     },
-    'removeFromCart' => function () use ($cartService) { // Ajoute cette route si elle n'existe pas déjà
+    'removeFromCart' => function () use ($cartService) { 
         $controller = new CartController($cartService);
         $controller->removeFromCart($_GET['vehicleId']);
-        header("Location: index.php?page=cart"); // Rediriger vers la page du panier après la suppression
+        header("Location: index.php?page=cart"); 
     },
 ];
 
