@@ -4,7 +4,10 @@
     <title>Mon Panier</title>
 </head>
 <body>
-    <h1>Votre Panier</h1>
+
+     <h1>Votre Panier</h1>
+     <?php
+     ?>
     <?php if (!empty($_SESSION['cart'])): ?>
         <table>
             <tr>
@@ -21,8 +24,8 @@
                     <td><img src="<?= htmlspecialchars($item['image']) ?>" alt="Image de <?= htmlspecialchars($item['brand']) . ' ' . htmlspecialchars($item['model']) ?>" style="width:100px;"></td>
                     <td><?= htmlspecialchars($item['brand']) . ' ' . htmlspecialchars($item['model']) ?></td>
                     <td><?= htmlspecialchars($item['dailyRate']) ?>€</td>
-                    <td><?= htmlspecialchars($reservationDate['startDate']) ?></td>
-                    <td><?= htmlspecialchars($reservationDate['endDate']) ?></td>
+                    <td><?= htmlspecialchars($item['startDate']) ?></td>
+                    <td><?= htmlspecialchars($item['endDate']) ?></td>
                     <td><?= htmlspecialchars($item['dailyRate']) ?>€</td> <!-- Total basé sur une quantité de 1 -->
                     <td>
                         <a href="index.php?page=removeFromCart&vehicleId=<?= $item['vehicleId'] ?>">Supprimer</a>

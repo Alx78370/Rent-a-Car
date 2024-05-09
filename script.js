@@ -39,7 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* script du modal véhicule */
-function loadVehicleDetails(vehicle) {
+function loadVehicleDetails(vehicle ,  dateinfostart, dateinfoend) {
+    console.log(dateinfoend);
+    console.log(dateinfostart);
     console.log("Vehicle details loaded:", vehicle); // Confirmer que les données sont correctes
 
     const modalBody = document.querySelector('#vehicleModal .modal-body');
@@ -88,7 +90,12 @@ function loadVehicleDetails(vehicle) {
                     <input type="hidden" name="brand" value="${vehicle.brand}">
                     <input type="hidden" name="model" value="${vehicle.model}">
                     <input type="hidden" name="image" value="${vehicle.image}">
-                    <input type="hidden" name="start_date" value="${vehicle.type}">
+
+                    
+                    <input type="hidden" name="start_date" value="${dateinfostart}">
+                    <input type="hidden" name="end_date" value="${dateinfoend}">
+
+                    
                     
                     <button type="submit" class="btn btn-primary btn-suivant">Ajouter au panier</button>
                 </form>

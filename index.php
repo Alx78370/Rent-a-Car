@@ -51,6 +51,8 @@ $routes = [
     },
     'addToCart' => function () use ($cartService) { // Utilise le $cartService créé ci-dessus
         $controller = new CartController($cartService);
+        var_dump($_POST); 
+        echo $_POST['start_Date'];   
         $controller->addToCart();
     },
     'cart' => function () use ($cartService) { // Ajoute cette route si elle n'existe pas déjà
