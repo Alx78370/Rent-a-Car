@@ -23,7 +23,7 @@ class VehicleRepository extends EntityRepository
                 (end_Date BETWEEN :start_Date AND :end_Date) OR
                 (:start_Date BETWEEN start_Date AND end_Date) OR
                 (:end_Date BETWEEN start_Date AND end_Date)
-            ) AND client_Id IS NOT NULL
+            ) AND user_Id IS NOT NULL
         );
         ");
         $statement->bindParam(":agencyStart", $_POST['agencyStart'], PDO::PARAM_INT);

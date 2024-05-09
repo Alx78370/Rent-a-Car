@@ -32,6 +32,16 @@ class ReservationRepository extends EntityRepository {
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function addReservation($data) {
+        // Assurez-vous que tous les champs nécessaires sont présents
+        if (isset($data['user_Id'], $data['vehicle_Id'], $data['start_Date'], $data['end_Date'], $data['reservation_Nb'])) {
+            // Utilisation de la méthode create héritée pour insérer les données
+            return $this->create($data);
+        } else {
+            throw new InvalidArgumentException("Missing fields for reservation creation.");
+        }
+    }
     
     
 }

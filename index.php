@@ -65,6 +65,11 @@ $routes = [
         $controller->removeFromCart($_GET['vehicleId']);
         header("Location: index.php?page=cart"); 
     },
+    'confirmReservation' => function () use ($cartService) {
+        $controller = new CartController($cartService);
+        $controller->confirmReservation();
+        
+    },
 ];
 
 $page = $_GET['page'] ?? 'home';
