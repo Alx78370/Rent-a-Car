@@ -4,9 +4,11 @@ require_once __DIR__ . '../../Service/CartService.php';
 
 class CartController {
     private $cartService;
+    private $reservationRepo;
 
     public function __construct($cartService) {
         $this->cartService = $cartService;
+        $this->reservationRepo = new ReservationRepository();  // L'objet PDO est géré à l'intérieur du Repository
     }
 
     public function addToCart() {
@@ -27,10 +29,7 @@ class CartController {
         exit;
     }
     
-    public function showCart() { 
-        require_once './Template/layout.html.php';
-        require_once __DIR__ . '/../Template/cart.html.php';
-    }
+
 
     public function removeFromCart($vehicleId) {
         if (isset($_SESSION['cart'][$vehicleId])) {
@@ -47,5 +46,37 @@ class CartController {
         $reservationDate = $this->cartService->getReservationDate();
         require_once __DIR__ . '/../Template/cart.html.php';
         return $reservationDate;
+    }
+
+    public function confirmReservation() {
+        if (!empty($_SESSION['cart'])) {
+            $reservationNb = uniqid('RES-');
+            //var_dump($_SESSION);
+            foreach ($_SESSION['cart'] as $item) {
+                $data = [
+                    'user_Id' => $_SESSION['user']['id'],
+                    'vehicle_Id' => $item['vehicleId'],
+                    'start_Date' => $item['startDate'],
+                    'end_Date' => $item['endDate'],
+                    'total_Price' => $item['totalPrice'],
+                    'reservation_Nb' => $reservationNb
+                ];
+                //var_dump($data);
+                $this->reservationRepo->addReservation($data);
+                var_dump($data);
+                header("Location: index.php?page=cart");
+            }
+            
+            $_SESSION['cart'] = []; // Nettoyer le panier
+            $_SESSION['reservationSuccess'] = "Votre commande a bien été effectuée.";
+        } else {
+            $_SESSION['reservationError'] = "Votre panier est vide.";
+        }
+        $this->showCart();
+    }
+
+    public function showCart() { 
+        require_once './Template/layout.html.php';
+        require_once __DIR__ . '/../Template/cart.html.php';
     }
 }

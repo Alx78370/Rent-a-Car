@@ -11,7 +11,7 @@
         <br>
         <h1 class="d-flex justify-content-center">Votre Panier</h1><br><br>
         <?php if (!empty($_SESSION['cart'])) : ?>
-            <form action="reserve.php" method="post">
+            <form action="index.php?page=confirmReservation" method="post">
                 <table class="table table-bordered">
                     <tr>
                         <th scope="col">Voiture</th>

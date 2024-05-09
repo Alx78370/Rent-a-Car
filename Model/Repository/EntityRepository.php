@@ -74,20 +74,25 @@ abstract class EntityRepository
      * @param string $values exemple : ["Christopher", "Farcoz"]
      */
 
-     public function create(array $data): bool
-     {
-         $columns = implode(', ', array_keys($data));
-         $placeholders = ':' . implode(', :', array_keys($data));
-         $sql = "INSERT INTO `{$this->table}` ($columns) VALUES ($placeholders)";
-         $stmt = $this->pdo->prepare($sql);
-         
-
-         foreach ($data as $key => $value) {
-             $stmt->bindValue(':' . $key, $value);
-         }
-         
-         return $stmt->execute();
-     }
+     public function create(array $data): bool {
+        $columns = implode(', ', array_keys($data));
+        $placeholders = ':' . implode(', :', array_keys($data));
+        $sql = "INSERT INTO `{$this->table}` ($columns) VALUES ($placeholders)";
+        echo "SQL Query: " . $sql;  // Afficher la requête SQL
+        $stmt = $this->pdo->prepare($sql);
+    
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(':' . $key, $value);
+            echo "Binding $key to $value<br>";  // Afficher les bindings
+        }
+    
+        $success = $stmt->execute();
+        if (!$success) {
+            var_dump($stmt->errorInfo());  // Afficher les erreurs de la requête
+        }
+        return $success;
+    }
+    
      
 
     /**
