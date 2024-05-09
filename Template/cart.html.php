@@ -21,6 +21,8 @@
                     <td><img src="<?= htmlspecialchars($item['image']) ?>" alt="Image de <?= htmlspecialchars($item['brand']) . ' ' . htmlspecialchars($item['model']) ?>" style="width:100px;"></td>
                     <td><?= htmlspecialchars($item['brand']) . ' ' . htmlspecialchars($item['model']) ?></td>
                     <td><?= htmlspecialchars($item['dailyRate']) ?>€</td>
+                    <td><?= htmlspecialchars($reservationDate['startDate']) ?></td>
+                    <td><?= htmlspecialchars($reservationDate['endDate']) ?></td>
                     <td><?= htmlspecialchars($item['dailyRate']) ?>€</td> <!-- Total basé sur une quantité de 1 -->
                     <td>
                         <a href="index.php?page=removeFromCart&vehicleId=<?= $item['vehicleId'] ?>">Supprimer</a>
