@@ -50,10 +50,9 @@ $routes = [
         $controller->logout();
     },
     'addToCart' => function () use ($cartService) { // Utilise le $cartService créé ci-dessus
-        $controller = new CartController($cartService);
-        var_dump($_POST); 
-        echo $_POST['start_Date'];   
+        $controller = new CartController($cartService);   
         $controller->addToCart();
+        header("Location: index.php?page=cart");
     },
     'cart' => function () use ($cartService) { // Ajoute cette route si elle n'existe pas déjà
         $controller = new CartController($cartService);
