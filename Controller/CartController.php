@@ -18,7 +18,7 @@ class CartController {
         $startDate = $_SESSION['date_info']['start_date']; // $_POST['start_Date'
         $endDate = $_SESSION['date_info']['end_date'];
         $this->cartService->addVehicleToCart($vehicleId, $dailyRate, $brand, $model, $image, $startDate, $endDate);
-        header("Location: index.php?page=cart");
+        // header("Location: index.php?page=cart");
         exit;
     }
     

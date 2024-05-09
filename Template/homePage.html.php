@@ -135,7 +135,7 @@
     </div>
 
     <div class="homePageH1H2">
-        <h1 class="homePageH1">Louez une voiture <br> en toute simplicité</h1>
+        <h1 class="homePageH1">Louez une voiture <br> en toute complexité</h1>
         <h2 class="homePageH2">Trouvez la voiture idéale pour votre prochain voyage</h2>
 
     </div>
@@ -146,11 +146,11 @@
         </div>
         <div class="card divHomePageCard4">
             <h3>Qualité garantie</h3>
-            <p><strong>Voitures neuves - en moyenne 3 mois d'ancienneté</strong></p>
+            <p><strong>Voitures neuves - en moyenne 30 ans d'ancienneté</strong></p>
         </div>
         <div class="card divHomePageCard4">
             <h3>Service client</h3>
-            <p><strong>Service client 24h/24 et 7j/7 <br> pour votre satisfaction</strong></p>
+            <p><strong>Service client 1h/24 et 1j/7 <br> pour votre satisfaction</strong></p>
         </div>
     </div>
 
