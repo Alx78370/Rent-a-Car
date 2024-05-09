@@ -8,7 +8,6 @@ class HomeController
 {
     private $agencyRepo;
     private $vehicleRepo;
-    private $entityRepo;
 
     public function __construct()
     {
