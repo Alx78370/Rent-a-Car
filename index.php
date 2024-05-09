@@ -56,6 +56,7 @@ $routes = [
     'cart' => function () use ($cartService) { // Ajoute cette route si elle n'existe pas déjà
         $controller = new CartController($cartService);
         $controller->showCart();
+        $controller->showReservationDate();
     },
     'removeFromCart' => function () use ($cartService) { // Ajoute cette route si elle n'existe pas déjà
         $controller = new CartController($cartService);
